@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./booklet-api
+        working-directory: ./booklet-client
 
     strategy:
       matrix:
