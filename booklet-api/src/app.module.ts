@@ -7,7 +7,7 @@ import { UsersModule } from './users/users.module';
 
 const uri =
   process.env.MONGO_URI ||
-  'mongodb://root:root@localhost:27017/tennisPlayersDB';
+  'mongodb://root:root@localhost:27017/bookletDB';
 
 @Module({
   imports: [AuthModule, UsersModule, MongooseModule.forRoot(uri)],
