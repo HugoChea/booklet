@@ -1,4 +1,4 @@
-db = new Mongo().getDB("tennisPlayersDB");
+db = new Mongo().getDB("bookletDB");
 db.createUser(
     {
         user: "root",
