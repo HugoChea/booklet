@@ -1,1 +1,7 @@
-export class CreateBookDto {}
+export class CreateBookDto {
+
+  userId: string;
+
+  name: string;
+  
+}

@@ -25,4 +25,4 @@ export class CategoryItem {
 
 }
 
-export const UserSchema = SchemaFactory.createForClass(CategoryItem);
+export const CategoryItemSchema = SchemaFactory.createForClass(CategoryItem);

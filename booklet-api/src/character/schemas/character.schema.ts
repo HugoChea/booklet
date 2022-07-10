@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
+import { Book } from 'src/book/schemas/book.schema';
 import { Tag } from 'src/tag/schemas/tag.schema';
 
 export type CharacterDocument = Character & Document;
@@ -11,7 +12,10 @@ export class Character {
 
   _id: string
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' })
+  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }])
+  book: Book;
+
+  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
   tags: Tag;
 
   @Prop()
@@ -326,4 +330,4 @@ export class Character {
 
 }
 
-export const UserSchema = SchemaFactory.createForClass(Character);
+export const CharacterSchema = SchemaFactory.createForClass(Character);

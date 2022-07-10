@@ -16,4 +16,4 @@ export class Tag {
 
 }
 
-export const UserSchema = SchemaFactory.createForClass(Tag);
+export const TagSchema = SchemaFactory.createForClass(Tag);

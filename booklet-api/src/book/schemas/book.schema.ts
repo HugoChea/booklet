@@ -7,10 +7,13 @@ export type BookDocument = Book & Document;
 export class Book {
 
   _id: string
+
+  @Prop()
+  userId: string;
   
   @Prop()
   name: string;
 
 }
 
-export const UserSchema = SchemaFactory.createForClass(Book);
+export const BookSchema = SchemaFactory.createForClass(Book);

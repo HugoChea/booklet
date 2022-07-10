@@ -7,7 +7,6 @@ import { UsersModule } from './users/users.module';
 import { BookModule } from './book/book.module';
 import { TagModule } from './tag/tag.module';
 import { CharacterModule } from './character/character.module';
-import { BookModule } from './book/book.module';
 
 const uri =
   process.env.MONGO_URI ||
