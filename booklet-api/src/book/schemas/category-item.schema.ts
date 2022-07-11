@@ -1,9 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { Tag } from 'src/tag/schemas/tag.schema';
+import { CharacteristicValue } from '../entities/characterictic-value.entity';
 
 export type CategoryItemDocument = CategoryItem & Document;
 
-@Schema()
+@Schema({
+  timestamps: true,
+})
 export class CategoryItem {
 
   _id: string
@@ -11,17 +15,18 @@ export class CategoryItem {
   @Prop()
   name: string; // ex: Theme, Event, Personnage
 
-  @Prop()
-  tags: string; // tags
+  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
+  tags: Tag;
 
-  // name: string,
-  // balise: string,
   // image: string,
-  // metadata: Metadata[],
+
+  @Prop()
+  characteristicValue: CharacteristicValue[];
   // relations: Relationship,
   // remarque: string,
   // texte: string,
-  // updatedAt: Date
+  @Prop()
+  text: string;
 
 }
 

@@ -12,7 +12,7 @@ export class Character {
 
   _id: string
 
-  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }])
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Book' })
   book: Book;
 
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
@@ -20,6 +20,9 @@ export class Character {
 
   @Prop()
   name: string;
+
+  @Prop()
+  image: string;
 
   @Prop()
   firstname: string;

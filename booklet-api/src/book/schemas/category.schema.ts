@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
-import { Tag } from 'src/tag/schemas/tag.schema';
+import { Book } from './book.schema';
 import { CategoryItem } from './category-item.schema';
 
 export type CategoryDocument = Category & Document;
@@ -10,17 +10,14 @@ export class Category {
 
   _id: string
 
-  @Prop()
-  bookId: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Book' })
+  book: Book;
   
   @Prop()
   name: string; // ex: Theme, Event, Personnage
 
-  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
-  tags: Tag[];
-
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'CategoryItem' }])
-  categoryItems: CategoryItem[];
+  categoryItems: CategoryItem;
 
 }
 
