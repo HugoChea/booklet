@@ -5,10 +5,15 @@ import { CharacterService } from './character.service';
 describe('CharacterController', () => {
   let controller: CharacterController;
 
+  const characterServiceMock = {}
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CharacterController],
-      providers: [CharacterService],
+      providers: [
+        CharacterService,
+        {provide: CharacterService, useValue: characterServiceMock},
+      ],
     }).compile();
 
     controller = module.get<CharacterController>(CharacterController);
