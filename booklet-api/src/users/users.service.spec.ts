@@ -14,11 +14,11 @@ describe('UsersService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [MongooseModule.forFeature([{ name: User.name, schema: UserSchema }])],
       providers: [
-        UsersService
+        UsersService,
+        {provide: getModelToken(User.name), useValue: mockRepository},
       ],
-    }).overrideProvider(getModelToken(User.name)).useValue(mockRepository).compile();
+    }).compile();
 
     service = module.get<UsersService>(UsersService);
   });

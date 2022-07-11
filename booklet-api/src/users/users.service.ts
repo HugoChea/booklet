@@ -9,7 +9,6 @@ import { User, UserDocument } from './schemas/user.schema';
 export class UsersService {
 
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {
-
   }
 
   async findOneByUsernameOrEmail(username?: string, email?: string): Promise<User | undefined> {
