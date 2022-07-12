@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '@module/home/home/home.component';
+import { BookComponent } from './book/book.component';
 
 const routes: Routes = [
   {
-    path: '',
-    //component: BookComponent
+    path: 'book',
+    component: BookComponent
   },
   {
-    path: ':id',
-    //component: BookComponent
+    path: 'book/:id',
+    component: HomeComponent
   },
-  {
-    path: ':id/characters',
-    //component: BookComponent
-  },
-  {
-    path: ':id/characters/:character',
-    //component: BookComponent
-  },
+  // {
+  //   path: ':id/characters',
+  //   //component: BookComponent
+  // },
+  // {
+  //   path: ':id/characters/:character',
+  //   //component: BookComponent
+  // },
 ];
 
 @NgModule({

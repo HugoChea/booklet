@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    //component: AuthLayoutComponent,
+    component: AppLayoutComponent,
     children: [
       {
         path: 'home',
@@ -22,7 +23,7 @@ const routes: Routes = [
           import('@module/auth/auth.module').then(m => m.AuthModule)
       },
       {
-        path: 'book',
+        path: 'app',
         loadChildren: () =>
           import('@module/book/book.module').then(m => m.BookModule)
       },
