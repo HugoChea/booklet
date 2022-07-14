@@ -7,14 +7,29 @@ import { UsersModule } from './users/users.module';
 import { BookModule } from './book/book.module';
 import { TagModule } from './tag/tag.module';
 import { CharacterModule } from './character/character.module';
-
-const uri =
-  process.env.MONGO_URI ||
-  'mongodb://root:root@localhost:27017/bookletDB';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
-  imports: [AuthModule, UsersModule, MongooseModule.forRoot(uri), BookModule, CharacterModule, TagModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    AuthModule,
+    UsersModule,
+    MongooseModule.forRootAsync(
+      {
+        imports: [ConfigModule],
+        inject: [ConfigService],
+        useFactory: async (config: ConfigService) => ({
+          uri: process.env.MONGO_URI || config.get<string>('MONGODB_URI'), // Loaded from .ENV
+        })
+      }
+    ),
+    BookModule,
+    CharacterModule,
+    TagModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

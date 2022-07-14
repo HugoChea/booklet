@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { Book, BookDocument } from './schemas/book.schema';
+import { getStorage, ref, uploadString  } from "firebase/storage";
 
 @Injectable()
 export class BookService {
@@ -12,6 +13,15 @@ export class BookService {
   }
 
   create(createBookDto: CreateBookDto) {
+    // Create a root reference
+//     const storage = getStorage();
+// ;
+//     // Create a reference to 'images/mountains.jpg'
+//     const susImagesRef = ref(storage, 'images/sus.jpg');
+    
+//     uploadString(susImagesRef, sus, 'base64', {contentType: 'image/jpeg',}).then((snapshot) => {
+//       console.log('Uploaded a base64 string!');
+//     });
     const newBook = new this.bookModel(createBookDto);
 
     return newBook.save();
