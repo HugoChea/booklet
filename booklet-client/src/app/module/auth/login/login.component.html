@@ -1,0 +1,38 @@
+<div fxFill fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="auth-card">
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="example-form">
+            <mat-card-title class="auth-card-title">Login</mat-card-title>
+            <mat-card-content class="auth-card-body">
+                <div>
+                    <mat-error *ngIf="loginForm.hasError('invalid')">
+                        Username or password <strong>invalid</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.hasError('server')">
+                        Server down, please try later
+                    </mat-error>
+                </div>
+                <div>
+                    <label>Username</label>
+                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                        <input type="text" matInput formControlName="username">
+                        <mat-error *ngIf="loginForm.get('username')!.hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                        <input type="password" matInput formControlName="password">
+                        <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-button>LOGIN</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

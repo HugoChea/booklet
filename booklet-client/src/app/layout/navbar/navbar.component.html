@@ -1,0 +1,16 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="navbar" color="primary">
+    <div fxLayoutAlign="center center">
+        <button mat-icon-button aria-label="lol">
+            <mat-icon>auto_stories</mat-icon>
+        </button>
+        <span routerlink="auth/register">Booklet</span>
+    </div>
+    <div *ngIf="!user">
+        <button routerLink="/auth/register" mat-flat-button color="primary">Register</button>
+        <button routerLink="/auth/login" mat-flat-button color="primary">Login</button>
+    </div>
+    <div *ngIf="user">
+        <!-- <button routerLink="/auth/register" mat-flat-button color="primary">Register</button> -->
+        <button (click)="logout()" mat-flat-button color="primary">Logout</button>
+    </div>
+</mat-toolbar>
