@@ -1,1 +1,45 @@
-<p>register works!</p>
+<div fxFill fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="auth-card">
+        <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" class="example-form">
+            <mat-card-title class="auth-card-title">Register</mat-card-title>
+            <mat-card-content class="auth-card-body">
+                <div>
+                    <label>Username</label>
+                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                        <input type="text" matInput formControlName="username">
+                        <mat-error *ngIf="registerForm.get('username')!.hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                        <input type="email" matInput formControlName="email">
+                        <mat-error *ngIf="registerForm.get('email')!.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('email')!.hasError('email')">
+                            Field must be of type <strong>email</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                        <input type="password" matInput formControlName="password">
+                        <mat-error *ngIf="registerForm.get('password')!.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('password')!.hasError('minlength')">
+                            Password must be at least <strong>5</strong> characters
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-button>REGISTER</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

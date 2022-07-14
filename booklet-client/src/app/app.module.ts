@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppLayoutComponent
+    AppLayoutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
