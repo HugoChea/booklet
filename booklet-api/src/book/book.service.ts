@@ -4,7 +4,8 @@ import { Model } from 'mongoose';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { Book, BookDocument } from './schemas/book.schema';
-import { getStorage, ref, uploadString  } from "firebase/storage";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class BookService {
@@ -12,16 +13,14 @@ export class BookService {
   constructor(@InjectModel(Book.name) private bookModel: Model<BookDocument>) {
   }
 
-  create(createBookDto: CreateBookDto) {
-    // Create a root reference
-//     const storage = getStorage();
-// ;
-//     // Create a reference to 'images/mountains.jpg'
-//     const susImagesRef = ref(storage, 'images/sus.jpg');
-    
-//     uploadString(susImagesRef, sus, 'base64', {contentType: 'image/jpeg',}).then((snapshot) => {
-//       console.log('Uploaded a base64 string!');
-//     });
+  async create(createBookDto: CreateBookDto, file?: Buffer): Promise<Book> {
+
+    if (file){
+      const image: [string, string] = await this.uploadImage(file);
+      createBookDto.image = image[0];
+      createBookDto.imageRef = image[1];
+    }
+
     const newBook = new this.bookModel(createBookDto);
 
     return newBook.save();
@@ -41,5 +40,20 @@ export class BookService {
 
   remove(id: number) {
     return `This action removes a #${id} book`;
+  }
+
+  async uploadImage(file: Buffer): Promise<[string, string]> {
+
+    const storage = getStorage();
+    const refName = "book/" + uuidv4();
+    const imageRef = ref(storage, refName);
+
+    await uploadBytes(imageRef, file, {
+      contentType: 'image/jpg',
+    })
+
+    const url = await getDownloadURL(ref(storage, refName))
+
+    return [url, refName];
   }
 }

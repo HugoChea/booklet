@@ -5,5 +5,7 @@ export class CreateBookDto {
   name: string;
 
   image: string;
+
+  imageRef: string;
   
 }
