@@ -1,4 +1,4 @@
-<form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)" class="example-form">
+<form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)">
     <div class="actions">
         <button type="submit" mat-raised-button color="primary" class="actions-buttons">+ CREATE</button>
         <button type='button' routerLink="/app/book" mat-raised-button color="primary"class="actions-buttons">
@@ -10,14 +10,14 @@
         </div>
         <div fxFlex="75" class="content">
             <label>Name</label>
-            <mat-form-field fxFill class="example-full-width" appearance="fill">
+            <mat-form-field fxFill appearance="fill">
                 <input type="text" matInput formControlName="name" placeholder="Write a cool name for your book !">
                 <mat-error *ngIf="newBookForm.get('name')!.hasError('required')">
                     Name is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <label>Description</label>
-            <mat-form-field fxFill class="example-full-width" appearance="fill">
+            <mat-form-field fxFill appearance="fill">
                 <textarea matInput formControlName="description" placeholder="Write an amazing description for your book !"></textarea>
             </mat-form-field>
         </div>

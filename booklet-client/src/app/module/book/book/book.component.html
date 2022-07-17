@@ -3,12 +3,12 @@
 </div>
 <div fxLayout="row wrap">
     <div fxFlex="33" class="card" *ngFor="let book of bookList">
-        <mat-card class="example-card">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>{{ book.name }}</mat-card-title>
             </mat-card-header>
             <img mat-card-image [src]="book.image"
-                alt="Photo of a Shiba Inu">
+                alt="Cover image of book">
             <mat-card-content>
                 <p>
                     {{ book.description }}

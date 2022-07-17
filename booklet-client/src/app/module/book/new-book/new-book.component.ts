@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateBookDto } from 'src/app/core/dto/create-book-dto';
 import { BookService } from 'src/app/core/services/book.service';
 import { TokenStorageService } from 'src/app/core/services/token-storage.service';
@@ -17,7 +18,8 @@ export class NewBookComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private formBuilder: FormBuilder,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private snackbar: MatSnackBar
   ) {
       this.newBookForm = this.formBuilder.group({
         name: ['', Validators.required],
@@ -32,10 +34,18 @@ export class NewBookComponent implements OnInit {
   create(createBookDto: CreateBookDto){
     this.bookService.createBook(createBookDto, this.file).subscribe({
       next : (res) => {
-        console.log(res)
+        this.snackbar.open('Book successfully created', '', {
+          duration: 5000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
       },
       error: (error) => {
-        console.log(error)
+        this.snackbar.open('Something happened', '', {
+          duration: 5000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
       }
     });
   }
