@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RegisterDto } from 'src/app/core/dto/register-dto';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -32,11 +34,26 @@ export class RegisterComponent implements OnInit {
     console.log(registerDto)
     this.authService.register(registerDto).subscribe({
       next : (res) => {
-        console.log(res)
+        this.snackbar.open('Account successfully registered', '', {
+          duration: 5000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
         this.router.navigate(['/auth/login']);
       },
-      error(err) {
-        console.log(err)
+      error: (error) => {
+        if (error.status === 409){
+          if (error.message === 'Username already used'){
+            this.registerForm.setErrors({ usernameused: 'Username already used' });
+          }
+          else{
+            this.registerForm.setErrors({ emailused: 'Email already used' });
+          }
+          
+        }
+        else{
+          this.registerForm.setErrors({ server: 'Server down' });
+        }     
       },
     })
   }

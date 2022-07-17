@@ -5,17 +5,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ImageUploaderComponent } from './component/image-uploader/image-uploader.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ImageUploaderComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule,
+    ImageCropperModule,
   ],
   exports: [
     CommonModule,
@@ -24,7 +28,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     HttpClientModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+
+    // component
+    ImageUploaderComponent
   ]
 })
 export class SharedModule { }

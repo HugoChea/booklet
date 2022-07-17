@@ -4,6 +4,8 @@ import { Model } from 'mongoose';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { Book, BookDocument } from './schemas/book.schema';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class BookService {
@@ -11,14 +13,19 @@ export class BookService {
   constructor(@InjectModel(Book.name) private bookModel: Model<BookDocument>) {
   }
 
-  create(createBookDto: CreateBookDto) {
+  async create(createBookDto: CreateBookDto, file?: Buffer): Promise<Book> {
+    if (file){
+      const image: [string, string] = await this.uploadImage(file);
+      createBookDto.image = image[0];
+      createBookDto.imageRef = image[1];
+    }
+    console.log(createBookDto.imageRef);
     const newBook = new this.bookModel(createBookDto);
-
     return newBook.save();
   }
 
-  findAll() {
-    return `This action returns all book`;
+  findAll(userId: string): Promise<Book[]> {
+    return this.bookModel.find({ 'userId': userId }).exec();
   }
 
   findOne(id: number) {
@@ -31,5 +38,19 @@ export class BookService {
 
   remove(id: number) {
     return `This action removes a #${id} book`;
+  }
+
+  async uploadImage(file: Buffer): Promise<[string, string]> {
+    const storage = getStorage();
+    const refName = "book/" + uuidv4();
+    const imageRef = ref(storage, refName);
+
+    await uploadBytes(imageRef, file, {
+      contentType: 'image/jpg',
+    })
+
+    const url = await getDownloadURL(ref(storage, refName))
+
+    return [url, refName];
   }
 }

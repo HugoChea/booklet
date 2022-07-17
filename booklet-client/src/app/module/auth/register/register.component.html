@@ -10,6 +10,9 @@
                         <mat-error *ngIf="registerForm.get('username')!.hasError('required')">
                             Username is <strong>required</strong>
                         </mat-error>
+                        <mat-error *ngIf="registerForm.get('username')!.hasError('usernameused')">
+                            Username already <strong>used</strong>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div>
@@ -21,6 +24,9 @@
                         </mat-error>
                         <mat-error *ngIf="registerForm.get('email')!.hasError('email')">
                             Field must be of type <strong>email</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('email')!.hasError('emailused')">
+                            Email already <strong>used</strong>
                         </mat-error>
                     </mat-form-field>
                 </div>
