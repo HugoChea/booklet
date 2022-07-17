@@ -77,8 +77,6 @@ export class AuthService {
     const user = this.tokenStorageService.getUser();
     
     if (user){
-      console.log(user)
-      console.log("auth")
       this.user$.next(user);
     }
   }

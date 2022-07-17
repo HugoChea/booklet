@@ -18,7 +18,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     RouterModule,
     HttpClientModule,
     FlexLayoutModule,
-    ImageCropperModule
+    MaterialModule,
+    ImageCropperModule,
   ],
   exports: [
     CommonModule,

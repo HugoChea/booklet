@@ -4,6 +4,8 @@ export interface CreateBookDto {
 
   name: string;
 
+  description: string;
+
   image: Blob;
 
 }

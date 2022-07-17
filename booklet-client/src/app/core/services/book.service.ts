@@ -13,14 +13,18 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  createBook(createBook: CreateBookDto): Observable<any>{
+  createBook(createBook: CreateBookDto, file: Blob): Observable<any>{
     let formData = new FormData();
-    if (createBook.image){
-      formData.append('file', createBook.image, createBook.name);
+    if (file){
+      formData.append('file', file, createBook.name);
     }
     formData.append('userId', createBook.userId);
     formData.append('name', createBook.name);
-    return this.http.post<any>(this.apiURL, formData).pipe(
-    );
+    return this.http.post<any>(this.apiURL, formData)
+  }
+
+  getListBookByUser(userId: string): Observable<any>{
+   
+    return this.http.get<any>(this.apiURL + "/list/" + userId);
   }
 }

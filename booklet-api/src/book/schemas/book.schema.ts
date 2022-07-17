@@ -15,6 +15,9 @@ export class Book {
   name: string;
 
   @Prop()
+  description: string;
+
+  @Prop()
   image: string;
 
   @Prop()

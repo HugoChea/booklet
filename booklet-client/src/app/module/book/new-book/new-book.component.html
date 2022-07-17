@@ -1,4 +1,26 @@
-<app-image-uploader (fileUploadEvent)="uploadFile($event)"></app-image-uploader>
+<form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)" class="example-form">
+    <div class="actions">
+        <button type="submit" mat-raised-button color="primary" class="actions-buttons">+ CREATE</button>
+        <button type='button' routerLink="/app/book" mat-raised-button color="primary"class="actions-buttons">
+            < BACK </button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="25">
+            <app-image-uploader (fileUploadEvent)="uploadFile($event)"></app-image-uploader>
+        </div>
+        <div fxFlex="75" class="content">
+            <label>Name</label>
+            <mat-form-field fxFill class="example-full-width" appearance="fill">
+                <input type="text" matInput formControlName="name" placeholder="Write a cool name for your book !">
+                <mat-error *ngIf="newBookForm.get('name')!.hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <label>Description</label>
+            <mat-form-field fxFill class="example-full-width" appearance="fill">
+                <textarea matInput formControlName="description" placeholder="Write an amazing description for your book !"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
 
-<button (click)="create()" mat-raised-button color="primary">+ CREATE</button>
-<button routerLink="/app/book" mat-raised-button color="primary">< BACK</button>
+</form>

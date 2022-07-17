@@ -2,18 +2,16 @@
     <button routerLink="/app/book/new" mat-raised-button color="primary">+ CREATE</button>
 </div>
 <div fxLayout="row wrap">
-    <div fxFlex="33" class="card" *ngFor="let number of [0,1,2,3,4]">
+    <div fxFlex="33" class="card" *ngFor="let book of bookList">
         <mat-card class="example-card">
             <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-title>{{ book.name }}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            <img mat-card-image [src]="book.image"
                 alt="Photo of a Shiba Inu">
             <mat-card-content>
                 <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
+                    {{ book.description }}
                 </p>
             </mat-card-content>
             <mat-card-actions>

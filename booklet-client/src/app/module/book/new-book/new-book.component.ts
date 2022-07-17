@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CreateBookDto } from 'src/app/core/dto/create-book-dto';
 import { BookService } from 'src/app/core/services/book.service';
+import { TokenStorageService } from 'src/app/core/services/token-storage.service';
 
 @Component({
   selector: 'app-new-book',
@@ -8,20 +11,26 @@ import { BookService } from 'src/app/core/services/book.service';
 })
 export class NewBookComponent implements OnInit {
 
+  newBookForm: FormGroup;
   file!: Blob;
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private formBuilder: FormBuilder,
+    private tokenStorage: TokenStorageService
+  ) {
+      this.newBookForm = this.formBuilder.group({
+        name: ['', Validators.required],
+        description: [''],
+        userId: [this.tokenStorage.getUser()?.id]
+      })
+    }
 
   ngOnInit(): void {
   }
 
-  create(){
-    const test= {
-      userId: "2",
-      name: "superBook",
-      image: this.file
-    }
-    this.bookService.createBook(test).subscribe({
+  create(createBookDto: CreateBookDto){
+    this.bookService.createBook(createBookDto, this.file).subscribe({
       next : (res) => {
         console.log(res)
       },

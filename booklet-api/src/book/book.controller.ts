@@ -14,9 +14,9 @@ export class BookController {
     return this.bookService.create(createBookDto, file?.buffer);
   }
 
-  @Get()
-  findAll() {
-    return this.bookService.findAll();
+  @Get('list/:id')
+  findAll(@Param('id') userId: string) {
+    return this.bookService.findAll(userId);
   }
 
   @Get(':id')
