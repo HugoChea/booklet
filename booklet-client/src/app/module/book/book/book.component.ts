@@ -19,7 +19,6 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("oh")
     const userId: string | undefined = this.tokenStorage.getUser()?.id;
     if (userId){
       this.bookService.getListBookByUser(userId).subscribe({
