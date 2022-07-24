@@ -4,7 +4,15 @@
     <div fxLayout="row wrap">
       <div fxFlex="50" class="card">
         <mat-card>
-          <mat-card-title>Chapters</mat-card-title>
+          <mat-card-title fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              Chapter
+            </div>
+            <div>
+              <mat-icon>zoom_in</mat-icon>
+              <mat-icon>add</mat-icon>
+            </div>            
+          </mat-card-title>
           <mat-card-content>
             <mat-card class="example-card"> </mat-card>
             <mat-card>
@@ -19,9 +27,17 @@
 
       <div fxFlex="50" class="card">
         <mat-card>
-          <mat-card-title>Characters</mat-card-title>
+          <mat-card-title fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              Characters
+            </div>
+            <div>
+              <mat-icon class="pointer-cursor" [routerLink]="['/app', 'book', '159', 'character']">zoom_in</mat-icon>
+              <mat-icon class="pointer-cursor" [routerLink]="['/app', 'book', '159', 'character', 'new-character']">add</mat-icon>
+            </div>            
+          </mat-card-title>
           <mat-card-content>
-            <mat-card class="card-content">
+            <mat-card [routerLink]="['/app', 'book', '159', 'character', '5']" class="card-content pointer-cursor">
               <div class="card-title" fxLayoutAlign="start center">
                 <div fxFlex="25" class="avatar-container">
                   <img
