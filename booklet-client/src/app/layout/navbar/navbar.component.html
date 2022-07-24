@@ -1,9 +1,9 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="navbar" color="primary">
     <div fxLayoutAlign="center center">
-        <button mat-icon-button aria-label="lol">
+        <button mat-icon-button>
             <mat-icon>auto_stories</mat-icon>
         </button>
-        <span routerlink="auth/register">Booklet</span>
+        <span class="pointer-cursor" [routerLink]="user ? ['/app/book'] : ['/home']">Booklet</span>
     </div>
     <div *ngIf="!user">
         <button routerLink="/auth/register" mat-flat-button color="primary">Register</button>
