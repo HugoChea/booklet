@@ -8,13 +8,21 @@ import { Editor } from 'ngx-editor';
 })
 export class PanelDescriptionComponent implements OnInit {
 
-  editor!: Editor;
-  html!: '';
+  editor1!: Editor;
+  html1!: '';
+
+  editor2!: Editor;
+  html2!: '';
+
+  editor3!: Editor;
+  html3!: '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.editor = new Editor();
+    this.editor1 = new Editor();
+    this.editor2 = new Editor();
+    this.editor3 = new Editor();
   }
 
 }

@@ -10,6 +10,10 @@ import { FormCharacterGeneralComponent } from './component/form-character-genera
 import { NgChartsModule } from 'ng2-charts';
 import { NgxEditorModule } from 'ngx-editor';
 import { PanelDescriptionComponent } from './component/panel-description/panel-description.component';
+import { PanelChronologyComponent } from './component/panel-chronology/panel-chronology.component';
+import { PanelRelationshipComponent } from './component/panel-relationship/panel-relationship.component';
+import { PanelAbilityComponent } from './component/panel-ability/panel-ability.component';
+import { PanelGeneralityComponent } from './component/panel-generality/panel-generality.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { PanelDescriptionComponent } from './component/panel-description/panel-d
     CharacterDetailComponent,
     NewCharacterComponent,
     FormCharacterGeneralComponent,
-    PanelDescriptionComponent
+    PanelDescriptionComponent,
+    PanelChronologyComponent,
+    PanelRelationshipComponent,
+    PanelAbilityComponent,
+    PanelGeneralityComponent
   ],
   imports: [
     CommonModule,

@@ -32,21 +32,20 @@
     </div>
     <div fxFlex="75" class="content">
       <mat-tab-group>
+        <mat-tab label="Generalities">
+          <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
+        </mat-tab>
         <mat-tab label="Description">
           <app-panel-description></app-panel-description>
         </mat-tab>
-        <mat-tab label="Chronology"> Content 2 </mat-tab>
-        <mat-tab label="Relationships"> Content 3 </mat-tab>
+        <mat-tab label="Chronology">
+          <app-panel-chronology></app-panel-chronology>
+        </mat-tab>
+        <mat-tab label="Relationships">
+          <app-panel-relationship></app-panel-relationship>
+        </mat-tab>
         <mat-tab label="Abilities">
-          <canvas
-            baseChart
-            [datasets]="radarChartDatasets"
-            [options]="radarChartOptions"
-            [labels]="radarChartLabels"
-            [type]="'radar'"
-          >
-            >
-          </canvas>
+          <app-panel-ability></app-panel-ability>
         </mat-tab>
       </mat-tab-group>
     </div>
