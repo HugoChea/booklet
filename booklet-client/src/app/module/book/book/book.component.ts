@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/core/models/book';
+import { Book } from 'src/app/core/models/book/book';
 import { BookService } from 'src/app/core/services/book.service';
 import { TokenStorageService } from 'src/app/core/services/token-storage.service';
 

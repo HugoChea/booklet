@@ -1,0 +1,16 @@
+.actions {
+  padding-bottom: 2%;
+}
+
+.actions .actions-buttons {
+  margin-right: 0.5em;
+}
+
+.content {
+  padding: 2em;
+}
+
+:host ::ng-deep .NgxEditor__Content{
+  overflow: auto;
+  height: 300px;
+}

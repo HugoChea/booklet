@@ -32,22 +32,25 @@ export class NewBookComponent implements OnInit {
   }
 
   create(createBookDto: CreateBookDto){
-    this.bookService.createBook(createBookDto, this.file).subscribe({
-      next : (res) => {
-        this.snackbar.open('Book successfully created', '', {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-      },
-      error: (error) => {
-        this.snackbar.open('Something happened', '', {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-      }
-    });
+    if(this.newBookForm.valid){
+      this.bookService.createBook(createBookDto, this.file).subscribe({
+        next : (res) => {
+          this.snackbar.open('Book successfully created', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        },
+        error: (error) => {
+          this.snackbar.open('Something happened', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        }
+      });
+    }
+    
   }
 
   uploadFile(file: Blob){

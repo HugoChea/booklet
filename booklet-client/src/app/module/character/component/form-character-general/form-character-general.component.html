@@ -1,0 +1,131 @@
+<div [formGroup]="newCharacterForm">
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Firstname</mat-label>
+    <input type="text" matInput formControlName="firstname" />
+    <mat-error *ngIf="newCharacterForm.get('firstname')!.hasError('required')">
+      Firstname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Lastname</mat-label>
+    <input type="text" matInput formControlName="lastname" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Surname</mat-label>
+    <input type="text" matInput formControlName="surname" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Quote</mat-label>
+    <input type="text" matInput formControlName="quote" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>CV</mat-label>
+    <input type="text" matInput formControlName="cv" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Age</mat-label>
+    <input type="text" matInput formControlName="age" />
+  </mat-form-field>
+  
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Birthday</mat-label>
+    <input type="text" matInput formControlName="birthdate" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Birthplace</mat-label>
+    <input type="text" matInput formControlName="birthplace" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Nationality</mat-label>
+    <input type="text" matInput formControlName="nationality" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Hometown</mat-label>
+    <input type="text" matInput formControlName="hometown" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Current place</mat-label>
+    <input type="text" matInput formControlName="currentPlace" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Home description</mat-label>
+    <input type="text" matInput formControlName="homeDescription" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Neighbourhood</mat-label>
+    <input type="text" matInput formControlName="neighbourhood" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Occupation</mat-label>
+    <input type="text" matInput formControlName="occupation" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Job Satisfaction</mat-label>
+    <input type="text" matInput formControlName="jobSatisfaction" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Finance</mat-label>
+    <input type="text" matInput formControlName="finance" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Income</mat-label>
+    <input type="text" matInput formControlName="income" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Personal Habits</mat-label>
+    <input type="text" matInput formControlName="personalHabits" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Hobbies</mat-label>
+    <input type="text" matInput formControlName="hobbies" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Sports</mat-label>
+    <input type="text" matInput formControlName="favoriteSports" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Foods</mat-label>
+    <input type="text" matInput formControlName="favoriteFoods" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Musics</mat-label>
+    <input type="text" matInput formControlName="favoriteMusics" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Movies</mat-label>
+    <input type="text" matInput formControlName="favoriteMovies" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Holidays</mat-label>
+    <input type="text" matInput formControlName="favoriteHolidays" />
+  </mat-form-field>
+
+  <mat-form-field fxFill appearance="standard">
+    <mat-label>Favorite Saying</mat-label>
+    <input type="text" matInput formControlName="favoriteSaying" />
+  </mat-form-field>
+
+</div>

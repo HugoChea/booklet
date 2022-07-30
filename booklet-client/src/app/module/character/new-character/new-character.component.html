@@ -1,1 +1,54 @@
-<p>new-character works!</p>
+<form
+  [formGroup]="newCharacterForm"
+  (ngSubmit)="create(newCharacterForm.value)"
+>
+  <div class="actions">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      + CREATE
+    </button>
+    <button
+      type="button"
+      routerLink="/app/book"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      < BACK
+    </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxFlex="25">
+      <app-image-uploader
+        (fileUploadEvent)="uploadFile($event)"
+      ></app-image-uploader>
+      <app-form-character-general
+        [newCharacterForm]="newCharacterForm"
+      ></app-form-character-general>
+    </div>
+    <div fxFlex="75" class="content">
+      <mat-tab-group>
+        <mat-tab label="Description">
+          <app-panel-description></app-panel-description>
+        </mat-tab>
+        <mat-tab label="Chronology"> Content 2 </mat-tab>
+        <mat-tab label="Relationships"> Content 3 </mat-tab>
+        <mat-tab label="Abilities">
+          <canvas
+            baseChart
+            [datasets]="radarChartDatasets"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabels"
+            [type]="'radar'"
+          >
+            >
+          </canvas>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</form>
