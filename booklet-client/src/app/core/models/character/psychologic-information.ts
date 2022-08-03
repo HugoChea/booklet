@@ -1,4 +1,4 @@
-export interface PhychologicInformation{
+export interface PsychologicInformation{
     // mental
     education: string;
 

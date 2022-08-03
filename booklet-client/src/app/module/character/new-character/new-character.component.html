@@ -33,19 +33,29 @@
     <div fxFlex="75" class="content">
       <mat-tab-group>
         <mat-tab label="Generalities">
-          <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
+          <div class="tab-content">
+            <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
+          </div>
         </mat-tab>
         <mat-tab label="Description">
-          <app-panel-description></app-panel-description>
+          <div class="tab-content">
+            <app-panel-description [newCharacterForm]="newCharacterForm"></app-panel-description>
+          </div>
         </mat-tab>
         <mat-tab label="Chronology">
-          <app-panel-chronology></app-panel-chronology>
+          <div class="tab-content">
+            <app-panel-chronology></app-panel-chronology>
+          </div>
         </mat-tab>
         <mat-tab label="Relationships">
-          <app-panel-relationship></app-panel-relationship>
+          <div class="tab-content">
+            <app-panel-relationship></app-panel-relationship>
+          </div>
         </mat-tab>
         <mat-tab label="Abilities">
-          <app-panel-ability></app-panel-ability>
+          <div class="tab-content">
+            <app-panel-ability [newCharacterForm]="newCharacterForm"></app-panel-ability>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>

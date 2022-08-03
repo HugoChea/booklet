@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
 
-export type PhychologicInformationDocument = PhychologicInformation & Document;
+export type PsychologicInformationDocument = PsychologicInformation & Document;
 
 @Schema()
-export class PhychologicInformation{
+export class PsychologicInformation{
     // mental
     @Prop()
     education: string;
@@ -82,4 +82,4 @@ export class PhychologicInformation{
     embarassements: string;
 }
 
-export const PhychologicInformationSchema = SchemaFactory.createForClass(PhychologicInformation);
+export const PsychologicInformationSchema = SchemaFactory.createForClass(PsychologicInformation);

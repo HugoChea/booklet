@@ -1,3 +1,28 @@
+<ng-container [formGroup]="newCharacterForm">
+  <ng-container formGroupName="abilities">
+<h2 class="section-title">Physical Ability</h2>
+<ngx-editor-menu [toolbar]="toolbar" [editor]="editor1"> </ngx-editor-menu>
+<ngx-editor
+  [editor]="editor1"
+  formControlName="physicalAbility"
+  [placeholder]="'Type here...'"
+></ngx-editor>
+
+<h2 class="section-title">Magical Ability</h2>
+<ngx-editor-menu [toolbar]="toolbar" [editor]="editor2"> </ngx-editor-menu>
+<ngx-editor
+  [editor]="editor2"
+  formControlName="magicalAbility"
+  [placeholder]="'Type here...'"
+></ngx-editor>
+<h2 class="section-title">Equipement</h2>
+<ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
+<ngx-editor
+  [editor]="editor3"
+  formControlName="equipement"
+  [placeholder]="'Type here...'"
+></ngx-editor>
+<h2 class="section-title">Stats</h2>
 <div class="graph">
   <canvas
     baseChart

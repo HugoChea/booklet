@@ -1,3 +1,5 @@
+import { Stat } from "./stat";
+
 export interface Ability{
 
     physicalAbility: string;
@@ -6,5 +8,5 @@ export interface Ability{
 
     equipement: string;
 
-    stats: string;
+    stats: Stat[];
 }

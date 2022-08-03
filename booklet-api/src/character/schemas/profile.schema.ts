@@ -1,6 +1,6 @@
 import { GeneralInformation } from "./general-information.schema";
 import { PhysicalInformation } from "./physical-information.schema";
-import { PhychologicInformation } from "./psychologic-information.schema";
+import { PsychologicInformation } from "./psychologic-information.schema";
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
 
@@ -16,7 +16,7 @@ export class Profile {
     physicalInfo: PhysicalInformation;
 
     @Prop()
-    psychologicInfo: PhychologicInformation;
+    psychologicInfo: PsychologicInformation;
 
 }
 

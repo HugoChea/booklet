@@ -1,6 +1,6 @@
 import { GeneralInformation } from "./general-information";
 import { PhysicalInformation } from "./physical-information";
-import { PhychologicInformation } from "./psychologic-information";
+import { PsychologicInformation } from "./psychologic-information";
 
 export interface Profile {
 
@@ -8,6 +8,6 @@ export interface Profile {
 
     physicalInfo: PhysicalInformation;
 
-    psychologicInfo: PhychologicInformation;
+    psychologicInfo: PsychologicInformation;
 
 }
