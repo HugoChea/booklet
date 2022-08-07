@@ -38,17 +38,15 @@ $mat-primary: (
 $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 $mat-accent: (
-  main: #ff6b81,
-  lighter: #ffd3d9,
-  darker: #ff4e64,
-  200: #ff6b81,
-  // For slide toggle,
-  contrast:
-    (
-      main: $dark-primary-text,
-      lighter: $dark-primary-text,
-      darker: $dark-primary-text,
-    ),
+  main: #1e90ff,
+  lighter: #bcdeff,
+  darker: #1273ff,
+  200: #1e90ff, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
 );
 $theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
 

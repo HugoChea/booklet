@@ -25,7 +25,11 @@
     <div fxFlex="25">
       <app-image-uploader
         (fileUploadEvent)="uploadFile($event)"
+        [aspectRatio]="1 / 1.5"
+        [width]="225"
+        [height]="350"
       ></app-image-uploader>
+      <br>
       <app-form-character-general
         [newCharacterForm]="newCharacterForm"
       ></app-form-character-general>
@@ -33,7 +37,7 @@
     <div fxFlex="75" class="content">
       <mat-tab-group>
         <mat-tab label="Generalities">
-          <div class="tab-content">
+          <div>
             <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
           </div>
         </mat-tab>

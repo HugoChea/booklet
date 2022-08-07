@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -9,6 +9,16 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./image-uploader.component.scss']
 })
 export class ImageUploaderComponent implements OnInit {
+
+  @Input()
+  aspectRatio!: number;
+
+  @Input()
+  width!: number;
+
+  @Input()
+  height!: number;
+
 
   @ViewChild("dialogRef") dialogRef!: TemplateRef<any>;
   @Output() fileUploadEvent = new EventEmitter<Blob>();

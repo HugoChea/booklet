@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChartConfiguration, ChartDataset } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 import { Editor, Toolbar } from 'ngx-editor';
 
 @Component({
@@ -10,7 +11,11 @@ import { Editor, Toolbar } from 'ngx-editor';
 })
 export class PanelAbilityComponent implements OnInit {
 
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+
   @Input() newCharacterForm!: FormGroup;
+
+  items!: FormArray;
 
   toolbar: Toolbar = [
     ['bold', 'italic'],
@@ -37,23 +42,52 @@ export class PanelAbilityComponent implements OnInit {
     maintainAspectRatio: false,
     scales: {
       r: {
-        suggestedMin: 50,
+        suggestedMin: 0,
         suggestedMax: 100
       }
     }
   };
-  public radarChartLabels: string[] = ['Strenght', 'Endurance', 'Agility', 'Mana'];
+  public radarChartLabels: string[] = [];
 
   public radarChartDatasets: ChartConfiguration<'radar'>['data']['datasets'] = [
-    { data: [65, 59, 90, 81], label: 'Series A' }
+    { data: [], label: 'Series A' }
   ];
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.editor1 = new Editor();
     this.editor2 = new Editor();
     this.editor3 = new Editor();
+    this.items = this.newCharacterForm.get('abilities')?.get('stats') as FormArray;
+
+  }
+
+  generateTemplateStatsForm(){
+    
+    console.log(this.items)
+    this.items.clear()
+    this.addItem('Strenght', 50);
+    this.addItem('Endurance', 50);
+    this.addItem('Agility', 50);
+    this.addItem('Mana', 50);
+    this.radarChartLabels = this.items.value.map((res: { characteristicName: any; }) => res.characteristicName)
+    this.radarChartDatasets = [
+      { data: this.items.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Series A' }
+    ] 
+    //this.chart?.update();
+  }
+
+  createItem(name: string, value: number): FormGroup {
+    return this.formBuilder.group({
+      characteristicName: name,
+      characteristicValue: [value, Validators.compose([Validators.min(0), Validators.max(100)])]
+    });
+  }
+
+  addItem(name: string, value: number): void {
+    
+    this.items.push(this.createItem(name, value));
   }
 
 }

@@ -1,26 +1,65 @@
 <form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)">
-    <div class="actions">
-        <button type="submit" mat-raised-button color="primary" class="actions-buttons">+ CREATE</button>
-        <button type='button' routerLink="/app/book" mat-raised-button color="primary"class="actions-buttons">
-            < BACK </button>
+  <div class="actions">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      + CREATE
+    </button>
+    <button
+      type="button"
+      routerLink="/app/book"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      < BACK
+    </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxFlex="25">
+      <app-image-uploader
+        (fileUploadEvent)="uploadFile($event)"
+        [aspectRatio]="1 / 1"
+        [height]="500"
+        [width]="500"
+      ></app-image-uploader>
     </div>
-    <div fxLayout="row" fxLayoutAlign="space-around center">
-        <div fxFlex="25">
-            <app-image-uploader (fileUploadEvent)="uploadFile($event)"></app-image-uploader>
-        </div>
-        <div fxFlex="75" class="content">
-            <label>Name</label>
-            <mat-form-field fxFill appearance="fill">
-                <input type="text" matInput formControlName="name" placeholder="Write a cool name for your book !">
-                <mat-error *ngIf="newBookForm.get('name')!.hasError('required')">
-                    Name is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <label>Description</label>
-            <mat-form-field fxFill appearance="fill">
-                <textarea matInput formControlName="description" placeholder="Write an amazing description for your book !"></textarea>
-            </mat-form-field>
-        </div>
+    <div fxFlex="75" class="content">
+      <mat-card>
+        <label>Name</label>
+        <mat-form-field
+          fxFill
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            placeholder="Write a cool name for your book !"
+          />
+          <mat-error *ngIf="newBookForm.get('name')!.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <label>Description</label>
+        <mat-form-field
+          fxFill
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <textarea
+            matInput
+            formControlName="description"
+            placeholder="Write an amazing description for your book !"
+          ></textarea>
+        </mat-form-field>
+      </mat-card>
     </div>
-
+  </div>
 </form>

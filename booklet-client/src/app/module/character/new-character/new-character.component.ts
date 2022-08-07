@@ -11,7 +11,6 @@ import { Description } from 'src/app/core/models/character/description';
 export class NewCharacterComponent implements OnInit {
 
   newCharacterForm: FormGroup;
-  description!: Description;
   chronology!: string;
   relationship!: string;
 
@@ -20,7 +19,7 @@ export class NewCharacterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
 
     this.newCharacterForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      //name: ['', Validators.required],
       profile: this.formBuilder.group({
         generalInfo: this.formBuilder.group({
           firstname: [''],
@@ -108,7 +107,8 @@ export class NewCharacterComponent implements OnInit {
       abilities: this.formBuilder.group({
         physicalAbility: [''],
         magicalAbility: [''],
-        equipement: ['']
+        equipement: [''],
+        stats: this.formBuilder.array([])
       })
     })
   }
@@ -122,6 +122,7 @@ export class NewCharacterComponent implements OnInit {
   }
 
   create(createCharacterDto: CreateCharacterDto) {
-    console.log(createCharacterDto.description)
+    console.log(this.newCharacterForm.valid)
+    console.log(createCharacterDto.abilities)
   }
 }
