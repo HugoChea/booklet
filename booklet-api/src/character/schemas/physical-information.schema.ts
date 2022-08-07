@@ -22,9 +22,6 @@ export class PhysicalInformation{
     ethnicity: string;
 
     @Prop()
-    species: string;
-
-    @Prop()
     smell: string;
 
     @Prop()
@@ -59,15 +56,7 @@ export class PhysicalInformation{
 
     @Prop()
     disabilites: string;
-
-    @Prop()
-    style: string;
-
-    @Prop()
-    flaws: string;
-
-    @Prop()
-    qualities: string;
+    
 }
 
 export const PhysicalInformationSchema = SchemaFactory.createForClass(PhysicalInformation);

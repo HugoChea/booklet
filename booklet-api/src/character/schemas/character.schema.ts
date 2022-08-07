@@ -22,10 +22,10 @@ export class Character {
   tags: Tag;
 
   @Prop()
-  name: string;
+  image: string;
 
   @Prop()
-  image: string;
+  imageRef: string;
 
   @Prop()
   profile: Profile;

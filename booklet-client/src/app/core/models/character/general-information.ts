@@ -1,4 +1,7 @@
 export interface GeneralInformation{
+
+    name: string;
+
     firstname: string;
 
     lastname: string;
@@ -8,6 +11,8 @@ export interface GeneralInformation{
     quote: string;
 
     cv: string;
+
+    species: string;
 
     nationality: string;
 
@@ -31,21 +36,11 @@ export interface GeneralInformation{
 
     finance: string;
 
-    income: string;
-
     personalHabits: string;
 
     hobbies: string;
 
-    favoriteSports: string;
-
     favoriteFoods: string;
-
-    favoriteMusics: string;
-
-    favoriteMovies: string;
-
-    favoriteHolidays: string;
 
     favoriteSaying: string;
 }

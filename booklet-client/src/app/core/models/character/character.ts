@@ -4,7 +4,9 @@ import { Profile } from "./profile";
 
 export interface Character {
 
-    name: string;
+    imageRef: string;
+    
+    image: string;
 
     profile: Profile;
 

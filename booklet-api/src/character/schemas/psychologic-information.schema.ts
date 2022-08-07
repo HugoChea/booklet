@@ -7,16 +7,16 @@ export type PsychologicInformationDocument = PsychologicInformation & Document;
 export class PsychologicInformation{
     // mental
     @Prop()
+    flaws: string;
+
+    @Prop()
+    qualities: string;
+
+    @Prop()
     education: string;
 
     @Prop()
     intelligence: string;
-
-    @Prop()
-    grade: string;
-
-    @Prop()
-    attitudeTowardSchool: string;
 
     @Prop()
     mentalIllness: string;
@@ -31,28 +31,16 @@ export class PsychologicInformation{
     negativePersonalityTraits: string;
 
     @Prop()
-    badHabits: string;
-
-    @Prop()
     philosophyOfLife: string;
 
     @Prop()
     politicalAttitude: string;
 
     @Prop()
-    shortTermGoals: string;
-
-    @Prop()
-    longTermGoals: string;
-
-    @Prop()
     goalAchievement: string;
 
     @Prop()
     greatestDream: string;
-
-    @Prop()
-    secretDream: string;
 
     @Prop()
     considerationForOthers: string;

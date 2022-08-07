@@ -19,7 +19,6 @@ export class NewCharacterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
 
     this.newCharacterForm = this.formBuilder.group({
-      //name: ['', Validators.required],
       profile: this.formBuilder.group({
         generalInfo: this.formBuilder.group({
           firstname: [''],
@@ -72,7 +71,6 @@ export class NewCharacterComponent implements OnInit {
           learningExperiences: [''],
           positivePersonalityTraits: [''],
           negativePersonalityTraits: [''],
-          badHabits: [''],
           philosophyOfLife: [''],
           politicalAttitude: [''],
           goalAchievement: [''],

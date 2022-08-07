@@ -10,8 +10,6 @@ export interface PhysicalInformation{
 
     ethnicity: string;
 
-    species: string;
-
     smell: string;
 
     skintone: string;
@@ -35,10 +33,5 @@ export interface PhysicalInformation{
     gestures: string;
 
     disabilites: string;
-
-    style: string;
-
-    flaws: string;
-
-    qualities: string;
+ 
 }

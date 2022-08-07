@@ -22,6 +22,9 @@ export class GeneralInformation{
     cv: string;
 
     @Prop()
+    species: string;
+
+    @Prop()
     nationality: string;
 
     @Prop()
@@ -55,28 +58,13 @@ export class GeneralInformation{
     finance: string;
 
     @Prop()
-    income: string;
-
-    @Prop()
     personalHabits: string;
 
     @Prop()
     hobbies: string;
 
     @Prop()
-    favoriteSports: string;
-
-    @Prop()
     favoriteFoods: string;
-
-    @Prop()
-    favoriteMusics: string;
-
-    @Prop()
-    favoriteMovies: string;
-
-    @Prop()
-    favoriteHolidays: string;
 
     @Prop()
     favoriteSaying: string;

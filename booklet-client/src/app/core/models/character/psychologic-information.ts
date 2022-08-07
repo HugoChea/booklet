@@ -1,12 +1,12 @@
 export interface PsychologicInformation{
     // mental
+    flaws: string;
+
+    qualities: string;
+
     education: string;
 
     intelligence: string;
-
-    grade: string;
-
-    attitudeTowardSchool: string;
 
     mentalIllness: string;
 
@@ -16,21 +16,13 @@ export interface PsychologicInformation{
 
     negativePersonalityTraits: string;
 
-    badHabits: string;
-
     philosophyOfLife: string;
 
     politicalAttitude: string;
 
-    shortTermGoals: string;
-
-    longTermGoals: string;
-
     goalAchievement: string;
 
     greatestDream: string;
-
-    secretDream: string;
 
     considerationForOthers: string;
 
