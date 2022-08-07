@@ -22,6 +22,11 @@
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+            <mat-label>Species</mat-label>
+            <input type="text" matInput formControlName="species" />
+          </mat-form-field>
+
+          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Nationality</mat-label>
             <input type="text" matInput formControlName="nationality" />
           </mat-form-field>
@@ -62,11 +67,6 @@
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Income</mat-label>
-            <input type="text" matInput formControlName="income" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Personal Habits</mat-label>
             <input type="text" matInput formControlName="personalHabits" />
           </mat-form-field>
@@ -77,28 +77,8 @@
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Favorite Sports</mat-label>
-            <input type="text" matInput formControlName="favoriteSports" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Favorite Foods</mat-label>
             <input type="text" matInput formControlName="favoriteFoods" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Favorite Musics</mat-label>
-            <input type="text" matInput formControlName="favoriteMusics" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Favorite Movies</mat-label>
-            <input type="text" matInput formControlName="favoriteMovies" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Favorite Holidays</mat-label>
-            <input type="text" matInput formControlName="favoriteHolidays" />
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
@@ -135,11 +115,6 @@
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Ethnicity</mat-label>
             <input type="text" matInput formControlName="ethnicity" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Species</mat-label>
-            <input type="text" matInput formControlName="species" />
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
@@ -196,12 +171,13 @@
             <mat-label>Disabilities</mat-label>
             <input type="text" matInput formControlName="disabilites" />
           </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Style</mat-label>
-            <input type="text" matInput formControlName="style" />
-          </mat-form-field>
-
+        </ng-container>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="card" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Mental</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-container formGroupName="psychologicInfo">
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Flaws</mat-label>
             <input type="text" matInput formControlName="flaws" />
@@ -211,13 +187,6 @@
             <mat-label>Qualities</mat-label>
             <input type="text" matInput formControlName="qualities" />
           </mat-form-field>
-        </ng-container>
-      </mat-expansion-panel>
-      <mat-expansion-panel class="card" [expanded]="true">
-        <mat-expansion-panel-header>
-          <mat-panel-title> <h2>Mental</h2> </mat-panel-title>
-        </mat-expansion-panel-header>
-        <ng-container formGroupName="psychologicInfo">
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Education</mat-label>
             <input type="text" matInput formControlName="education" />
@@ -226,20 +195,6 @@
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Intelligence</mat-label>
             <input type="text" matInput formControlName="intelligence" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Grade</mat-label>
-            <input type="text" matInput formControlName="grade" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Attitude toward school</mat-label>
-            <input
-              type="text"
-              matInput
-              formControlName="attitudeTowardSchool"
-            />
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
@@ -286,16 +241,6 @@
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Short term goals</mat-label>
-            <input type="text" matInput formControlName="shortTermGoals" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Long term goals</mat-label>
-            <input type="text" matInput formControlName="longTermGoals" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Goal achievement</mat-label>
             <input type="text" matInput formControlName="goalAchievement" />
           </mat-form-field>
@@ -303,11 +248,6 @@
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
             <mat-label>Greatest dream</mat-label>
             <input type="text" matInput formControlName="greatestDream" />
-          </mat-form-field>
-
-          <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Secret dream</mat-label>
-            <input type="text" matInput formControlName="secretDream" />
           </mat-form-field>
 
           <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">

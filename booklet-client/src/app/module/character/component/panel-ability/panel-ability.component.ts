@@ -71,10 +71,15 @@ export class PanelAbilityComponent implements OnInit {
     this.addItem('Endurance', 50);
     this.addItem('Agility', 50);
     this.addItem('Mana', 50);
+    
+    this.updateGraph();
+  }
+
+  updateGraph(){
     this.radarChartLabels = this.items.value.map((res: { characteristicName: any; }) => res.characteristicName)
     this.radarChartDatasets = [
-      { data: this.items.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Series A' }
-    ] 
+      { data: this.items.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
+    ]
     //this.chart?.update();
   }
 

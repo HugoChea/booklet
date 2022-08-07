@@ -1,7 +1,7 @@
 <div fxLayout="column" class="img" fxLayoutAlign="space-around center">
-    <img class="image" *ngIf="croppedImage" [src]="croppedImage" />
-    <img class="image" *ngIf="!croppedImage" src="assets/images/no-image.png" />
-    <button class="icon" type='button' mat-raised-button color="primary" (click)="fileInput.click()">UPLOAD</button>
+    <img class="image" (click)="fileInput.click()" *ngIf="croppedImage" [src]="croppedImage" />
+    <img class="image" (click)="fileInput.click()" *ngIf="!croppedImage" src="assets/images/no-image.png" />
+    <button class="icon" type='button' mat-icon-button color="primary"><mat-icon>file_upload</mat-icon></button>
     <input #fileInput type="file" onclick="this.value=null;" (change)="fileChangeEvent($event)" hidden />
 </div>
 

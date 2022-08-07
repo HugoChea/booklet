@@ -1,5 +1,5 @@
 <div class="actions">
-    <button routerLink="/app/book/new" mat-raised-button color="primary">+ CREATE</button>
+    <button routerLink="/app/book/new" mat-raised-button color="primary"><mat-icon>add</mat-icon> CREATE</button>
 </div>
 <div fxLayout="row wrap">
     <div fxFlex="33" class="card" *ngFor="let book of bookList">
@@ -15,8 +15,8 @@
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button [routerLink]="['/app/book', book._id, 'dashboard']" mat-button>VOIR</button>
-                <button mat-button>EDIT</button>
+                <button [routerLink]="['/app/book', book._id, 'dashboard']" mat-raised-button color="primary"><mat-icon>zoom_in</mat-icon> VOIR</button>
+                <button mat-raised-button color="accent"><mat-icon>edit</mat-icon> EDIT</button>
             </mat-card-actions>
         </mat-card>
     </div>

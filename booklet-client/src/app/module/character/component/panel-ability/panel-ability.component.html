@@ -48,6 +48,7 @@
               Value can't be inferior to <strong>0</strong>
             </mat-error>
           </mat-form-field>
+          <button type="button" mat-raised-button color="primary" [disabled]="item.invalid" (click)="updateGraph()">Update</button>
         </div>
       
         <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
