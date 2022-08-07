@@ -1,5 +1,7 @@
 export interface CreateCharacterDto {
 
+    imageBase64: string;
+
     firstname: string;
 
     lastname: string;

@@ -13,14 +13,9 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  createBook(createBook: CreateBookDto, file: Blob): Observable<any>{
-    let formData = new FormData();
-    if (file){
-      formData.append('file', file, createBook.name);
-    }
-    formData.append('userId', createBook.userId);
-    formData.append('name', createBook.name);
-    return this.http.post<any>(this.apiURL, formData)
+  createBook(createBook: CreateBookDto): Observable<any>{
+
+    return this.http.post<any>(this.apiURL, createBook);
   }
 
   getListBookByUser(userId: string): Observable<any>{

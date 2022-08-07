@@ -13,7 +13,7 @@ import { TokenStorageService } from 'src/app/core/services/token-storage.service
 export class NewBookComponent implements OnInit {
 
   newBookForm: FormGroup;
-  file!: Blob;
+  file!: string;
 
   constructor(
     private bookService: BookService,
@@ -33,7 +33,8 @@ export class NewBookComponent implements OnInit {
 
   create(createBookDto: CreateBookDto){
     if(this.newBookForm.valid){
-      this.bookService.createBook(createBookDto, this.file).subscribe({
+      createBookDto.imageBase64 = this.file;
+      this.bookService.createBook(createBookDto).subscribe({
         next : (res) => {
           this.snackbar.open('Book successfully created', '', {
             duration: 5000,
@@ -53,7 +54,7 @@ export class NewBookComponent implements OnInit {
     
   }
 
-  uploadFile(file: Blob){
+  uploadFile(file: string){
     this.file = file;
   }
 

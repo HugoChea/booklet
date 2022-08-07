@@ -21,7 +21,7 @@ export class ImageUploaderComponent implements OnInit {
 
 
   @ViewChild("dialogRef") dialogRef!: TemplateRef<any>;
-  @Output() fileUploadEvent = new EventEmitter<Blob>();
+  @Output() fileUploadEvent = new EventEmitter<string>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -38,7 +38,8 @@ export class ImageUploaderComponent implements OnInit {
   }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
+    this.fileUploadEvent.emit(this.croppedImage);
+    // this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
   }
 
   openDialog(): void {

@@ -6,6 +6,6 @@ export interface CreateBookDto {
 
   description: string;
 
-  image: Blob;
+  imageBase64: string;
 
 }

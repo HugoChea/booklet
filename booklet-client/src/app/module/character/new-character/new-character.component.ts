@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateCharacterDto } from 'src/app/core/dto/create-character-dto';
 import { Description } from 'src/app/core/models/character/description';
+import { CharacterService } from 'src/app/core/services/character.service';
 
 @Component({
   selector: 'app-new-character',
@@ -14,9 +16,13 @@ export class NewCharacterComponent implements OnInit {
   chronology!: string;
   relationship!: string;
 
-  file!: Blob;
+  file!: string;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private characterService: CharacterService,
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar
+    ) {
 
     this.newCharacterForm = this.formBuilder.group({
       profile: this.formBuilder.group({
@@ -104,12 +110,29 @@ export class NewCharacterComponent implements OnInit {
 
   }
 
-  uploadFile(file: Blob) {
+  uploadFile(file: string) {
     this.file = file;
   }
 
   create(createCharacterDto: CreateCharacterDto) {
-    console.log(this.newCharacterForm.valid)
-    console.log(createCharacterDto.abilities)
+    if (this.newCharacterForm.valid) {
+      createCharacterDto.imageBase64 = this.file;
+      this.characterService.createCharacter(createCharacterDto).subscribe({
+        next: (res) => {
+          this.snackbar.open('Character successfully created', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        },
+        error: (error) => {
+          this.snackbar.open('Something happened', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        }
+      });
+    }
   }
 }
