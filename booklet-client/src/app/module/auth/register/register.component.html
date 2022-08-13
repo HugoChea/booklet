@@ -32,19 +32,19 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                    <mat-form-field fxFill class="example-full-width" appearance="fill" color="accent">
                         <input type="password" matInput formControlName="password">
                         <mat-error *ngIf="registerForm.get('password')!.hasError('required')">
                             Password is <strong>required</strong>
                         </mat-error>
-                        <mat-error *ngIf="registerForm.get('password')!.hasError('minlength')">
+                        <mat-error *ngIf="registerForm.get('password')!.hasError('minlength')" color="accent">
                             Password must be at least <strong>5</strong> characters
                         </mat-error>
                     </mat-form-field>
                 </div>
             </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-button>REGISTER</button>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button type="submit" color="primary" mat-raised-button>REGISTER</button>
             </mat-card-actions>
         </form>
     </mat-card>

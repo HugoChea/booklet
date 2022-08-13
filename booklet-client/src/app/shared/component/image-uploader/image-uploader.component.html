@@ -1,22 +1,19 @@
-<div fxLayout="column" fxLayoutAlign="space-around center">
-    <img class="image" *ngIf="croppedImage" [src]="croppedImage" />
-    <img class="image" *ngIf="!croppedImage" src="assets/images/no-image.png" />
-</div>
-<div fxLayout="column" fxLayoutAlign="space-around center">
-    <button type='button' mat-raised-button color="primary" (click)="fileInput.click()">UPLOAD</button>
+<div fxLayout="column" class="img" fxLayoutAlign="space-around center">
+    <img class="image" (click)="fileInput.click()" *ngIf="croppedImage" [src]="croppedImage" />
+    <img class="image" (click)="fileInput.click()" *ngIf="!croppedImage" src="assets/images/no-image.png" />
+    <button class="icon" type='button' mat-icon-button color="primary"><mat-icon>file_upload</mat-icon></button>
     <input #fileInput type="file" onclick="this.value=null;" (change)="fileChangeEvent($event)" hidden />
 </div>
 
-
 <ng-template #dialogRef>
     <div class="cropper">
-        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1"
-            format="png" [resizeToWidth]="500" [resizeToHeight]="500" [onlyScaleDown]="true"
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="aspectRatio"
+            format="png" [resizeToWidth]="width" [resizeToHeight]="height" [onlyScaleDown]="true"
             (imageCropped)="imageCropped($event)"></image-cropper>
     </div>
 
     <div mat-dialog-actions>
-        <button mat-button mat-dialog-close (click)="cancel()">CANCEL</button>
-        <button mat-button mat-dialog-close cdkFocusInitial>UPLOAD</button>
+        <button mat-raised-button color="primary" mat-dialog-close (click)="cancel()">CANCEL</button>
+        <button mat-raised-button color="primary" mat-dialog-close cdkFocusInitial>UPLOAD</button>
     </div>
 </ng-template>

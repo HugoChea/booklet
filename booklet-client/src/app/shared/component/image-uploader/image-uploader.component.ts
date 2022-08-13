@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -10,8 +10,18 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class ImageUploaderComponent implements OnInit {
 
+  @Input()
+  aspectRatio!: number;
+
+  @Input()
+  width!: number;
+
+  @Input()
+  height!: number;
+
+
   @ViewChild("dialogRef") dialogRef!: TemplateRef<any>;
-  @Output() fileUploadEvent = new EventEmitter<Blob>();
+  @Output() fileUploadEvent = new EventEmitter<string>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -28,7 +38,8 @@ export class ImageUploaderComponent implements OnInit {
   }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
+    this.fileUploadEvent.emit(this.croppedImage);
+    // this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
   }
 
   openDialog(): void {

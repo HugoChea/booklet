@@ -1,8 +1,35 @@
-.cropper{
-    height: 80%;
+.cropper {
+  height: 80%;
 }
 
-.image{
-    max-width: 100%;
-    max-height: 100%;
+.image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.img {
+  
+  cursor: pointer;
+  position: relative;
+}
+
+.img:hover .image {
+  -webkit-filter: brightness(50%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.img .icon {
+  display: none;
+}
+
+.img:hover .icon {
+  display: block;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }

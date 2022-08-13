@@ -1,0 +1,66 @@
+<ng-container [formGroup]="newCharacterForm">
+  <ng-container formGroupName="abilities">
+    <h2 class="section-title">Physical Ability</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor1"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor1"
+      formControlName="physicalAbility"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+
+    <h2 class="section-title">Magical Ability</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor2"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor2"
+      formControlName="magicalAbility"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+    <h2 class="section-title">Equipement</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor3"
+      formControlName="equipement"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+    <h2 class="section-title">Stats</h2>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+      (click)="generateTemplateStatsForm()"
+    >
+      Template
+    </button>
+    
+      <div formArrayName="stats"
+        *ngFor="let item of items.controls; let i = index;">
+        <div [formGroupName]="i">
+          <mat-form-field appearance="outline" floatLabel="always" color="accent">
+            <input matInput formControlName="characteristicName" placeholder="Item name">
+          </mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always" color="accent">
+            <input matInput type="number" min="0" max="100" formControlName="characteristicValue" placeholder="Item description">
+            <mat-error *ngIf="item.get('characteristicValue')?.hasError('max')">
+              Value can't be superior to <strong>100</strong>
+            </mat-error>
+            <mat-error *ngIf="item.get('characteristicValue')?.hasError('min')">
+              Value can't be inferior to <strong>0</strong>
+            </mat-error>
+          </mat-form-field>
+          <button type="button" mat-raised-button color="primary" [disabled]="item.invalid" (click)="updateGraph()">Update</button>
+        </div>
+      
+        <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
+      </div>
+    <div class="graph" *ngIf="items.controls.length > 0">
+      <canvas
+        baseChart
+        [datasets]="radarChartDatasets"
+        [options]="radarChartOptions"
+        [labels]="radarChartLabels"
+        [type]="'radar'"
+      >
+      </canvas>
+    </div> </ng-container
+></ng-container>

@@ -1,0 +1,27 @@
+<ng-container [formGroup]="newCharacterForm">
+  <ng-container formGroupName="description">
+    <h2 class="section-title">Summary</h2>
+
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor1"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor1"
+      formControlName="summary"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+
+    <h2 class="section-title">Personality</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor2"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor2"
+      formControlName="personality"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+    <h2 class="section-title">Background</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor3"
+      formControlName="background"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+  </ng-container>
+</ng-container>

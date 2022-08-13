@@ -6,6 +6,8 @@ export class CreateBookDto {
 
   description: string;
 
+  imageBase64: string;
+
   image: string;
 
   imageRef: string;

@@ -14,16 +14,16 @@ const routes: Routes = [
     component: NewBookComponent
   },
   {
-    path: 'book/:id/dashboard',
+    path: 'book/:bookId/dashboard',
     component: DashboardComponent
   },
   {
-    path: 'book/:id/character',
+    path: 'book/:bookId/character',
     loadChildren: () =>
       import('@module/character/character.module').then(m => m.CharacterModule)
   },
   {
-    path: 'book/:id/chapter',
+    path: 'book/:bookId/chapter',
     loadChildren: () =>
       import('@module/chapter/chapter.module').then(m => m.ChapterModule)
   }

@@ -1,0 +1,12 @@
+import { createReducer, on } from '@ngrx/store';
+import { selectBook } from '../actions/books.actions';
+import { BookState } from '../state/book.state';
+
+export const initialState: Readonly<BookState> = {
+  selectedBook: undefined
+};
+
+export const booksReducer = createReducer(
+  initialState,
+  on(selectBook, (state, { book }) => ({ ...state, selectedBook: book })),
+);

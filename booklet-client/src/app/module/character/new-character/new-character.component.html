@@ -1,1 +1,67 @@
-<p>new-character works!</p>
+<form
+  [formGroup]="newCharacterForm"
+  (ngSubmit)="create(newCharacterForm.value)"
+>
+  <div class="actions">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      <mat-icon>add</mat-icon> CREATE
+    </button>
+    <button
+      type="button"
+      routerLink="/app/book"
+      mat-raised-button
+      color="primary"
+      class="actions-buttons"
+    >
+      <mat-icon>keyboard_return</mat-icon> BACK
+    </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxFlex="25">
+      <app-image-uploader
+        (fileUploadEvent)="uploadFile($event)"
+        [aspectRatio]="1 / 1.5"
+        [width]="225"
+        [height]="350"
+      ></app-image-uploader>
+      <br>
+      <app-form-character-general
+        [newCharacterForm]="newCharacterForm"
+      ></app-form-character-general>
+    </div>
+    <div fxFlex="75" class="content">
+      <mat-tab-group>
+        <mat-tab label="Generalities">
+          <div>
+            <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
+          </div>
+        </mat-tab>
+        <mat-tab label="Description">
+          <div class="tab-content">
+            <app-panel-description [newCharacterForm]="newCharacterForm"></app-panel-description>
+          </div>
+        </mat-tab>
+        <mat-tab label="Chronology">
+          <div class="tab-content">
+            <app-panel-chronology></app-panel-chronology>
+          </div>
+        </mat-tab>
+        <mat-tab label="Relationships">
+          <div class="tab-content">
+            <app-panel-relationship></app-panel-relationship>
+          </div>
+        </mat-tab>
+        <mat-tab label="Abilities">
+          <div class="tab-content">
+            <app-panel-ability [newCharacterForm]="newCharacterForm"></app-panel-ability>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</form>

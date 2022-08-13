@@ -13,7 +13,7 @@
                 </div>
                 <div>
                     <label>Username</label>
-                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                    <mat-form-field fxFill class="example-full-width" appearance="fill" color="accent">
                         <input type="text" matInput formControlName="username">
                         <mat-error *ngIf="loginForm.get('username')!.hasError('required')">
                             Username is <strong>required</strong>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    <mat-form-field fxFill class="example-full-width" appearance="fill">
+                    <mat-form-field fxFill class="example-full-width" appearance="fill" color="accent">
                         <input type="password" matInput formControlName="password">
                         <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
                             Password is <strong>required</strong>
@@ -30,8 +30,8 @@
                     </mat-form-field>
                 </div>
             </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-button>LOGIN</button>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button type="submit" color="primary" mat-raised-button>LOGIN</button>
             </mat-card-actions>
         </form>
     </mat-card>

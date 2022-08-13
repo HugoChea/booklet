@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
 import { Tag } from 'src/tag/schemas/tag.schema';
-import { CharacteristicValue } from '../entities/characterictic-value.entity';
+import { CharacteristicValue } from '../models/characterictic-value.entity';
 
 export type CategoryItemDocument = CategoryItem & Document;
 

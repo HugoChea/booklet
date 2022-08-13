@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/core/models/book';
-import { BookService } from 'src/app/core/services/book.service';
-import { TokenStorageService } from 'src/app/core/services/token-storage.service';
+import { Router } from '@angular/router';
+import { Book } from '@core/models/book/book';
+import { BookService } from '@core/services/book.service';
+import { TokenStorageService } from '@core/services/token-storage.service';
+import { Store } from '@ngrx/store';
+
+import { selectBook } from '@core/store/actions/books.actions';
 
 @Component({
   selector: 'app-book',
@@ -14,15 +18,17 @@ export class BookComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private router: Router,
+    private store: Store
   ) {
   }
 
   ngOnInit(): void {
     const userId: string | undefined = this.tokenStorage.getUser()?.id;
-    if (userId){
+    if (userId) {
       this.bookService.getListBookByUser(userId).subscribe({
-        next : (res) => {
+        next: (res) => {
           this.bookList = res;
         },
         error: (error) => {
@@ -30,6 +36,11 @@ export class BookComponent implements OnInit {
         }
       });
     }
+  }
+
+  toDashboard(book: Book) {
+    this.store.dispatch(selectBook({ book: book }));
+    this.router.navigate(['/app/book', book._id, 'dashboard']);
   }
 
 }

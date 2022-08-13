@@ -6,8 +6,8 @@
         <span class="pointer-cursor" [routerLink]="user ? ['/app/book'] : ['/home']">Booklet</span>
     </div>
     <div *ngIf="!user">
-        <button routerLink="/auth/register" mat-flat-button color="primary">Register</button>
-        <button routerLink="/auth/login" mat-flat-button color="primary">Login</button>
+        <button class="actions-buttons" routerLink="/auth/register" mat-flat-button color="primary">Register</button>
+        <button class="actions-buttons" routerLink="/auth/login" mat-flat-button color="primary">Login</button>
     </div>
     <div *ngIf="user">
         <!-- <button routerLink="/auth/register" mat-flat-button color="primary">Register</button> -->

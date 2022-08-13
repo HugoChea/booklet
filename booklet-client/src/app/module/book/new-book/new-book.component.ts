@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CreateBookDto } from 'src/app/core/dto/create-book-dto';
-import { BookService } from 'src/app/core/services/book.service';
-import { TokenStorageService } from 'src/app/core/services/token-storage.service';
+import { CreateBookDto } from '@core/dto/create-book-dto';
+import { BookService } from '@core/services/book.service';
+import { TokenStorageService } from '@core/services/token-storage.service';
 
 @Component({
   selector: 'app-new-book',
@@ -13,7 +13,7 @@ import { TokenStorageService } from 'src/app/core/services/token-storage.service
 export class NewBookComponent implements OnInit {
 
   newBookForm: FormGroup;
-  file!: Blob;
+  file!: string;
 
   constructor(
     private bookService: BookService,
@@ -21,36 +21,40 @@ export class NewBookComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private snackbar: MatSnackBar
   ) {
-      this.newBookForm = this.formBuilder.group({
-        name: ['', Validators.required],
-        description: [''],
-        userId: [this.tokenStorage.getUser()?.id]
-      })
-    }
+    this.newBookForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: [''],
+      userId: [this.tokenStorage.getUser()?.id]
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  create(createBookDto: CreateBookDto){
-    this.bookService.createBook(createBookDto, this.file).subscribe({
-      next : (res) => {
-        this.snackbar.open('Book successfully created', '', {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-      },
-      error: (error) => {
-        this.snackbar.open('Something happened', '', {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-      }
-    });
+  create(createBookDto: CreateBookDto) {
+    if (this.newBookForm.valid) {
+      createBookDto.imageBase64 = this.file;
+      this.bookService.createBook(createBookDto).subscribe({
+        next: (res) => {
+          this.snackbar.open('Book successfully created', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        },
+        error: (error) => {
+          this.snackbar.open('Something happened', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+        }
+      });
+    }
+
   }
 
-  uploadFile(file: Blob){
+  uploadFile(file: string) {
     this.file = file;
   }
 
