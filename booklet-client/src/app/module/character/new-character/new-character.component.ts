@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CreateCharacterDto } from 'src/app/core/dto/create-character-dto';
-import { Description } from 'src/app/core/models/character/description';
-import { CharacterService } from 'src/app/core/services/character.service';
+import { CreateCharacterDto } from '@core/dto/create-character-dto';
+import { CharacterService } from '@core/services/character.service';
 
 @Component({
   selector: 'app-new-character',

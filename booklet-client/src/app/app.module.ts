@@ -8,6 +8,10 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { StoreModule } from '@ngrx/store';
+import { booksReducer } from './core/store/reducers/books.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { metaReducers } from '@core/store/metareducers';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    StoreModule.forRoot({books : booksReducer}, {metaReducers}),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

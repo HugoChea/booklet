@@ -1,3 +1,5 @@
+<h2>{{ book?.name }}</h2>
+
 <mat-card>
   <mat-card-title>Storyline</mat-card-title>
   <mat-card-content>
@@ -33,7 +35,7 @@
             </div>
             <div>
               <mat-icon class="pointer-cursor" [routerLink]="['/app', 'book', '159', 'character']">zoom_in</mat-icon>
-              <mat-icon class="pointer-cursor" [routerLink]="['/app', 'book', '159', 'character', 'new-character']">add</mat-icon>
+              <mat-icon class="pointer-cursor" (click)="toCreateCharacter()">add</mat-icon>
             </div>            
           </mat-card-title>
           <mat-card-content>

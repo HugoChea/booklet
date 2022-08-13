@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { RegisterDto } from 'src/app/core/dto/register-dto';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { RegisterDto } from '@core/dto/register-dto';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-register',

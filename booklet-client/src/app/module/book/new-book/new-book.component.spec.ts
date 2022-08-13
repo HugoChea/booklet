@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BookService } from 'src/app/core/services/book.service';
+import { BookService } from '@core/services/book.service';
 import { of } from 'rxjs';
 
 import { NewBookComponent } from './new-book.component';
