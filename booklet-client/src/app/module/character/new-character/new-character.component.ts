@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateCharacterDto } from '@core/dto/create-character-dto';
+import { Book } from '@core/models/book/book';
 import { CharacterService } from '@core/services/character.service';
+import { Store } from '@ngrx/store';
+import { selectedBook } from '@core/store/selectors/books.selectors';
 
 @Component({
   selector: 'app-new-character',
@@ -28,10 +31,15 @@ export class NewCharacterComponent implements OnInit {
    */
   file!: string;
 
+  book?: Book;
+
+  books$ = this.store.select(selectedBook);
+
   constructor(
     private characterService: CharacterService,
     private formBuilder: FormBuilder,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private store: Store
     ) {
 
     this.newCharacterForm = this.formBuilder.group({
@@ -117,7 +125,11 @@ export class NewCharacterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.books$.subscribe({
+      next : (res) => {
+        this.book = res;
+      }
+    })
   }
 
   /**
@@ -134,7 +146,9 @@ export class NewCharacterComponent implements OnInit {
    */
   create(createCharacterDto: CreateCharacterDto) {
     if (this.newCharacterForm.valid) {
+      createCharacterDto.book = this.book?._id ? this.book._id : '';
       createCharacterDto.imageBase64 = this.file;
+      console.log(createCharacterDto)
       this.characterService.createCharacter(createCharacterDto).subscribe({
         next: (res) => {
           this.snackbar.open('Character successfully created', '', {

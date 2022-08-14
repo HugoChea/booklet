@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   login(loginDto: LoginDto){
     this.authService.login(loginDto).subscribe({
       next : (res) => {
-        console.log(res)
         this.router.navigate(['/app/book']);
       },
       error: (error) => {

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from '@core/models/book/book';
-import { BookService } from '@core/services/book.service';
-import { selectedBookId } from '@core/store/selectors/books.selectors';
+import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -14,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   book?: Book;
 
-  books$ = this.store.select(selectedBookId);
+  books$ = this.store.select(selectedBook);
 
   constructor(
     private router: Router,
@@ -27,7 +26,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.books$.subscribe({
       next : (res) => {
-        this.book = res.selectedBook;
+        this.book = res;
       }
     })
   }

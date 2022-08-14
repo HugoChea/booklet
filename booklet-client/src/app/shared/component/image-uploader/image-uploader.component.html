@@ -7,9 +7,12 @@
 
 <ng-template #dialogRef>
     <div class="cropper">
-        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="aspectRatio"
-            format="png" [resizeToWidth]="width" [resizeToHeight]="height" [onlyScaleDown]="true"
-            (imageCropped)="imageCropped($event)"></image-cropper>
+        <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="true"
+            [aspectRatio]="aspectRatio"
+            (imageCropped)="imageCropped($event)">
+        </image-cropper>
     </div>
 
     <div mat-dialog-actions>

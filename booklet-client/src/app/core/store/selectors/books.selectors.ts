@@ -4,4 +4,9 @@ import { BookState } from '../state/book.state';
 /**
  * Selector to get state
  */
-export const selectedBookId = createFeatureSelector<Readonly<BookState>>('books');
+export const selectBookState = createFeatureSelector<Readonly<BookState>>('books');
+
+export const selectedBook = createSelector(
+    selectBookState,
+    (state: BookState) => state.selectedBook
+  );

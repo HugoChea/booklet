@@ -3,6 +3,11 @@ import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export interface IResizeImageOptions {
+  maxSize: number;
+  file: File;
+}
+
 @Component({
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
@@ -38,7 +43,11 @@ export class ImageUploaderComponent implements OnInit {
   }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    this.fileUploadEvent.emit(this.croppedImage);
+    this.compressImage(this.croppedImage, 400, 600).then(compressed => {
+      this.croppedImage = compressed;
+      this.fileUploadEvent.emit(this.croppedImage);
+    })
+    
     // this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
   }
 
@@ -59,6 +68,30 @@ export class ImageUploaderComponent implements OnInit {
   cancel(): void {
     this.imageChangedEvent = null;
     this.croppedImage = null;
+  }
+
+  compressImage(src: any, newX: any, newY: any) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        
+        if (img.width > newX || img.height > newY){
+          const elem = document.createElement('canvas');
+          elem.width = newX;
+          elem.height = newY;
+          const ctx = elem.getContext('2d');
+          ctx?.drawImage(img, 0, 0, newX, newY);
+          const data = ctx?.canvas.toDataURL();
+          res(data);
+        }
+        else{
+          res(img.src);
+        }
+        
+      }
+      img.onerror = error => rej(error);
+    })
   }
 
 }

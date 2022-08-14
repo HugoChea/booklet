@@ -9,9 +9,11 @@ export class CreateCharacterDto {
 
   book: Types.ObjectId;
 
-  name: string;
+  imageBase64: string;
 
   image: string;
+
+  imageRef: string;
 
   profile: Profile;
 
