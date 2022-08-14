@@ -8,6 +8,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormCharacterGeneralComponent implements OnInit {
 
+  /**
+   * Form shared from parent component
+   */
   @Input() newCharacterForm!: FormGroup;
 
   constructor() { }

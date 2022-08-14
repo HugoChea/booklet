@@ -24,6 +24,9 @@ export class BookComponent implements OnInit {
   ) {
   }
 
+  /**
+   * Get all book created by users to choose from
+   */
   ngOnInit(): void {
     const userId: string | undefined = this.tokenStorage.getUser()?.id;
     if (userId) {
@@ -38,6 +41,11 @@ export class BookComponent implements OnInit {
     }
   }
 
+  /**
+   * Redirect to selected book dashboard
+   * Perform action dispatched to store by saving selected book for further api calls
+   * @param book 
+   */
   toDashboard(book: Book) {
     this.store.dispatch(selectBook({ book: book }));
     this.router.navigate(['/app/book', book._id, 'dashboard']);

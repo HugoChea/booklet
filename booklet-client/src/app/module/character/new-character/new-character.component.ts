@@ -11,10 +11,21 @@ import { CharacterService } from '@core/services/character.service';
 })
 export class NewCharacterComponent implements OnInit {
 
+  /**
+   * Form to create a new character
+   * Shared with children component
+   */
   newCharacterForm: FormGroup;
+
+  /**
+   * Not used yet (maybe specific type not used in form group ?)
+   */
   chronology!: string;
   relationship!: string;
 
+  /**
+   * File uploaded in base64
+   */
   file!: string;
 
   constructor(
@@ -109,10 +120,18 @@ export class NewCharacterComponent implements OnInit {
 
   }
 
+  /**
+   * Get output value from child component image-uploader
+   * @param file 
+   */
   uploadFile(file: string) {
     this.file = file;
   }
 
+  /**
+   * Call service to perform http call
+   * @param createCharacterDto 
+   */
   create(createCharacterDto: CreateCharacterDto) {
     if (this.newCharacterForm.valid) {
       createCharacterDto.imageBase64 = this.file;

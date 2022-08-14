@@ -6,6 +6,9 @@ export const initialState: Readonly<BookState> = {
   selectedBook: undefined
 };
 
+/**
+ * Reducer when certain actions are perfomed
+ */
 export const booksReducer = createReducer(
   initialState,
   on(selectBook, (state, { book }) => ({ ...state, selectedBook: book })),

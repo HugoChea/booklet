@@ -21,6 +21,9 @@ export class DashboardComponent implements OnInit {
     private store: Store
   ) { }
 
+  /**
+   * Get selected book from store
+   */
   ngOnInit(): void {
     this.books$.subscribe({
       next : (res) => {
@@ -29,6 +32,9 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  /**
+   * Navigate through character creation
+   */
   toCreateCharacter(){
     this.router.navigate(['/app', 'book', this.book?._id, 'character', 'new-character']);
   }
