@@ -8,12 +8,13 @@
       mat-raised-button
       color="primary"
       class="actions-buttons"
+      [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
     >
       <mat-icon>add</mat-icon> CREATE
     </button>
     <button
       type="button"
-      routerLink="/app/book"
+      [routerLink]="['/app', 'book', book?._id, 'dashboard']"
       mat-raised-button
       color="primary"
       class="actions-buttons"

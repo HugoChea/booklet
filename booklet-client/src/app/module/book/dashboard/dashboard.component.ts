@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from '@core/models/book/book';
+import { Character } from '@core/models/character/character';
+import { CharacterService } from '@core/services/character.service';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
 
@@ -15,9 +17,12 @@ export class DashboardComponent implements OnInit {
 
   books$ = this.store.select(selectedBook);
 
+  listCharacter: Character[] = [];
+
   constructor(
     private router: Router,
-    private store: Store
+    private store: Store,
+    private characterService: CharacterService
   ) { }
 
   /**
@@ -25,10 +30,22 @@ export class DashboardComponent implements OnInit {
    */
   ngOnInit(): void {
     this.books$.subscribe({
-      next : (res) => {
-        this.book = res;
+      next : (book) => {
+        if (book){
+          this.book = book;
+          this.characterService.getListLatestCharacterByBook(this.book._id).subscribe({
+            next: (res) => {
+              console.log(res)
+              this.listCharacter = res;
+            }
+          })
+        }
+        else{
+          console.log("error")
+        }
       }
     })
+    
   }
 
   /**

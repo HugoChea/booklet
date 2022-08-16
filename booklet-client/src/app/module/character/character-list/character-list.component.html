@@ -1,1 +1,24 @@
-<p>character-list works!</p>
+<mat-card
+  *ngFor="let character of listCharacter"
+  [routerLink]="['/app', 'book', '159', 'character', 'detail', character._id]"
+  class="card-content pointer-cursor"
+>
+  <div class="card-title" fxLayoutAlign="start center">
+    <div fxFlex="25" class="avatar-container">
+      <img class="avatar" [src]="character.image" alt="Photo of a Shiba Inu" />
+    </div>
+    <div fxFlex="75" fxLayoutAlign="center center">
+      {{ character.profile.generalInfo.firstname }}
+      {{ character.profile.generalInfo.lastname }}
+    </div>
+  </div>
+
+  <mat-card-content>
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip>One fish</mat-chip>
+      <mat-chip>Two fish</mat-chip>
+      <mat-chip color="primary" selected>Primary fish</mat-chip>
+      <mat-chip color="accent" selected>Accent fish</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>

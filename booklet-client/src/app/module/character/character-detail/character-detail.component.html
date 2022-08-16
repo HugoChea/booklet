@@ -1,1 +1,3 @@
-<p>character-detail works!</p>
+{{ character?.profile?.generalInfo?.firstname }} {{ character?.profile?.generalInfo?.lastname }}
+
+<div [innerHtml]="character?.description?.summary"></div>

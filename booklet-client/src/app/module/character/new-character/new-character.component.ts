@@ -137,7 +137,9 @@ export class NewCharacterComponent implements OnInit {
    * @param file 
    */
   uploadFile(file: string) {
-    this.file = file;
+    if (file){
+      this.file = file;
+    }
   }
 
   /**

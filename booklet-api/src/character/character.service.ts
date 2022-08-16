@@ -26,12 +26,16 @@ export class CharacterService {
     return newCharacter.save();
   }
 
-  findAll() {
-    return this.characterModel.find().populate("tags").exec();;
+  findAll(bookId: string) {
+    return this.characterModel.find({ 'book': bookId }).populate("tags").exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} character`;
+  findAllLastModified(bookId: string) {
+    return this.characterModel.find({ 'book': bookId }).sort({'updatedAt': -1}).limit(3).populate("tags").exec();
+  }
+
+  findOne(id: string) {
+    return this.characterModel.findById(id).populate("tags").exec();
   }
 
   update(id: number, updateCharacterDto: UpdateCharacterDto) {
