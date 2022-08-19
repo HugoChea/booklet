@@ -18,6 +18,9 @@ export class Character {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Book' })
   book: Book;
 
+  @Prop()
+  status: string;
+
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
   tags: Tag;
 

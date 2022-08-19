@@ -1,3 +1,44 @@
-{{ character?.profile?.generalInfo?.firstname }} {{ character?.profile?.generalInfo?.lastname }}
+<div fxLayout="column" class="body" fxLayoutAlign="space-around start">
+  <div fxFill fxLayoutAlign="space-between center">
+    <div>
+      {{ character?.profile?.generalInfo?.firstname }}
+      {{ character?.profile?.generalInfo?.lastname }}
+    </div>
+    <div>
+      <button mat-raised-button color="primary" class="actions-buttons">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        type="button"
+        [routerLink]="['/app', 'book', book?._id, 'dashboard']"
+        mat-raised-button
+        color="primary"
+        class="actions-buttons"
+      >
+        <mat-icon>keyboard_return</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div fxFill>
+    <mat-tab-group>
+      <mat-tab label="Information">
+        <div></div>
+      </mat-tab>
+      <mat-tab label="Chronology">
+        <div class="tab-content"></div>
+      </mat-tab>
+      <mat-tab label="Relationships">
+        <div class="tab-content"></div>
+      </mat-tab>
+      <mat-tab label="Abilities">
+        <div class="tab-content"></div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div fxFill fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxFlex="25">a</div>
+    <div fxFlex="75">b</div>
+  </div>
+</div>
 
 <div [innerHtml]="character?.description?.summary"></div>

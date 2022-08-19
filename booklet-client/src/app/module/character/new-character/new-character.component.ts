@@ -120,7 +120,8 @@ export class NewCharacterComponent implements OnInit {
         magicalAbility: [''],
         equipement: [''],
         stats: this.formBuilder.array([])
-      })
+      }),
+      relationship: this.formBuilder.array([])
     })
   }
 
@@ -147,10 +148,10 @@ export class NewCharacterComponent implements OnInit {
    * @param createCharacterDto 
    */
   create(createCharacterDto: CreateCharacterDto) {
-    if (this.newCharacterForm.valid) {
+    if (this.newCharacterForm.valid && !this.newCharacterForm.pristine) {
       createCharacterDto.book = this.book?._id ? this.book._id : '';
       createCharacterDto.imageBase64 = this.file;
-      console.log(createCharacterDto)
+      createCharacterDto.status = "Todo"
       this.characterService.createCharacter(createCharacterDto).subscribe({
         next: (res) => {
           this.snackbar.open('Character successfully created', '', {

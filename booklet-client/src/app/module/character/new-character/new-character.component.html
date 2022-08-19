@@ -10,7 +10,7 @@
       class="actions-buttons"
       [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
     >
-      <mat-icon>add</mat-icon> CREATE
+      <mat-icon>save</mat-icon> SAVE
     </button>
     <button
       type="button"
@@ -22,7 +22,7 @@
       <mat-icon>keyboard_return</mat-icon> BACK
     </button>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around start">
+  <div fxLayout="row" class="body" fxLayoutAlign="space-around start">
     <div fxFlex="25">
       <app-image-uploader
         (fileUploadEvent)="uploadFile($event)"
@@ -54,7 +54,7 @@
         </mat-tab>
         <mat-tab label="Relationships">
           <div class="tab-content">
-            <app-panel-relationship></app-panel-relationship>
+            <app-panel-relationship [newCharacterForm]="newCharacterForm"></app-panel-relationship>
           </div>
         </mat-tab>
         <mat-tab label="Abilities">

@@ -1,1 +1,30 @@
 <p>panel-relationship works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Toppings</mat-label>
+  <mat-select [(ngModel)]="listRelationship" multiple>
+    <mat-option
+      (onSelectionChange)="getValues($event)"
+      *ngFor="let character of listCharacter"
+      [value]="character._id"
+      >{{ character.profile.generalInfo.firstname }}
+      {{ character.profile.generalInfo.lastname }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<ng-container [formGroup]="newCharacterForm">
+  <div
+    formArrayName="relationship"
+    *ngFor="let stat of relationship.controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      <ng-container formGroupName="involvedWith">
+        <mat-form-field appearance="outline" floatLabel="always" color="accent">
+          <input matInput formControlName="_id" placeholder="Item name" />
+        </mat-form-field>
+      </ng-container>
+      <mat-form-field appearance="outline" floatLabel="always" color="accent">
+        <input matInput formControlName="type" placeholder="Item name" />
+      </mat-form-field>
+    </div>
+  </div>
+</ng-container>

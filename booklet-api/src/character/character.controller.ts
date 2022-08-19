@@ -24,7 +24,6 @@ export class CharacterController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    console.log('waa')
     return this.characterService.findOne(id);
   }
 

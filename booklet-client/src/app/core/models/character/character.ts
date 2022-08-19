@@ -2,6 +2,7 @@ import { Tag } from "../tag";
 import { Ability } from "./abilitiy";
 import { Description } from "./description";
 import { Profile } from "./profile";
+import { Relationship } from "./relationship";
 
 export interface Character {
 
@@ -17,10 +18,12 @@ export interface Character {
 
     chronology: string;//to be defined
 
-    relationship: string;//to be defined
+    relationship: Relationship[];
 
     abilities: Ability;
 
     tags: Tag[];
+
+    status: string;
     
 }

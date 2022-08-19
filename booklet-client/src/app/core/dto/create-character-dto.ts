@@ -19,5 +19,7 @@ export interface CreateCharacterDto {
     abilities: Ability;
 
     tags: string[];
+
+    status: string;
     
 }

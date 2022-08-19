@@ -7,6 +7,8 @@ export class CreateCharacterDto {
 
   tags: Types.ObjectId[];
 
+  status: string;
+
   book: Types.ObjectId;
 
   imageBase64: string;
