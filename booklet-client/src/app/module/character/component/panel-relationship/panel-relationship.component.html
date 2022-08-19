@@ -1,11 +1,10 @@
-<p>panel-relationship works!</p>
 <mat-form-field appearance="fill">
-  <mat-label>Toppings</mat-label>
+  <mat-label>Characters</mat-label>
   <mat-select [(ngModel)]="listRelationship" multiple>
     <mat-option
-      (onSelectionChange)="getValues($event)"
+      (onSelectionChange)="onSelection($event)"
       *ngFor="let character of listCharacter"
-      [value]="character._id"
+      [value]="character"
       >{{ character.profile.generalInfo.firstname }}
       {{ character.profile.generalInfo.lastname }}</mat-option
     >
@@ -17,14 +16,27 @@
     *ngFor="let stat of relationship.controls; let i = index"
   >
     <div [formGroupName]="i">
-      <ng-container formGroupName="involvedWith">
-        <mat-form-field appearance="outline" floatLabel="always" color="accent">
-          <input matInput formControlName="_id" placeholder="Item name" />
-        </mat-form-field>
-      </ng-container>
-      <mat-form-field appearance="outline" floatLabel="always" color="accent">
-        <input matInput formControlName="type" placeholder="Item name" />
-      </mat-form-field>
+      
+        <div class="relationship-panel" fxLayoutAlign="start start">
+          <div fxFlex="25" class="avatar-container">
+            <img class="avatar" [src]="relationship.value[i].involvedWith.image" />
+          </div>
+          <div class="character-info" fxFlex="75">
+            <h2>{{relationship.value[i].involvedWith.profile.generalInfo.firstname}} {{relationship.value[i].involvedWith.profile.generalInfo.lastname}}</h2>
+            <div>
+              <mat-form-field class="mat-field-input-fill" appearance="outline" floatLabel="always" color="accent">
+                <mat-label>Status</mat-label>
+                <textarea matInput formControlName="type"></textarea>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="mat-field-input-fill" appearance="outline" floatLabel="always" color="accent">
+                <mat-label>Description</mat-label>
+                <textarea rows="5" matInput formControlName="text"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </ng-container>

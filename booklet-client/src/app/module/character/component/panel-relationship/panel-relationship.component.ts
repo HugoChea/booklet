@@ -47,23 +47,24 @@ export class PanelRelationshipComponent implements OnInit {
     this.relationship = this.newCharacterForm.get('relationship') as FormArray;
   }
 
-  createRelationship(value: number): FormGroup {
+  createRelationship(character: Character): FormGroup {
     return this.formBuilder.group({
       involvedWith: this.formBuilder.group({
-        _id: value
+        _id: character._id,
+        image: character.image,
+        profile: character.profile,
       }),
       type: '',
       text: ''
     });
   }
 
-
-  getValues(event: any){
-    console.log(event.source.selected)
-    console.log(event.source.value)
+  onSelection(event: any){
     if (event.source.selected){
       this.relationship.push(this.createRelationship(event.source.value));
     }
+    else{
+      this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith._id === event.source.value._id))
+    }
   }
-
 }
