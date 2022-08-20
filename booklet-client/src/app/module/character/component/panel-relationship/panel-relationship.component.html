@@ -19,10 +19,10 @@
       
         <div class="relationship-panel" fxLayoutAlign="start start">
           <div fxFlex="25" class="avatar-container">
-            <img class="avatar" [src]="relationship.value[i].involvedWith.image" />
+            <img class="avatar" [src]="relationship.value[i].character.image" />
           </div>
           <div class="character-info" fxFlex="75">
-            <h2>{{relationship.value[i].involvedWith.profile.generalInfo.firstname}} {{relationship.value[i].involvedWith.profile.generalInfo.lastname}}</h2>
+            <h2>{{relationship.value[i].character.profile.generalInfo.firstname}} {{relationship.value[i].character.profile.generalInfo.lastname}}</h2>
             <div>
               <mat-form-field class="mat-field-input-fill" appearance="outline" floatLabel="always" color="accent">
                 <mat-label>Status</mat-label>

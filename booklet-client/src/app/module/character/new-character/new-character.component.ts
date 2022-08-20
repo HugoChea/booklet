@@ -151,7 +151,8 @@ export class NewCharacterComponent implements OnInit {
     if (this.newCharacterForm.valid && !this.newCharacterForm.pristine) {
       createCharacterDto.book = this.book?._id ? this.book._id : '';
       createCharacterDto.imageBase64 = this.file;
-      createCharacterDto.status = "Todo"
+      createCharacterDto.status = "Todo";
+      console.log(createCharacterDto)
       this.characterService.createCharacter(createCharacterDto).subscribe({
         next: (res) => {
           this.snackbar.open('Character successfully created', '', {

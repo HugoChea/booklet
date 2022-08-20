@@ -14,6 +14,7 @@ export class CharacterService {
   }
   
   async create(createCharacterDto: CreateCharacterDto) {
+
     if (createCharacterDto.imageBase64){
       const image: [string, string] = await this.uploadImage(createCharacterDto.imageBase64);
       createCharacterDto.image = image[0];
@@ -21,7 +22,13 @@ export class CharacterService {
     }
     
     const newCharacter = new this.characterModel(createCharacterDto);
-    
+    await newCharacter.populate({ 
+      path: 'relationship',
+      populate: {
+        path: 'involvedWith',
+        model: 'Character'
+      } 
+   });
     await newCharacter.populate('tags');
     return newCharacter.save();
   }
@@ -35,7 +42,15 @@ export class CharacterService {
   }
 
   findOne(id: string) {
-    return this.characterModel.findById(id).populate("tags").exec();
+    return this.characterModel.findById(id).populate("tags").populate(
+      {
+        path: 'relationship',
+        populate: {
+          path: 'involvedWith',
+          model: 'Character',
+          select: 'image profile'
+        }
+      }).exec();
   }
 
   update(id: number, updateCharacterDto: UpdateCharacterDto) {

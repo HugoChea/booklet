@@ -5,6 +5,7 @@ import { Tag } from 'src/tag/schemas/tag.schema';
 import { Ability } from './abilitiy.schema';
 import { Description } from './description.schema';
 import { Profile } from './profile.schema';
+import { Relationship } from './relationship.schema';
 
 export type CharacterDocument = Character & Document;
 
@@ -39,8 +40,8 @@ export class Character {
   @Prop()
   chronology: string;
 
-  @Prop()
-  relationship: string;
+  @Prop([Relationship])
+  relationship: Relationship[];
 
   @Prop()
   abilities: Ability;

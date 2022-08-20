@@ -49,11 +49,8 @@ export class PanelRelationshipComponent implements OnInit {
 
   createRelationship(character: Character): FormGroup {
     return this.formBuilder.group({
-      involvedWith: this.formBuilder.group({
-        _id: character._id,
-        image: character.image,
-        profile: character.profile,
-      }),
+      involvedWith: character._id,
+      character: character,
       type: '',
       text: ''
     });
