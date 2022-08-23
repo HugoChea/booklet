@@ -22,7 +22,7 @@
       <mat-icon>keyboard_return</mat-icon> BACK
     </button>
   </div>
-  <div fxLayout="row" class="body" fxLayoutAlign="space-around start">
+  <mat-card fxLayout="row" class="body" fxLayoutAlign="space-around start">
     <div fxFlex="25">
       <app-image-uploader
         (fileUploadEvent)="uploadFile($event)"
@@ -64,5 +64,5 @@
         </mat-tab>
       </mat-tab-group>
     </div>
-  </div>
+  </mat-card>
 </form>

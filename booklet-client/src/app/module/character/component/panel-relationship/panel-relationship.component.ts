@@ -35,7 +35,7 @@ export class PanelRelationshipComponent implements OnInit {
     this.store.select(selectedBook).subscribe({
       next : (book) => {
         if (book){
-          this.characterService.getListLatestCharacterByBook(book._id).subscribe({
+          this.characterService.getListCharacterByBook(book._id).subscribe({
             next: (res) => {
               this.listCharacter = res;
             }

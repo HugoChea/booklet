@@ -10,6 +10,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatChipsModule,
     MatTabsModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   exports: [
     MatIconModule,
@@ -37,7 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatChipsModule,
     MatTabsModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule { }
