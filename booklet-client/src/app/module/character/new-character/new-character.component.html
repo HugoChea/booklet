@@ -2,27 +2,32 @@
   [formGroup]="newCharacterForm"
   (ngSubmit)="create(newCharacterForm.value)"
 >
-  <div class="actions">
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      class="actions-buttons"
-      [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
-    >
-      <mat-icon>save</mat-icon> SAVE
-    </button>
-    <button
-      type="button"
-      [routerLink]="['/app', 'book', book?._id, 'dashboard']"
-      mat-raised-button
-      color="primary"
-      class="actions-buttons"
-    >
-      <mat-icon>keyboard_return</mat-icon> BACK
-    </button>
-  </div>
-  <mat-card fxLayout="row" class="body" fxLayoutAlign="space-around start">
+  <mat-card fxLayout="row wrap" class="body" fxLayoutAlign="space-around start">
+    <div fxFlex="100" class="actions" fxLayoutAlign="space-between center">
+      <div>
+        <h2>Create character</h2>
+      </div>
+      <div>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          class="actions-buttons"
+          [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
+        >
+          <mat-icon>save</mat-icon> SAVE
+        </button>
+        <button
+          type="button"
+          [routerLink]="['/app', 'book', book?._id, 'character']"
+          mat-raised-button
+          color="primary"
+          class="actions-buttons"
+        >
+          <mat-icon>keyboard_return</mat-icon> BACK
+        </button>
+      </div>
+    </div>
     <div fxFlex="25">
       <app-image-uploader
         (fileUploadEvent)="uploadFile($event)"
@@ -30,7 +35,7 @@
         [width]="400"
         [height]="600"
       ></app-image-uploader>
-      <br>
+      <br />
       <app-form-character-general
         [newCharacterForm]="newCharacterForm"
       ></app-form-character-general>
@@ -39,12 +44,16 @@
       <mat-tab-group>
         <mat-tab label="Generalities">
           <div>
-            <app-panel-generality [newCharacterForm]="newCharacterForm"></app-panel-generality>
+            <app-panel-generality
+              [newCharacterForm]="newCharacterForm"
+            ></app-panel-generality>
           </div>
         </mat-tab>
         <mat-tab label="Description">
           <div class="tab-content">
-            <app-panel-description [newCharacterForm]="newCharacterForm"></app-panel-description>
+            <app-panel-description
+              [newCharacterForm]="newCharacterForm"
+            ></app-panel-description>
           </div>
         </mat-tab>
         <mat-tab label="Chronology">
@@ -54,12 +63,16 @@
         </mat-tab>
         <mat-tab label="Relationships">
           <div class="tab-content">
-            <app-panel-relationship [newCharacterForm]="newCharacterForm"></app-panel-relationship>
+            <app-panel-relationship
+              [newCharacterForm]="newCharacterForm"
+            ></app-panel-relationship>
           </div>
         </mat-tab>
         <mat-tab label="Abilities">
           <div class="tab-content">
-            <app-panel-ability [newCharacterForm]="newCharacterForm"></app-panel-ability>
+            <app-panel-ability
+              [newCharacterForm]="newCharacterForm"
+            ></app-panel-ability>
           </div>
         </mat-tab>
       </mat-tab-group>

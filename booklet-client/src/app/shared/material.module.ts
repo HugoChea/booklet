@@ -11,6 +11,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatExpansionModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonToggleModule
   ],
   exports: [
     MatIconModule,
@@ -40,7 +42,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     MatExpansionModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonToggleModule
   ]
 })
 export class MaterialModule { }

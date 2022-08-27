@@ -1,24 +1,75 @@
-<mat-card
-  *ngFor="let character of listCharacter"
-  [routerLink]="['/app', 'book', '159', 'character', 'detail', character._id]"
-  class="card-content pointer-cursor"
->
-  <div class="card-title" fxLayoutAlign="start center">
-    <div fxFlex="25" class="avatar-container">
-      <img class="avatar" [src]="character.image" alt="Photo of a Shiba Inu" />
+<mat-card class="header">
+  <div fxFlex="100" class="actions" fxLayoutAlign="space-between center">
+    <div>
+      <h2>Characters</h2>
     </div>
-    <div fxFlex="75" fxLayoutAlign="center center">
-      {{ character.profile.generalInfo.firstname }}
-      {{ character.profile.generalInfo.lastname }}
+    <div>
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        class="actions-buttons"
+        [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-button-toggle-group #group="matButtonToggleGroup">
+        <mat-button-toggle value="compact" aria-label="Text align left">
+          <mat-icon>view_headline</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="card" aria-label="Text align center">
+          <mat-icon>view_list</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
   </div>
-
-  <mat-card-content>
-    <mat-chip-list aria-label="Fish selection">
-      <mat-chip>One fish</mat-chip>
-      <mat-chip>Two fish</mat-chip>
-      <mat-chip color="primary" selected>Primary fish</mat-chip>
-      <mat-chip color="accent" selected>Accent fish</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
+</mat-card>
+<mat-card
+  *ngFor="let character of listCharacter"
+  class="card-content pointer-cursor"
+>
+  <div class="card-title" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center">
+      <div class="avatar-container">
+        <img class="avatar" [src]="character.image" alt="Photo of a Shiba Inu" />
+      </div>
+      <div class="character-info">
+        <h2>
+          {{ character.profile.generalInfo.firstname }}
+          {{ character.profile.generalInfo.lastname }}
+        </h2>
+        <h3>"{{ character.profile.generalInfo.surname }}"</h3>
+        <div class="tag-list">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip>{{ character.status }}</mat-chip>
+            <mat-chip *ngFor="let tag of character.tags">{{ tag.name }}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column">
+      <button
+        type="button"
+        mat-button
+        class="actions-buttons"
+        [routerLink]="['/app', 'book', book?._id, 'character', 'detail', character._id]"
+      >
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-button
+        class="actions-buttons"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-button
+        class="actions-buttons"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
 </mat-card>

@@ -1,32 +1,55 @@
-<mat-card>
-  <ng-container [formGroup]="newCharacterForm">
-    <ng-container formGroupName="profile">
-      <ng-container formGroupName="generalInfo">
-        <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-          <mat-label>Firstname</mat-label>
-          <input type="text" matInput formControlName="firstname" />
-        </mat-form-field>
+<ng-container [formGroup]="newCharacterForm">
+  <ng-container formGroupName="profile">
+    <ng-container formGroupName="generalInfo">
+      <mat-form-field
+        fxFill
+        appearance="outline"
+        floatLabel="always"
+        color="accent"
+      >
+        <mat-label>Firstname</mat-label>
+        <input type="text" matInput formControlName="firstname" />
+      </mat-form-field>
 
-        <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-          <mat-label>Lastname</mat-label>
-          <input type="text" matInput formControlName="lastname" />
-        </mat-form-field>
+      <mat-form-field
+        fxFill
+        appearance="outline"
+        floatLabel="always"
+        color="accent"
+      >
+        <mat-label>Lastname</mat-label>
+        <input type="text" matInput formControlName="lastname" />
+      </mat-form-field>
 
-        <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-          <mat-label>Surname</mat-label>
-          <input type="text" matInput formControlName="surname" />
-        </mat-form-field>
+      <mat-form-field
+        fxFill
+        appearance="outline"
+        floatLabel="always"
+        color="accent"
+      >
+        <mat-label>Surname</mat-label>
+        <input type="text" matInput formControlName="surname" />
+      </mat-form-field>
 
-        <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-          <mat-label>Quote</mat-label>
-          <input type="text" matInput formControlName="quote" />
-        </mat-form-field>
+      <mat-form-field
+        fxFill
+        appearance="outline"
+        floatLabel="always"
+        color="accent"
+      >
+        <mat-label>Quote</mat-label>
+        <input type="text" matInput formControlName="quote" />
+      </mat-form-field>
 
-        <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
-          <mat-label>CV</mat-label>
-          <input type="text" matInput formControlName="cv" />
-        </mat-form-field>
-      </ng-container>
+      <mat-form-field
+        fxFill
+        appearance="outline"
+        floatLabel="always"
+        color="accent"
+      >
+        <mat-label>CV</mat-label>
+        <input type="text" matInput formControlName="cv" />
+      </mat-form-field>
     </ng-container>
   </ng-container>
-</mat-card>
+</ng-container>
