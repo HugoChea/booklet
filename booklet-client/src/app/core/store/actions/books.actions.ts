@@ -8,3 +8,10 @@ export const selectBook = createAction(
   '[Book] Select Book',
   props<{ book: Book }>()
 );
+
+/**
+ * Action when user quit app or logout
+ */
+ export const clearSelectedBook = createAction(
+  '[Book] Clear Selected Book',
+);

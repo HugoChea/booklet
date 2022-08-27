@@ -12,11 +12,9 @@ export class NavbarComponent implements OnInit {
 
   user: User | undefined;
 
-  darkMode: boolean = true;
-
   constructor(
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {
     this.authService.user$.subscribe({
       next: (user) => {
@@ -33,12 +31,6 @@ export class NavbarComponent implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigate(['/home'])
-  }
-
-  switchMode(){
-    document.body.classList.toggle('theme-alternate');
-    this.darkMode = !this.darkMode;
-    
   }
 
 }

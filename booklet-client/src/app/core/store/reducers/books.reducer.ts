@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { selectBook } from '../actions/books.actions';
+import { selectBook, clearSelectedBook } from '../actions/books.actions';
 import { BookState } from '../state/book.state';
 
 export const initialState: Readonly<BookState> = {
@@ -12,4 +12,5 @@ export const initialState: Readonly<BookState> = {
 export const booksReducer = createReducer(
   initialState,
   on(selectBook, (state, { book }) => ({ ...state, selectedBook: book })),
+  on(clearSelectedBook, (state) => ({ ...state, selectedBook: undefined })),
 );

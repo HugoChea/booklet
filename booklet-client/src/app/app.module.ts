@@ -12,12 +12,16 @@ import { StoreModule } from '@ngrx/store';
 import { booksReducer } from './core/store/reducers/books.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { metaReducers } from '@core/store/metareducers';
+import { NavbarNavigationComponent } from './layout/navbar/component/navbar-navigation/navbar-navigation.component';
+import { ThemeTogglerComponent } from './layout/navbar/component/theme-toggler/theme-toggler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavbarNavigationComponent,
+    ThemeTogglerComponent
   ],
   imports: [
     BrowserModule,

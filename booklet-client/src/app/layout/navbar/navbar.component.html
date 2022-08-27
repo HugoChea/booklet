@@ -4,17 +4,10 @@
             <mat-icon>auto_stories</mat-icon>
         </button>
         <button class="navigation-buttons" mat-button [routerLink]="user ? ['/app/book'] : ['/home']"><h2>Booklet</h2></button>
-        <button class="navigation-buttons" mat-button [matMenuTriggerFor]="menu">Menu</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>Item 1</button>
-            <button mat-menu-item>Item 2</button>
-          </mat-menu>
+        <app-navbar-navigation></app-navbar-navigation>
     </div>
     <div>
-        <button class="navigation-buttons" mat-icon-button (click)="switchMode()">
-            <mat-icon *ngIf="!darkMode">dark_mode</mat-icon>
-            <mat-icon *ngIf="darkMode">light_mode</mat-icon>
-        </button>
+        <app-theme-toggler class="navigation-buttons"></app-theme-toggler>
         <span *ngIf="!user">
             <button class="navigation-buttons" routerLink="/auth/register" mat-flat-button color="primary">Register</button>
             <button class="navigation-buttons" routerLink="/auth/login" mat-flat-button color="primary">Login</button>
