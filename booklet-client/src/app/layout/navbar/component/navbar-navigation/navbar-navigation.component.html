@@ -1,0 +1,5 @@
+<ng-container *ngIf="book">
+    <button mat-button [routerLink]="['/app/book', book._id, 'dashboard']">Dashboard</button>
+    <button mat-button [routerLink]="['/app/book', book._id, 'chapter']">Chapters</button>
+    <button mat-button [routerLink]="['/app/book', book._id, 'character']">Characters</button>
+</ng-container>

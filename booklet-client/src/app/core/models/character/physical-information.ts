@@ -22,7 +22,7 @@ export interface PhysicalInformation{
 
     dressStyle: string;
 
-    accesories: string;
+    accessories: string;
 
     mannerism: string;
 
@@ -32,6 +32,6 @@ export interface PhysicalInformation{
 
     gestures: string;
 
-    disabilites: string;
+    disabilities: string;
  
 }

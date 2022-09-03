@@ -34,26 +34,26 @@
     </button>
     
       <div formArrayName="stats"
-        *ngFor="let item of items.controls; let i = index;">
+        *ngFor="let stat of stats.controls; let i = index;">
         <div [formGroupName]="i">
           <mat-form-field appearance="outline" floatLabel="always" color="accent">
             <input matInput formControlName="characteristicName" placeholder="Item name">
           </mat-form-field>
           <mat-form-field appearance="outline" floatLabel="always" color="accent">
             <input matInput type="number" min="0" max="100" formControlName="characteristicValue" placeholder="Item description">
-            <mat-error *ngIf="item.get('characteristicValue')?.hasError('max')">
+            <mat-error *ngIf="stat.get('characteristicValue')?.hasError('max')">
               Value can't be superior to <strong>100</strong>
             </mat-error>
-            <mat-error *ngIf="item.get('characteristicValue')?.hasError('min')">
+            <mat-error *ngIf="stat.get('characteristicValue')?.hasError('min')">
               Value can't be inferior to <strong>0</strong>
             </mat-error>
           </mat-form-field>
-          <button type="button" mat-raised-button color="primary" [disabled]="item.invalid" (click)="updateGraph()">Update</button>
+          <button type="button" mat-raised-button color="primary" [disabled]="stat.invalid" (click)="updateGraph()">Update</button>
         </div>
       
         <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
       </div>
-    <div class="graph" *ngIf="items.controls.length > 0">
+    <div class="graph" *ngIf="stats.controls.length > 0">
       <canvas
         baseChart
         [datasets]="radarChartDatasets"

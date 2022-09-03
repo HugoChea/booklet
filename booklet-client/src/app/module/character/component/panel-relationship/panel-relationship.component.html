@@ -1,1 +1,42 @@
-<p>panel-relationship works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>Characters</mat-label>
+  <mat-select [(ngModel)]="listRelationship" multiple>
+    <mat-option
+      (onSelectionChange)="onSelection($event)"
+      *ngFor="let character of listCharacter"
+      [value]="character"
+      >{{ character.profile.generalInfo.firstname }}
+      {{ character.profile.generalInfo.lastname }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<ng-container [formGroup]="newCharacterForm">
+  <div
+    formArrayName="relationship"
+    *ngFor="let stat of relationship.controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      
+        <div class="relationship-panel" fxLayoutAlign="start start">
+          <div fxFlex="25" class="avatar-container">
+            <img class="avatar" [src]="relationship.value[i].character.image" />
+          </div>
+          <div class="character-info" fxFlex="75">
+            <h2>{{relationship.value[i].character.profile.generalInfo.firstname}} {{relationship.value[i].character.profile.generalInfo.lastname}}</h2>
+            <div>
+              <mat-form-field class="mat-field-input-fill" appearance="outline" floatLabel="always" color="accent">
+                <mat-label>Status</mat-label>
+                <textarea matInput formControlName="type"></textarea>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="mat-field-input-fill" appearance="outline" floatLabel="always" color="accent">
+                <mat-label>Description</mat-label>
+                <textarea rows="5" matInput formControlName="text"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</ng-container>

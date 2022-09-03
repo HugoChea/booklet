@@ -1,22 +1,25 @@
 <form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)">
-  <div class="actions">
-    <button
-      type="submit"
-      mat-raised-button
-      color="primary"
-      class="actions-buttons"
-    >
-    <mat-icon>add</mat-icon> CREATE
-    </button>
-    <button
-      type="button"
-      routerLink="/app/book"
-      mat-raised-button
-      color="primary"
-      class="actions-buttons"
-    >
-    <mat-icon>keyboard_return</mat-icon> BACK
-    </button>
+  <div class="actions" fxLayoutAlign="space-between center">
+    <div>New Book</div>
+    <div>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="actions-buttons"
+      >
+        <mat-icon>add</mat-icon> CREATE
+      </button>
+      <button
+        type="button"
+        routerLink="/app/book"
+        mat-raised-button
+        color="primary"
+        class="actions-buttons"
+      >
+        <mat-icon>keyboard_return</mat-icon> BACK
+      </button>
+    </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-around start">
     <div fxFlex="25">

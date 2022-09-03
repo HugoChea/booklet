@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from '@core/models/book/book';
-import { BookService } from '@core/services/book.service';
-import { selectedBookId } from '@core/store/selectors/books.selectors';
+import { Character } from '@core/models/character/character';
+import { CharacterService } from '@core/services/character.service';
+import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -14,23 +15,34 @@ export class DashboardComponent implements OnInit {
 
   book?: Book;
 
-  books$ = this.store.select(selectedBookId);
+  books$ = this.store.select(selectedBook);
 
   constructor(
-    private router: Router,
-    private store: Store
+    private store: Store,
+    private characterService: CharacterService
   ) { }
 
+  /**
+   * Get selected book from store
+   */
   ngOnInit(): void {
     this.books$.subscribe({
-      next : (res) => {
-        this.book = res.selectedBook;
+      next : (book) => {
+        if (book){
+          this.book = book;
+          // this.characterService.getListLatestCharacterByBook(this.book._id).subscribe({
+          //   next: (res) => {
+          //     console.log(res)
+          //     this.listCharacter = res;
+          //   }
+          // })
+        }
+        else{
+          console.log("error")
+        }
       }
     })
-  }
-
-  toCreateCharacter(){
-    this.router.navigate(['/app', 'book', this.book?._id, 'character', 'new-character']);
+    
   }
 
 }

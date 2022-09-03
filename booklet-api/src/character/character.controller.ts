@@ -12,14 +12,19 @@ export class CharacterController {
     return this.characterService.create(createCharacterDto);
   }
 
-  @Get()
-  findAll() {
-    return this.characterService.findAll();
+  @Get('list/:id')
+  findAll(@Param('id') bookId: string) {
+    return this.characterService.findAll(bookId);
+  }
+
+  @Get('list-latest/:id')
+  findAllLastModified(@Param('id') bookId: string) {
+    return this.characterService.findAllLastModified(bookId);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.characterService.findOne(+id);
+    return this.characterService.findOne(id);
   }
 
   @Patch(':id')

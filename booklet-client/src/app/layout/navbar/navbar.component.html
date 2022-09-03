@@ -1,16 +1,28 @@
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="navbar" color="primary">
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="navbar">
     <div fxLayoutAlign="center center">
         <button mat-icon-button>
             <mat-icon>auto_stories</mat-icon>
         </button>
-        <span class="pointer-cursor" [routerLink]="user ? ['/app/book'] : ['/home']">Booklet</span>
+        <button class="navigation-buttons" mat-button [routerLink]="user ? ['/app/book'] : ['/home']"><h2>Booklet</h2></button>
+        <app-navbar-navigation></app-navbar-navigation>
     </div>
-    <div *ngIf="!user">
-        <button class="actions-buttons" routerLink="/auth/register" mat-flat-button color="primary">Register</button>
-        <button class="actions-buttons" routerLink="/auth/login" mat-flat-button color="primary">Login</button>
+    <div>
+        <app-theme-toggler class="navigation-buttons"></app-theme-toggler>
+        <span *ngIf="!user">
+            <button class="navigation-buttons" routerLink="/auth/register" mat-flat-button color="primary">Register</button>
+            <button class="navigation-buttons" routerLink="/auth/login" mat-flat-button color="primary">Login</button>
+        </span>
+        <span *ngIf="user">
+            <input class="input-search" type="text" id="search" name="search" size="10" placeholder="search"> <!--component de recherche-->
+            <button class="navigation-buttons" mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+            <button class="navigation-buttons" mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <!-- <button routerLink="/auth/register" mat-flat-button color="primary">Register</button> -->
+            <button class="navigation-buttons" (click)="logout()" mat-flat-button color="primary">Logout</button>
+        </span>
     </div>
-    <div *ngIf="user">
-        <!-- <button routerLink="/auth/register" mat-flat-button color="primary">Register</button> -->
-        <button (click)="logout()" mat-flat-button color="primary">Logout</button>
-    </div>
+    
 </mat-toolbar>

@@ -5,7 +5,7 @@ import { BookService } from '@core/services/book.service';
 import { TokenStorageService } from '@core/services/token-storage.service';
 import { Store } from '@ngrx/store';
 
-import { selectBook } from '@core/store/actions/books.actions';
+import { clearSelectedBook, selectBook } from '@core/store/actions/books.actions';
 
 @Component({
   selector: 'app-book',
@@ -24,7 +24,11 @@ export class BookComponent implements OnInit {
   ) {
   }
 
+  /**
+   * Get all book created by users to choose from
+   */
   ngOnInit(): void {
+    this.store.dispatch(clearSelectedBook());
     const userId: string | undefined = this.tokenStorage.getUser()?.id;
     if (userId) {
       this.bookService.getListBookByUser(userId).subscribe({
@@ -38,6 +42,11 @@ export class BookComponent implements OnInit {
     }
   }
 
+  /**
+   * Redirect to selected book dashboard
+   * Perform action dispatched to store by saving selected book for further api calls
+   * @param book 
+   */
   toDashboard(book: Book) {
     this.store.dispatch(selectBook({ book: book }));
     this.router.navigate(['/app/book', book._id, 'dashboard']);

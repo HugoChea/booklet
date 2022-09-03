@@ -5,6 +5,7 @@ import { Tag } from 'src/tag/schemas/tag.schema';
 import { Ability } from './abilitiy.schema';
 import { Description } from './description.schema';
 import { Profile } from './profile.schema';
+import { Relationship } from './relationship.schema';
 
 export type CharacterDocument = Character & Document;
 
@@ -17,6 +18,9 @@ export class Character {
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Book' })
   book: Book;
+
+  @Prop()
+  status: string;
 
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
   tags: Tag;
@@ -36,8 +40,8 @@ export class Character {
   @Prop()
   chronology: string;
 
-  @Prop()
-  relationship: string;
+  @Prop([Relationship])
+  relationship: Relationship[];
 
   @Prop()
   abilities: Ability;

@@ -12,7 +12,14 @@ import { TokenStorageService } from '@core/services/token-storage.service';
 })
 export class NewBookComponent implements OnInit {
 
+  /**
+   * Form to create a book
+   */
   newBookForm: FormGroup;
+
+  /**
+   * File in base64 to save
+   */
   file!: string;
 
   constructor(
@@ -54,8 +61,14 @@ export class NewBookComponent implements OnInit {
 
   }
 
+  /**
+   * Get output value from child component image-uploader
+   * @param file
+   */
   uploadFile(file: string) {
-    this.file = file;
+    if (file){
+      this.file = file;
+    }
   }
 
 }

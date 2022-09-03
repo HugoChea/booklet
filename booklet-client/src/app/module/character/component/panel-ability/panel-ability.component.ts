@@ -11,12 +11,24 @@ import { Editor, Toolbar } from 'ngx-editor';
 })
 export class PanelAbilityComponent implements OnInit {
 
+  /**
+   * Not used ?
+   */
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
+  /**
+   * Form shared from parent component
+   */
   @Input() newCharacterForm!: FormGroup;
 
-  items!: FormArray;
+  /**
+   * Stats form used to generate graph
+   */
+  stats!: FormArray;
 
+  /**
+   * Toolbar option for text editor
+   */
   toolbar: Toolbar = [
     ['bold', 'italic'],
     ['underline', 'strike'],
@@ -28,15 +40,27 @@ export class PanelAbilityComponent implements OnInit {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
 
+  /**
+   * Text editor
+   */
   editor1!: Editor;
   html1!: '';
 
+  /**
+   * Text editor
+   */
   editor2!: Editor;
   html2!: '';
 
+  /**
+   * Text editor
+   */
   editor3!: Editor;
   html3!: '';
 
+  /**
+   * Graph options
+   */
   public radarChartOptions: ChartConfiguration<'radar'>['options'] = {
     responsive: true,
     maintainAspectRatio: false,
@@ -59,14 +83,16 @@ export class PanelAbilityComponent implements OnInit {
     this.editor1 = new Editor();
     this.editor2 = new Editor();
     this.editor3 = new Editor();
-    this.items = this.newCharacterForm.get('abilities')?.get('stats') as FormArray;
+    this.stats = this.newCharacterForm.get('abilities')?.get('stats') as FormArray;
 
   }
 
+  /**
+   * Generate stats form based on defined value template
+   */
   generateTemplateStatsForm(){
     
-    console.log(this.items)
-    this.items.clear()
+    this.stats.clear()
     this.addItem('Strenght', 50);
     this.addItem('Endurance', 50);
     this.addItem('Agility', 50);
@@ -75,14 +101,23 @@ export class PanelAbilityComponent implements OnInit {
     this.updateGraph();
   }
 
+  /**
+   * Update graph data based from stats form
+   */
   updateGraph(){
-    this.radarChartLabels = this.items.value.map((res: { characteristicName: any; }) => res.characteristicName)
+    this.radarChartLabels = this.stats.value.map((res: { characteristicName: any; }) => res.characteristicName)
     this.radarChartDatasets = [
-      { data: this.items.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
+      { data: this.stats.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
     ]
     //this.chart?.update();
   }
 
+  /**
+   * Return generic form control
+   * @param name 
+   * @param value 
+   * @returns 
+   */
   createItem(name: string, value: number): FormGroup {
     return this.formBuilder.group({
       characteristicName: name,
@@ -90,9 +125,14 @@ export class PanelAbilityComponent implements OnInit {
     });
   }
 
+  /**
+   * Add characteristic to form
+   * @param name 
+   * @param value 
+   */
   addItem(name: string, value: number): void {
     
-    this.items.push(this.createItem(name, value));
+    this.stats.push(this.createItem(name, value));
   }
 
 }

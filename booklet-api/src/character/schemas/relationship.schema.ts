@@ -8,9 +8,6 @@ export type RelationshipDocument = Relationship & Document;
 export class Relationship {
 
   _id: string
-
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Character' })
-  involves: Character;
   
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Character' })
   involvedWith: Character;

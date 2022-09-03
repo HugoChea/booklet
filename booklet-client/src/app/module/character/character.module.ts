@@ -14,6 +14,7 @@ import { PanelChronologyComponent } from './component/panel-chronology/panel-chr
 import { PanelRelationshipComponent } from './component/panel-relationship/panel-relationship.component';
 import { PanelAbilityComponent } from './component/panel-ability/panel-ability.component';
 import { PanelGeneralityComponent } from './component/panel-generality/panel-generality.component';
+import { DisplayCharacterDescriptionComponent } from './component/display-character-description/display-character-description.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PanelGeneralityComponent } from './component/panel-generality/panel-gen
     PanelChronologyComponent,
     PanelRelationshipComponent,
     PanelAbilityComponent,
-    PanelGeneralityComponent
+    PanelGeneralityComponent,
+    DisplayCharacterDescriptionComponent
   ],
   imports: [
     CommonModule,

@@ -40,7 +40,7 @@ export class PhysicalInformation{
     dressStyle: string;
 
     @Prop()
-    accesories: string;
+    accessories: string;
 
     @Prop()
     mannerism: string;
@@ -55,7 +55,7 @@ export class PhysicalInformation{
     gestures: string;
 
     @Prop()
-    disabilites: string;
+    disabilities: string;
     
 }
 

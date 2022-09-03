@@ -9,6 +9,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import { PanelAbilityComponent } from '../component/panel-ability/panel-ability.component';
 import { ImageUploaderComponent } from '@shared/component/image-uploader/image-uploader.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
   selector: 'app-form-character-general',
@@ -71,20 +73,25 @@ describe('NewCharacterComponent', () => {
 
   let characterServiceSpy: jasmine.SpyObj<CharacterService>;
 
+  let store: MockStore;
+  const initialState = { selectedBook: null };
+
   beforeEach(async () => {
     characterServiceSpy = jasmine.createSpyObj('CharacterService', ['createCharacter']);
     characterServiceSpy.createCharacter.and.returnValue(of("createCharmock"))
     await TestBed.configureTestingModule({
-      imports: [MaterialModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
+      imports: [MaterialModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, RouterTestingModule],
       declarations: [ NewCharacterComponent, FakeFormCharacterGeneralComponent, FakePanelGeneralityComponent, FakePanelChornologyComponent, FakePanelDescriptionComponent, FakePanelRelationshipComponent, FakePanelAbilityComponent, ImageUploaderComponent ],
       providers: [
         { provide: CharacterService, useValue: characterServiceSpy },
+        provideMockStore({ initialState }),
       ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(NewCharacterComponent);
     component = fixture.componentInstance;
+    store = TestBed.inject(MockStore);
     fixture.detectChanges();
   });
 

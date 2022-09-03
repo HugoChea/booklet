@@ -1,0 +1,102 @@
+<div class="card-title" fxLayoutAlign="space-between center">
+    <div class="generalities">
+      <div class="avatar-container">
+        <img
+          class="avatar"
+          [src]="character?.image"
+          alt="Photo of a Shiba Inu"
+        />
+      </div>
+      <mat-card class="profile">
+        <div class="profile-header" fxLayoutAlign="center center">General</div>
+        <div fxLayout="row wrap" class="profile-content">
+          <div fxFlex="50">Firstname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.firstname }}</div>
+          <div fxFlex="50">Lastname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.lastname }}</div>
+          <div fxFlex="50">Surname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.surname }}</div>
+          <div fxFlex="50">Age</div><div fxFlex="50">{{ character?.profile?.generalInfo?.age }}</div>
+          <div fxFlex="50">Birthday</div><div fxFlex="50">{{ character?.profile?.generalInfo?.birthdate }}</div>
+          <div fxFlex="50">Birthplace</div><div fxFlex="50">{{ character?.profile?.generalInfo?.birthplace }}</div>
+          <div fxFlex="50">Species</div><div fxFlex="50">{{ character?.profile?.generalInfo?.species }}</div>
+          <div fxFlex="50">Nationality</div><div fxFlex="50">{{ character?.profile?.generalInfo?.nationality }}</div>
+          <div fxFlex="50">Hometown</div><div fxFlex="50">{{ character?.profile?.generalInfo?.hometown }}</div>
+          <div fxFlex="50">Current place</div><div fxFlex="50">{{ character?.profile?.generalInfo?.currentPlace }}</div>
+          <div fxFlex="50">Home description</div><div fxFlex="50">{{ character?.profile?.generalInfo?.homeDescription }}</div>
+          <div fxFlex="50">Neighbourhood</div><div fxFlex="50">{{ character?.profile?.generalInfo?.neighbourhood }}</div>
+          <div fxFlex="50">Occupation</div><div fxFlex="50">{{ character?.profile?.generalInfo?.occupation }}</div>
+          <div fxFlex="50">Job satisfaction</div><div fxFlex="50">{{ character?.profile?.generalInfo?.jobSatisfaction }}</div>
+          <div fxFlex="50">Finance</div><div fxFlex="50">{{ character?.profile?.generalInfo?.finance }}</div>
+          <div fxFlex="50">Personal Habits</div><div fxFlex="50">{{ character?.profile?.generalInfo?.personalHabits }}</div>
+          <div fxFlex="50">Hobbies</div><div fxFlex="50">{{ character?.profile?.generalInfo?.hobbies }}</div>
+          <div fxFlex="50">Favorite Foods</div><div fxFlex="50">{{ character?.profile?.generalInfo?.favoriteFoods }}</div>
+          <div fxFlex="50">Favorite Saying</div><div fxFlex="50">{{ character?.profile?.generalInfo?.favoriteSaying }}</div>
+        </div>
+        <div class="profile-header" fxLayoutAlign="center center">Physical</div>
+        <div fxLayout="row wrap" class="profile-content">
+          <div fxFlex="50">Height</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.height }}</div>
+          <div fxFlex="50">Weight</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.weight }}</div>
+          <div fxFlex="50">Body Shape</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.bodyshape }}</div>
+          <div fxFlex="50">Hair</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.hair }}</div>
+          <div fxFlex="50">Ethnicity</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.ethnicity }}</div>
+          <div fxFlex="50">Smell</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.smell }}</div>
+          <div fxFlex="50">Skintone</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.skintone }}</div>
+          <div fxFlex="50">Eyes</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.eyes }}</div>
+          <div fxFlex="50">Distinguish marks</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.distinguishMarks }}</div>
+          <div fxFlex="50">Dress style</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.dressStyle }}</div>
+          <div fxFlex="50">Accessories</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.accessories }}</div>
+          <div fxFlex="50">Mannerism</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.mannerism }}</div>
+          <div fxFlex="50">Physical posture</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.physicalPosture }}</div>
+          <div fxFlex="50">Speech pattern</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.speechPattern }}</div>
+          <div fxFlex="50">Gestures</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.gestures }}</div>
+          <div fxFlex="50">Disabilities</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.disabilities }}</div>
+        </div>
+        <div class="profile-header" fxLayoutAlign="center center">Mental</div>
+        <div fxLayout="row wrap" class="profile-content">
+          <div fxFlex="50">Flaws</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.flaws }}</div>
+          <div fxFlex="50">Qualities</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.qualities }}</div>
+          <div fxFlex="50">Education</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.education }}</div>
+          <div fxFlex="50">Intelligence</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.intelligence }}</div>
+          <div fxFlex="50">Mental Illness</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.mentalIllness }}</div>
+          <div fxFlex="50">Learning experiences</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.learningExperiences }}</div>
+          <div fxFlex="50">Positive personality traits</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.positivePersonalityTraits }}</div>
+          <div fxFlex="50">Negative personality traits</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.negativePersonalityTraits }}</div>
+          <div fxFlex="50">Philosophy of life</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.philosophyOfLife }}</div>
+          <div fxFlex="50">Political attitude</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.politicalAttitude }}</div>
+          <div fxFlex="50">Goal achievement</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.goalAchievement }}</div>
+          <div fxFlex="50">Greatest dream</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.greatestDream }}</div>
+          <div fxFlex="50">Consideration for others</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.considerationForOthers }}</div>
+          <div fxFlex="50">Self perception</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.selfPerception }}</div>
+          <div fxFlex="50">Others perception</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.othersPerception }}</div>
+          <div fxFlex="50">Sense of humour</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.senseOfHumour }}</div>
+          <div fxFlex="50">Temper</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.temper }}</div>
+          <div fxFlex="50">Emotion or logic</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.emotionOrLogic }}</div>
+          <div fxFlex="50">Leader or follower</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.leaderOrFollower }}</div>
+          <div fxFlex="50">Embarassements</div><div fxFlex="50">{{ character?.profile?.psychologicInfo?.embarassements }}</div>
+        </div>
+      </mat-card>
+      
+    </div>
+  </div>
+  <div class="character-header">
+    <h1 class="character-name">
+        {{ character?.profile?.generalInfo?.firstname }}
+        {{ character?.profile?.generalInfo?.lastname }}
+    </h1>
+    <h2 class="character-title primary">
+        <q>{{ character?.profile?.generalInfo?.surname }}</q>
+    </h2>
+    <blockquote class="character-quote">{{ character?.profile?.generalInfo?.quote }}</blockquote>
+    <h4 class="character-cv">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
+  </div>
+  <div class="character-content">
+    <div class="summary">
+      <div [innerHtml]="character?.description?.summary"></div>
+    </div>
+    <div class="personality">
+      <h3 class="category-title">Personality</h3>
+      <div [innerHtml]="character?.description?.personality"></div>
+    </div>
+    <div class="background">
+      <h3 class="category-title">Background</h3>
+      <div [innerHtml]="character?.description?.background"></div>
+    </div>
+  </div>

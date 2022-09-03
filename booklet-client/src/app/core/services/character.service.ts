@@ -17,4 +17,16 @@ export class CharacterService {
 
     return this.http.post<any>(this.apiURL, createCharacter);
   }
+
+  getListLatestCharacterByBook(bookId: string): Observable<any> {
+    return this.http.get<any>(this.apiURL + "/list-latest/" + bookId);
+  }
+
+  getListCharacterByBook(bookId: string): Observable<any> {
+    return this.http.get<any>(this.apiURL + "/list/" + bookId);
+  }
+
+  getCharacterById(characterId: string): Observable<any> {
+    return this.http.get<any>(this.apiURL + "/" + characterId);
+  }
 }
