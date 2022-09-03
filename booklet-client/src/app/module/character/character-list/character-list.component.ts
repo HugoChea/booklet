@@ -36,7 +36,6 @@ export class CharacterListComponent implements OnInit {
           this.book= book;
           this.characterService.getListCharacterByBook(book._id).subscribe({
             next: (res) => {
-              console.log(res)
               this.listCharacter = res;
             }
           })

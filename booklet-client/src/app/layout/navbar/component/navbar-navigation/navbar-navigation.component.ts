@@ -21,7 +21,6 @@ export class NavbarNavigationComponent implements OnInit {
   ngOnInit(): void {
     this.books$.subscribe({
       next : (res) => {
-        console.log(res)
         this.book = res;
       }
     })

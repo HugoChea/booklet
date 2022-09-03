@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(registerDto: RegisterDto){
-    console.log(registerDto)
     this.authService.register(registerDto).subscribe({
       next : (res) => {
         this.snackbar.open('Account successfully registered', '', {
