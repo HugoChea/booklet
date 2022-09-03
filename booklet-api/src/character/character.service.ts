@@ -34,7 +34,7 @@ export class CharacterService {
   }
 
   findAll(bookId: string) {
-    return this.characterModel.find({ 'book': bookId }).populate("tags").exec();
+    return this.characterModel.find({ 'book': bookId }).sort({ 'profile.generalInfo.firstname': 1 , 'profile.generalInfo.lastname': 1}).populate("tags").exec();
   }
 
   findAllLastModified(bookId: string) {

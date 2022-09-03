@@ -79,12 +79,12 @@ export class NewCharacterComponent implements OnInit {
           eyes: [''],
           distinguishMarks: [''],
           dressStyle: [''],
-          accesories: [''],
+          accessories: [''],
           mannerism: [''],
           physicalPosture: [''],
           speechPattern: [''],
           gestures: [''],
-          disabilites: ['']
+          disabilities: ['']
         }),
         psychologicInfo: this.formBuilder.group({
           flaws: [''],

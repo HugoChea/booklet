@@ -19,6 +19,10 @@ export class CharacterListComponent implements OnInit {
 
   listCharacter: Character[] = [];
 
+  displayMode: string = "card";
+
+  displayedColumns = ['firstname', 'lastname', 'status']; 
+
   constructor(
     private router: Router,
     private store: Store,

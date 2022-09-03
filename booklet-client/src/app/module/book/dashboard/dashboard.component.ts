@@ -17,10 +17,7 @@ export class DashboardComponent implements OnInit {
 
   books$ = this.store.select(selectedBook);
 
-  listCharacter: Character[] = [];
-
   constructor(
-    private router: Router,
     private store: Store,
     private characterService: CharacterService
   ) { }
@@ -33,12 +30,12 @@ export class DashboardComponent implements OnInit {
       next : (book) => {
         if (book){
           this.book = book;
-          this.characterService.getListLatestCharacterByBook(this.book._id).subscribe({
-            next: (res) => {
-              console.log(res)
-              this.listCharacter = res;
-            }
-          })
+          // this.characterService.getListLatestCharacterByBook(this.book._id).subscribe({
+          //   next: (res) => {
+          //     console.log(res)
+          //     this.listCharacter = res;
+          //   }
+          // })
         }
         else{
           console.log("error")
@@ -46,13 +43,6 @@ export class DashboardComponent implements OnInit {
       }
     })
     
-  }
-
-  /**
-   * Navigate through character creation
-   */
-  toCreateCharacter(){
-    this.router.navigate(['/app', 'book', this.book?._id, 'character', 'new-character']);
   }
 
 }
