@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '@shared/material.module';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { DashboardComponent } from './dashboard.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -13,7 +14,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MaterialModule, BrowserAnimationsModule, RouterTestingModule],
+      imports: [MaterialModule, BrowserAnimationsModule, RouterTestingModule, HttpClientTestingModule],
       declarations: [ DashboardComponent ],
       providers: [
         provideMockStore({ initialState }),

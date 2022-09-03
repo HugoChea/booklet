@@ -46,12 +46,12 @@ describe('PanelGeneralityComponent', () => {
         eyes: [''],
         distinguishMarks: [''],
         dressStyle: [''],
-        accesories: [''],
+        accessories: [''],
         mannerism: [''],
         physicalPosture: [''],
         speechPattern: [''],
         gestures: [''],
-        disabilites: ['']
+        disabilities: ['']
       }),
       psychologicInfo: formBuilder.group({
         flaws: [''],

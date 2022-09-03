@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '@shared/material.module';
 
 import { ThemeTogglerComponent } from './theme-toggler.component';
 
@@ -8,7 +9,8 @@ describe('ThemeTogglerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThemeTogglerComponent ]
+      declarations: [ ThemeTogglerComponent ],
+      imports: [ MaterialModule ]
     })
     .compileComponents();
 
