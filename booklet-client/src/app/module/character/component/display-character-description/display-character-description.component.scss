@@ -41,7 +41,7 @@ blockquote::after {
 
 .profile-header{
   height: 40px;
-  background-color: red;
+  background-color: #ff4757;
 }
 
 .profile-content{
@@ -82,7 +82,9 @@ blockquote::after {
 }
 
 .category-title{
+  padding-top: 20px;
   padding-left: 2em;
+  margin-bottom: 20px!important;
   font-size: 24px;
   border-bottom: 1px solid;
   overflow: hidden;

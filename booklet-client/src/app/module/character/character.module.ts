@@ -15,6 +15,8 @@ import { PanelRelationshipComponent } from './component/panel-relationship/panel
 import { PanelAbilityComponent } from './component/panel-ability/panel-ability.component';
 import { PanelGeneralityComponent } from './component/panel-generality/panel-generality.component';
 import { DisplayCharacterDescriptionComponent } from './component/display-character-description/display-character-description.component';
+import { DisplayCharacterRelationshipComponent } from './component/display-character-relationship/display-character-relationship.component';
+import { DisplayCharacterAbilitiesComponent } from './component/display-character-abilities/display-character-abilities.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DisplayCharacterDescriptionComponent } from './component/display-charac
     PanelRelationshipComponent,
     PanelAbilityComponent,
     PanelGeneralityComponent,
-    DisplayCharacterDescriptionComponent
+    DisplayCharacterDescriptionComponent,
+    DisplayCharacterRelationshipComponent,
+    DisplayCharacterAbilitiesComponent
   ],
   imports: [
     CommonModule,
