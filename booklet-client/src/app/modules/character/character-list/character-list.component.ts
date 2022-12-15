@@ -20,8 +20,6 @@ export class CharacterListComponent implements OnInit {
 
   displayMode: string = "card";
 
-  displayedColumns = ['firstname', 'lastname', 'status']; 
-
   constructor(
     private store: Store,
     private characterService: CharacterService

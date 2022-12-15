@@ -17,6 +17,8 @@ import { PanelGeneralityComponent } from './components/panel-generality/panel-ge
 import { DisplayCharacterDescriptionComponent } from './components/display-character-description/display-character-description.component';
 import { DisplayCharacterRelationshipComponent } from './components/display-character-relationship/display-character-relationship.component';
 import { DisplayCharacterAbilitiesComponent } from './components/display-character-abilities/display-character-abilities.component';
+import { CharacterListCardComponent } from './character-list/components/character-list-card/character-list-card.component';
+import { CharacterListGridComponent } from './character-list/components/character-list-grid/character-list-grid.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DisplayCharacterAbilitiesComponent } from './components/display-charact
     PanelGeneralityComponent,
     DisplayCharacterDescriptionComponent,
     DisplayCharacterRelationshipComponent,
-    DisplayCharacterAbilitiesComponent
+    DisplayCharacterAbilitiesComponent,
+    CharacterListCardComponent,
+    CharacterListGridComponent
   ],
   imports: [
     CommonModule,
