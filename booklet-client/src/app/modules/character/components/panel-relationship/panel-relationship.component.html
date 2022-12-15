@@ -16,7 +16,6 @@
     *ngFor="let stat of relationship.controls; let i = index"
   >
     <div [formGroupName]="i">
-      
         <div class="relationship-panel" fxLayoutAlign="start start">
           <div fxFlex="25" class="avatar-container">
             <img class="avatar" [src]="relationship.value[i].character.image" />

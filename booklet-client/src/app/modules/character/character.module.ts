@@ -6,17 +6,17 @@ import { CharacterListComponent } from './character-list/character-list.componen
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { NewCharacterComponent } from './new-character/new-character.component';
 import { SharedModule } from '@shared/shared.module';
-import { FormCharacterGeneralComponent } from './component/form-character-general/form-character-general.component';
+import { FormCharacterGeneralComponent } from './components/form-character-general/form-character-general.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgxEditorModule } from 'ngx-editor';
-import { PanelDescriptionComponent } from './component/panel-description/panel-description.component';
-import { PanelChronologyComponent } from './component/panel-chronology/panel-chronology.component';
-import { PanelRelationshipComponent } from './component/panel-relationship/panel-relationship.component';
-import { PanelAbilityComponent } from './component/panel-ability/panel-ability.component';
-import { PanelGeneralityComponent } from './component/panel-generality/panel-generality.component';
-import { DisplayCharacterDescriptionComponent } from './component/display-character-description/display-character-description.component';
-import { DisplayCharacterRelationshipComponent } from './component/display-character-relationship/display-character-relationship.component';
-import { DisplayCharacterAbilitiesComponent } from './component/display-character-abilities/display-character-abilities.component';
+import { PanelDescriptionComponent } from './components/panel-description/panel-description.component';
+import { PanelChronologyComponent } from './components/panel-chronology/panel-chronology.component';
+import { PanelRelationshipComponent } from './components/panel-relationship/panel-relationship.component';
+import { PanelAbilityComponent } from './components/panel-ability/panel-ability.component';
+import { PanelGeneralityComponent } from './components/panel-generality/panel-generality.component';
+import { DisplayCharacterDescriptionComponent } from './components/display-character-description/display-character-description.component';
+import { DisplayCharacterRelationshipComponent } from './components/display-character-relationship/display-character-relationship.component';
+import { DisplayCharacterAbilitiesComponent } from './components/display-character-abilities/display-character-abilities.component';
 
 @NgModule({
   declarations: [

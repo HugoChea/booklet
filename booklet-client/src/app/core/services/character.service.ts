@@ -14,7 +14,6 @@ export class CharacterService {
   constructor(private http: HttpClient) { }
 
   createCharacter(createCharacter: CreateCharacterDto): Observable<any>{
-
     return this.http.post<any>(this.apiURL, createCharacter);
   }
 

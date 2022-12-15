@@ -33,7 +33,7 @@
         "src/environments/environment"
       ],
       "@module/*": [
-        "src/app/module/*"
+        "src/app/modules/*"
       ],
     }
   },

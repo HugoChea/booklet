@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Book } from '@core/models/book/book';
 import { Character } from '@core/models/character/character';
 import { CharacterService } from '@core/services/character.service';
@@ -24,7 +23,6 @@ export class CharacterListComponent implements OnInit {
   displayedColumns = ['firstname', 'lastname', 'status']; 
 
   constructor(
-    private router: Router,
     private store: Store,
     private characterService: CharacterService
   ) { }
