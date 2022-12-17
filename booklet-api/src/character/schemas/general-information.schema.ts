@@ -22,7 +22,10 @@ export class GeneralInformation{
     cv: string;
 
     @Prop()
-    species: string;
+    race: string;
+
+    @Prop()
+    sexe: string;
 
     @Prop()
     nationality: string;
@@ -36,38 +39,6 @@ export class GeneralInformation{
     @Prop()
     birthplace: string;
 
-    @Prop()
-    hometown: string;
-
-    @Prop()
-    currentPlace: string;
-
-    @Prop()
-    homeDescription: string;
-
-    @Prop()
-    neighbourhood: string;
-
-    @Prop()
-    occupation: string;
-
-    @Prop()
-    jobSatisfaction: string;
-
-    @Prop()
-    finance: string;
-
-    @Prop()
-    personalHabits: string;
-
-    @Prop()
-    hobbies: string;
-
-    @Prop()
-    favoriteFoods: string;
-
-    @Prop()
-    favoriteSaying: string;
 }
 
 export const GeneralInformationSchema = SchemaFactory.createForClass(GeneralInformation);

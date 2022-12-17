@@ -1,9 +1,21 @@
 export interface Description {
 
+    localisation: string;
+
+    livingWith: string;
+
+    homeDescription: string;
+
+    neighbourhood: string;
+
+    occupation: string;
+
+    jobSatisfaction: string;
+
     summary: string;
 
-    personality: string;
-
     background: string;
+
+    personality: string;
 
 }

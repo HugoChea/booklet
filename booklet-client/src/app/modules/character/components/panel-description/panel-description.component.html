@@ -1,11 +1,50 @@
 <ng-container [formGroup]="newCharacterForm">
   <ng-container formGroupName="description">
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Localisation</mat-label>
+      <input type="text" matInput formControlName="localisation" />
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Living with</mat-label>
+      <input type="text" matInput formControlName="livingWith" />
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Home Description</mat-label>
+      <input type="text" matInput formControlName="homeDescription" />
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Neighbourhood</mat-label>
+      <input type="text" matInput formControlName="neighbourhood" />
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Occupation</mat-label>
+      <input type="text" matInput formControlName="occupation" />
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="outline" floatLabel="always" color="accent">
+      <mat-label>Job Satisfaction</mat-label>
+      <input type="text" matInput formControlName="jobSatisfaction" />
+    </mat-form-field>
+
     <h2 class="section-title">Summary</h2>
 
     <ngx-editor-menu [toolbar]="toolbar" [editor]="editor1"> </ngx-editor-menu>
     <ngx-editor
       [editor]="editor1"
       formControlName="summary"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+
+    <h2 class="section-title">Background</h2>
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor3"
+      formControlName="background"
       [placeholder]="'Type here...'"
     ></ngx-editor>
 
@@ -16,12 +55,6 @@
       formControlName="personality"
       [placeholder]="'Type here...'"
     ></ngx-editor>
-    <h2 class="section-title">Background</h2>
-    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
-    <ngx-editor
-      [editor]="editor3"
-      formControlName="background"
-      [placeholder]="'Type here...'"
-    ></ngx-editor>
+    
   </ng-container>
 </ng-container>
