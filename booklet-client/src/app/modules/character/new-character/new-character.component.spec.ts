@@ -7,7 +7,7 @@ import { NewCharacterComponent } from './new-character.component';
 import { of } from 'rxjs';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, Input } from '@angular/core';
-import { PanelAbilityComponent } from '../component/panel-ability/panel-ability.component';
+import { PanelAbilityComponent } from '../components/panel-ability/panel-ability.component';
 import { ImageUploaderComponent } from '@shared/component/image-uploader/image-uploader.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
