@@ -1,0 +1,50 @@
+<mat-card class="header">
+  <div fxFlex="100" class="actions" fxLayoutAlign="space-between center">
+    <div>
+      <h2>Characters</h2>
+    </div>
+    <div>
+      <input
+        class="input-search"
+        type="text"
+        id="search"
+        name="search"
+        size="10"
+        placeholder="search"
+      />
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        class="actions-buttons"
+        [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-button-toggle-group
+        [(ngModel)]="displayMode"
+        #group="matButtonToggleGroup"
+      >
+        <mat-button-toggle value="compact" aria-label="Text align left">
+          <mat-icon>view_headline</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="card" aria-label="Text align center">
+          <mat-icon>view_list</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+</mat-card>
+
+<div *ngIf="displayMode === 'card'">
+  <app-character-list-card
+    [listCharacter]="listCharacter"
+    [bookId]="book?._id"
+  ></app-character-list-card>
+</div>
+
+<div *ngIf="displayMode === 'compact'">
+  <app-character-list-grid
+    [listCharacter]="listCharacter"
+  ></app-character-list-grid>
+</div>

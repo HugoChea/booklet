@@ -1,0 +1,35 @@
+.card-content {
+  margin: 10px 0;
+  height: 100px;
+}
+
+.card-title {
+  padding-bottom: 10px;
+}
+
+.avatar {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.avatar-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+}
+
+.character-info {
+  // text-overflow: ellipsis;
+  margin-left: 1em;
+}
+
+.tag-list {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 32px;
+}

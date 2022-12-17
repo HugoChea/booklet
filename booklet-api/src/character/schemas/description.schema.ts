@@ -7,13 +7,31 @@ export type DescriptionDocument = Description & Document;
 export class Description {
 
     @Prop()
+    localisation: string;
+
+    @Prop()
+    livingWith: string;
+
+    @Prop()
+    homeDescription: string;
+
+    @Prop()
+    neighbourhood: string;
+
+    @Prop()
+    occupation: string;
+
+    @Prop()
+    jobSatisfaction: string;
+
+    @Prop()
     summary: string;
 
     @Prop()
-    personality: string;
+    background: string;
 
     @Prop()
-    background: string;
+    personality: string;
 
 }
 

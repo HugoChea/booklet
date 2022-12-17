@@ -4,7 +4,7 @@
             <mat-icon>auto_stories</mat-icon>
         </button>
         <button class="navigation-buttons" mat-button [routerLink]="user ? ['/app/book'] : ['/home']"><h2>Booklet</h2></button>
-        <app-navbar-navigation></app-navbar-navigation>
+        <app-navbar-navigation *ngIf="user"></app-navbar-navigation>
     </div>
     <div>
         <app-theme-toggler class="navigation-buttons"></app-theme-toggler>

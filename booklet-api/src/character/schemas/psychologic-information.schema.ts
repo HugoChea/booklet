@@ -7,43 +7,22 @@ export type PsychologicInformationDocument = PsychologicInformation & Document;
 export class PsychologicInformation{
     // mental
     @Prop()
+    mbti: string;
+
+    @Prop()
+    intelligence: string;
+
+    @Prop()
+    selfConfidence: string;
+
+    @Prop()
     flaws: string;
 
     @Prop()
     qualities: string;
 
     @Prop()
-    education: string;
-
-    @Prop()
-    intelligence: string;
-
-    @Prop()
-    mentalIllness: string;
-
-    @Prop()
-    learningExperiences: string;
-
-    @Prop()
-    positivePersonalityTraits: string;
-
-    @Prop()
-    negativePersonalityTraits: string;
-
-    @Prop()
-    philosophyOfLife: string;
-
-    @Prop()
     politicalAttitude: string;
-
-    @Prop()
-    goalAchievement: string;
-
-    @Prop()
-    greatestDream: string;
-
-    @Prop()
-    considerationForOthers: string;
 
     @Prop()
     selfPerception: string;
@@ -52,22 +31,34 @@ export class PsychologicInformation{
     othersPerception: string;
 
     @Prop()
-    selfConfidence: string;
-    
-    @Prop()
-    senseOfHumour: string;
+    regrets: string;
 
     @Prop()
-    temper: string;
+    accomplishments: string;
 
     @Prop()
-    emotionOrLogic: string;
+    shortTermGoals: string;
 
     @Prop()
-    leaderOrFollower: string;
+    longTermGoals: string;
 
     @Prop()
-    embarassements: string;
+    goalsFeasability: string;
+
+    @Prop()
+    hobbies: string;
+
+    @Prop()
+    specialTalents: string;
+
+    @Prop()
+    unskilledAt: string;
+
+    @Prop()
+    likes: string;
+
+    @Prop()
+    dislikes: string;
 }
 
 export const PsychologicInformationSchema = SchemaFactory.createForClass(PsychologicInformation);

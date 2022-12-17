@@ -1,44 +1,40 @@
 export interface PsychologicInformation{
     // mental
+
+    mbti: string;
+
+    intelligence: string;
+
+    selfConfidence: string;
+
     flaws: string;
 
     qualities: string;
 
-    education: string;
-
-    intelligence: string;
-
-    mentalIllness: string;
-
-    learningExperiences: string;
-
-    positivePersonalityTraits: string;
-
-    negativePersonalityTraits: string;
-
-    philosophyOfLife: string;
-
     politicalAttitude: string;
-
-    goalAchievement: string;
-
-    greatestDream: string;
-
-    considerationForOthers: string;
 
     selfPerception: string;
 
     othersPerception: string;
 
-    selfConfidence: string;
+    regrets: string;
 
-    senseOfHumour: string;
+    accomplishments: string;
 
-    temper: string;
+    shortTermGoals: string;
 
-    emotionOrLogic: string;
+    longTermGoals: string;
 
-    leaderOrFollower: string;
+    goalsFeasability: string;
 
-    embarassements: string;
+    hobbies: string;
+
+    specialTalents: string;
+
+    unskilledAt: string;
+
+    likes: string;
+
+    dislikes: string;
+
 }
