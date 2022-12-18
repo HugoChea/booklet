@@ -97,3 +97,10 @@ blockquote::after {
 .toggle-button{
   min-width: 100px;
 }
+
+.flex-50{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50%;
+  max-width: 50%;
+}

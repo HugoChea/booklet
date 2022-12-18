@@ -254,6 +254,75 @@ $altTheme: (
   }
 }
 
+// FLEX UTILITIES CLASS
+
+.fx-row{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.fx-column{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.fx-wrap{
+  flex-wrap: wrap;
+}
+
+.fx-horizontal-start{
+  justify-content: flex-start;
+}
+
+.fx-horizontal-end{
+  justify-content: flex-end;
+}
+
+.fx-horizontal-center{
+  justify-content: center;
+}
+
+.fx-horizontal-space-between{
+  justify-content: space-between;
+}
+
+.fx-horizontal-space-around{
+  justify-content: space-around;
+}
+
+.fx-horizontal-space-evenly{
+  justify-content: space-evenly;
+}
+
+.fx-vertical-start{
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.fx-vertical-end{
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+.fx-vertical-center{
+  align-content: center;
+  align-items: center;
+}
+
+.fx-vertical-stretch{
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.fx-fill{
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 html,
@@ -265,7 +334,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, h5{
   margin: 0!important;
 }
 
@@ -284,10 +353,6 @@ h1, h2, h3, h4{
 
 .actions .actions-buttons{
   margin-right: 0.5em;
-}
-
-.card{
-  padding: 0 20px 20px 20px;
 }
 
 .NgxEditor {
