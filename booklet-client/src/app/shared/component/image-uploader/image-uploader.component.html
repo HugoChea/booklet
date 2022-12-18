@@ -1,4 +1,4 @@
-<div fxLayout="column" class="img" fxLayoutAlign="space-around center">
+<div class="img fx-column fx-horizontal-space-around fx-vertical-center">
     <img class="image" (click)="fileInput.click()" *ngIf="croppedImage" [src]="croppedImage" />
     <img class="image" (click)="fileInput.click()" *ngIf="!croppedImage" src="assets/images/no-image.png" />
     <button class="icon" type='button' mat-icon-button color="primary"><mat-icon>file_upload</mat-icon></button>

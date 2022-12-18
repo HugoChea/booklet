@@ -1,4 +1,4 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center">
+<div class="fx-fill fx-column fx-horizontal-center fx-vertical-center">
     <mat-card class="auth-card">
         <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="example-form">
             <mat-card-title class="auth-card-title">Login</mat-card-title>
@@ -13,7 +13,7 @@
                 </div>
                 <div>
                     <label>Username</label>
-                    <mat-form-field fxFill class="example-full-width" appearance="fill" color="accent">
+                    <mat-form-field class="fx-fill example-full-width" appearance="fill" color="accent">
                         <input type="text" matInput formControlName="username">
                         <mat-error *ngIf="loginForm.get('username')!.hasError('required')">
                             Username is <strong>required</strong>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    <mat-form-field fxFill class="example-full-width" appearance="fill" color="accent">
+                    <mat-form-field class="fx-fill example-full-width" appearance="fill" color="accent">
                         <input type="password" matInput formControlName="password">
                         <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
                             Password is <strong>required</strong>
@@ -30,8 +30,10 @@
                     </mat-form-field>
                 </div>
             </mat-card-content>
-            <mat-card-actions fxLayoutAlign="center center">
-                <button type="submit" color="primary" mat-raised-button>LOGIN</button>
+            <mat-card-actions>
+                <div class="fx-row fx-horizontal-center fx-vertical-center">
+                    <button type="submit" color="primary" mat-raised-button>LOGIN</button>
+                </div>
             </mat-card-actions>
         </form>
     </mat-card>

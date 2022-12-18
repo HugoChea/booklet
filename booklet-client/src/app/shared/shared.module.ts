@@ -4,7 +4,6 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ImageUploaderComponent } from './component/image-uploader/image-uploader.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
@@ -17,7 +16,6 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    FlexLayoutModule,
     MaterialModule,
     ImageCropperModule,
   ],
@@ -27,7 +25,6 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    FlexLayoutModule,
     MaterialModule,
 
     // component

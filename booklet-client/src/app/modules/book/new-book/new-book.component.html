@@ -1,5 +1,5 @@
 <form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)">
-  <div class="actions" fxLayoutAlign="space-between center">
+  <div class="actions fx-row fx-horizontal-space-between fx-vertical-center">
     <div>New Book</div>
     <div>
       <button
@@ -21,8 +21,8 @@
       </button>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around start">
-    <div fxFlex="25">
+  <div class="fx-row fx-horizontal-space-around fx-vertical-start">
+    <div class="flex-25">
       <app-image-uploader
         (fileUploadEvent)="uploadFile($event)"
         [aspectRatio]="1 / 1"
@@ -30,11 +30,11 @@
         [width]="500"
       ></app-image-uploader>
     </div>
-    <div fxFlex="75" class="content">
+    <div class="content flex-75">
       <mat-card>
         <label>Name</label>
         <mat-form-field
-          fxFill
+          class="fx-fill"
           appearance="outline"
           floatLabel="always"
           color="accent"
@@ -51,7 +51,7 @@
         </mat-form-field>
         <label>Description</label>
         <mat-form-field
-          fxFill
+          class="fx-fill"
           appearance="outline"
           floatLabel="always"
           color="accent"

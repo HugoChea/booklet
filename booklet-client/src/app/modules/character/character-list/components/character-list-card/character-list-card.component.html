@@ -2,8 +2,8 @@
   *ngFor="let character of listCharacter"
   class="card-content pointer-cursor"
 >
-  <div class="card-title" fxLayoutAlign="space-between center">
-    <div fxLayoutAlign="start center">
+  <div class="card-title fx-row fx-horizontal-space-between fx-vertical-center">
+    <div class="fx-row fx-horizontal-start fx-vertical-center">
       <div class="avatar-container">
         <img
           class="avatar"
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div fxLayout="column">
+    <div class="fx-column">
       <button
         type="button"
         mat-button

@@ -1,4 +1,4 @@
-<div class="card-title" fxLayoutAlign="space-between center">
+<div class="card-title fx-row fx-horizontal-space-between fx-vertical-center">
     <div class="generalities">
       <div class="avatar-container">
         <img
@@ -8,25 +8,25 @@
         />
       </div>
       <mat-card class="profile">
-        <div class="profile-header" fxLayoutAlign="center center">General</div>
-        <div fxLayout="row wrap" class="profile-content">
-          <div fxFlex="50">Firstname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.firstname }}</div>
-          <div fxFlex="50">Lastname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.lastname }}</div>
-          <div fxFlex="50">Surname</div><div fxFlex="50">{{ character?.profile?.generalInfo?.surname }}</div>
-          <div fxFlex="50">Race</div><div fxFlex="50">{{ character?.profile?.generalInfo?.race }}</div>
-          <div fxFlex="50">Sexe</div><div fxFlex="50">{{ character?.profile?.generalInfo?.race }}</div>
-          <div fxFlex="50">Age</div><div fxFlex="50">{{ character?.profile?.generalInfo?.age }}</div>
-          <div fxFlex="50">Birthday</div><div fxFlex="50">{{ character?.profile?.generalInfo?.birthdate }}</div>
-          <div fxFlex="50">Birthplace</div><div fxFlex="50">{{ character?.profile?.generalInfo?.birthplace }}</div>
+        <div class="profile-header fx-row fx-horizontal-center fx-vertical-center">General</div>
+        <div class="profile-content fx-row fx-wrap">
+          <div class="flex-50">Firstname</div><div class="flex-50">{{ character?.profile?.generalInfo?.firstname }}</div>
+          <div class="flex-50">Lastname</div><div class="flex-50">{{ character?.profile?.generalInfo?.lastname }}</div>
+          <div class="flex-50">Surname</div><div class="flex-50">{{ character?.profile?.generalInfo?.surname }}</div>
+          <div class="flex-50">Race</div><div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
+          <div class="flex-50">Sexe</div><div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
+          <div class="flex-50">Age</div><div class="flex-50">{{ character?.profile?.generalInfo?.age }}</div>
+          <div class="flex-50">Birthday</div><div class="flex-50">{{ character?.profile?.generalInfo?.birthdate }}</div>
+          <div class="flex-50">Birthplace</div><div class="flex-50">{{ character?.profile?.generalInfo?.birthplace }}</div>
         </div>
-        <div class="profile-header" color="primary" fxLayoutAlign="center center">Physical</div>
-        <div fxLayout="row wrap" class="profile-content">
-          <div fxFlex="50">Height</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.height }}</div>
-          <div fxFlex="50">Weight</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.weight }}</div>
-          <div fxFlex="50">Eyes</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.eyes }}</div>
-          <div fxFlex="50">Hair</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.hair }}</div>
-          <div fxFlex="50">Dress style</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.dressStyle }}</div>
-          <div fxFlex="50">Accessories</div><div fxFlex="50">{{ character?.profile?.physicalInfo?.accessories }}</div>
+        <div class="profile-header fx-row fx-horizontal-center fx-vertical-center" color="primary">Physical</div>
+        <div class="profile-content fx-row fx-wrap">
+          <div class="flex-50">Height</div><div class="flex-50">{{ character?.profile?.physicalInfo?.height }}</div>
+          <div class="flex-50">Weight</div><div class="flex-50">{{ character?.profile?.physicalInfo?.weight }}</div>
+          <div class="flex-50">Eyes</div><div class="flex-50">{{ character?.profile?.physicalInfo?.eyes }}</div>
+          <div class="flex-50">Hair</div><div class="flex-50">{{ character?.profile?.physicalInfo?.hair }}</div>
+          <div class="flex-50">Dress style</div><div class="flex-50">{{ character?.profile?.physicalInfo?.dressStyle }}</div>
+          <div class="flex-50">Accessories</div><div class="flex-50">{{ character?.profile?.physicalInfo?.accessories }}</div>
         </div>
       </mat-card>
     </div>

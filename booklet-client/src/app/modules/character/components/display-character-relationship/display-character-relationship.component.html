@@ -1,5 +1,5 @@
-<div class="relation" fxLayout="row wrap" *ngFor="let relation of character?.relationship">
-    <div fxFlex="25" fxLayoutAlign="center start">
+<div class="relation fx-row fx-wrap" *ngFor="let relation of character?.relationship">
+    <div class="fxFlex-25 fx-row fx-horizontal-center fx-vertical-start">
         <div class="avatar-container">
             <img
               class="avatar"
@@ -7,7 +7,7 @@
             />
           </div>
     </div>
-    <div fxFlex="75">
+    <div class="fxFlex-75">
         <h2>{{ relation.involvedWith.profile.generalInfo.firstname }} {{ relation.involvedWith.profile.generalInfo.lastname }}</h2>
         <h3>{{ relation.type }}</h3>
         <p>{{ relation.text }}</p>

@@ -2,80 +2,90 @@
   [formGroup]="newCharacterForm"
   (ngSubmit)="create(newCharacterForm.value)"
 >
-  <mat-card fxLayout="row wrap" class="body" fxLayoutAlign="space-around start">
-    <div fxFlex="100" class="actions" fxLayoutAlign="space-between center">
-      <div>
-        <h2>Create character</h2>
+  <mat-card class="body">
+    <div class="fx-row fx-wrap fx-horizontal-space-around fx-vertical-start">
+      <div
+        class="actions fx-fill fx-row fx-horizontal-space-between fx-vertical-center"
+      >
+        <div>
+          <h2>Create character</h2>
+        </div>
+        <div>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="actions-buttons"
+            [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
+          >
+            <mat-icon>save</mat-icon> SAVE
+          </button>
+          <button
+            type="button"
+            [routerLink]="['/app', 'book', book?._id, 'character']"
+            mat-raised-button
+            color="primary"
+            class="actions-buttons"
+          >
+            <mat-icon>keyboard_return</mat-icon> BACK
+          </button>
+        </div>
       </div>
-      <div>
-        <button
-          type="submit"
-          mat-raised-button
-          color="primary"
-          class="actions-buttons"
-          [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
-        >
-          <mat-icon>save</mat-icon> SAVE
-        </button>
-        <button
-          type="button"
-          [routerLink]="['/app', 'book', book?._id, 'character']"
-          mat-raised-button
-          color="primary"
-          class="actions-buttons"
-        >
-          <mat-icon>keyboard_return</mat-icon> BACK
-        </button>
+      <div class="fx-row">
+
+      
+      <div class="fxFlex-25">
+        <app-image-uploader
+          (fileUploadEvent)="uploadFile($event)"
+          [aspectRatio]="2 / 3"
+          [width]="400"
+          [height]="600"
+        ></app-image-uploader>
+        <br />
+        <div>
+          <app-form-character-general
+          [newCharacterForm]="newCharacterForm"
+          ></app-form-character-general>
+        </div>
+      </div>
+      <div class="fxFlex-75 content">
+        <mat-tab-group>
+          <mat-tab label="Generalities">
+            <div>
+              <app-panel-generality
+                [newCharacterForm]="newCharacterForm"
+              ></app-panel-generality>
+            </div>
+          </mat-tab>
+          <mat-tab label="Description">
+            <div class="tab-content">
+              <app-panel-description
+                [newCharacterForm]="newCharacterForm"
+              ></app-panel-description>
+            </div>
+          </mat-tab>
+          <mat-tab label="Chronology">
+            <div class="tab-content">
+              <app-panel-chronology></app-panel-chronology>
+            </div>
+          </mat-tab>
+          <mat-tab label="Relationships">
+            <div class="tab-content">
+              <app-panel-relationship
+                [newCharacterForm]="newCharacterForm"
+              ></app-panel-relationship>
+            </div>
+          </mat-tab>
+          <mat-tab label="Abilities">
+            <div class="tab-content">
+              <app-panel-ability
+                [newCharacterForm]="newCharacterForm"
+              ></app-panel-ability>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
-    <div fxFlex="25">
-      <app-image-uploader
-        (fileUploadEvent)="uploadFile($event)"
-        [aspectRatio]="2 / 3"
-        [width]="400"
-        [height]="600"
-      ></app-image-uploader>
-      <br />
-      <app-form-character-general
-        [newCharacterForm]="newCharacterForm"
-      ></app-form-character-general>
-    </div>
-    <div fxFlex="75" class="content">
-      <mat-tab-group>
-        <mat-tab label="Generalities">
-          <div>
-            <app-panel-generality
-              [newCharacterForm]="newCharacterForm"
-            ></app-panel-generality>
-          </div>
-        </mat-tab>
-        <mat-tab label="Description">
-          <div class="tab-content">
-            <app-panel-description
-              [newCharacterForm]="newCharacterForm"
-            ></app-panel-description>
-          </div>
-        </mat-tab>
-        <mat-tab label="Chronology">
-          <div class="tab-content">
-            <app-panel-chronology></app-panel-chronology>
-          </div>
-        </mat-tab>
-        <mat-tab label="Relationships">
-          <div class="tab-content">
-            <app-panel-relationship
-              [newCharacterForm]="newCharacterForm"
-            ></app-panel-relationship>
-          </div>
-        </mat-tab>
-        <mat-tab label="Abilities">
-          <div class="tab-content">
-            <app-panel-ability
-              [newCharacterForm]="newCharacterForm"
-            ></app-panel-ability>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
     </div>
   </mat-card>
 </form>
