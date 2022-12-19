@@ -8,7 +8,7 @@ import { Character } from '@core/models/character/character';
 })
 export class DisplayCharacterDescriptionComponent implements OnInit {
 
-  @Input() character!: Character;
+  @Input() character: Character | undefined;
 
   constructor() { }
 

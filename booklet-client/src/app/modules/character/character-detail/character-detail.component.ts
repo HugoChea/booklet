@@ -17,7 +17,7 @@ export class CharacterDetailComponent implements OnInit {
 
   books$ = this.store.select(selectedBook);
 
-  character!: Character;
+  character: Character | undefined;
 
   constructor(
     private route: ActivatedRoute,
