@@ -6,7 +6,7 @@ import { NewBookComponent } from './new-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ImageUploaderComponent } from '@shared/component/image-uploader/image-uploader.component';
+import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 
 describe('NewBookComponent', () => {
   let component: NewBookComponent;
