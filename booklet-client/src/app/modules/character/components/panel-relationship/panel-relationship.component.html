@@ -17,10 +17,10 @@
   >
     <div [formGroupName]="i">
         <div class="fx-row fx-horizontal-start fx-vertical-start p-b-2">
-          <div class="fxFlex-25 avatar-container">
+          <div class="flex-25 avatar-container">
             <img class="avatar" [src]="relationship.value[i].character.image" />
           </div>
-          <div class="fxFlex-75 p-2">
+          <div class="flex-75 p-2">
             <h2>{{relationship.value[i].character.profile.generalInfo.firstname}} {{relationship.value[i].character.profile.generalInfo.lastname}}</h2>
             <div>
               <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
