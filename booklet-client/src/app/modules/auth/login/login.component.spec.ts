@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '@core/services/auth.service';
 import { of } from 'rxjs';
 import { LoginComponent } from './login.component';
-import { MaterialModule } from '@shared/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {

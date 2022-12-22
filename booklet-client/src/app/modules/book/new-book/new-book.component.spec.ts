@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 
 import { NewBookComponent } from './new-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@shared/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageUploaderComponent } from '@shared/component/image-uploader/image-uploader.component';
 

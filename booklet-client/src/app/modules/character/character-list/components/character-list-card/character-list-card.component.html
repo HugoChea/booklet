@@ -11,7 +11,7 @@
           alt="Photo of a Shiba Inu"
         />
       </div>
-      <div class="character-info">
+      <div class="m-l-3">
         <h2>
           {{ character.profile.generalInfo.firstname }}
           {{ character.profile.generalInfo.lastname }}
@@ -31,7 +31,7 @@
       <button
         type="button"
         mat-button
-        class="actions-buttons"
+        class="m-r-2"
         [routerLink]="[
           '/app',
           'book',
@@ -43,10 +43,10 @@
       >
         <mat-icon>zoom_in</mat-icon>
       </button>
-      <button type="button" mat-button class="actions-buttons">
+      <button type="button" mat-button class="m-r-2">
         <mat-icon>edit</mat-icon>
       </button>
-      <button type="button" mat-button class="actions-buttons">
+      <button type="button" mat-button class="m-r-2">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

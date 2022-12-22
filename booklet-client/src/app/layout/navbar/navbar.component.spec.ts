@@ -5,7 +5,7 @@ import { NavbarComponent } from './navbar.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { User } from '@core/models/user';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@shared/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { NavbarNavigationComponent } from './component/navbar-navigation/navbar-navigation.component';
 import { ThemeTogglerComponent } from './component/theme-toggler/theme-toggler.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';

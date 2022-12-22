@@ -1,39 +1,31 @@
+<app-actions-header [title]="'Create character'">
+  <div>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="m-r-2"
+        [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
+      >
+        <mat-icon>save</mat-icon> SAVE
+      </button>
+      <button
+        type="button"
+        [routerLink]="['/app', 'book', book?._id, 'character']"
+        mat-raised-button
+        color="primary"
+        class="m-r-2"
+      >
+        <mat-icon>keyboard_return</mat-icon> BACK
+      </button>
+  </div>
+</app-actions-header>
 <form
   [formGroup]="newCharacterForm"
   (ngSubmit)="create(newCharacterForm.value)"
 >
   <mat-card class="body">
-    <div class="fx-row fx-wrap fx-horizontal-space-around fx-vertical-start">
-      <div
-        class="actions fx-fill fx-row fx-horizontal-space-between fx-vertical-center"
-      >
-        <div>
-          <h2>Create character</h2>
-        </div>
-        <div>
-          <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            class="actions-buttons"
-            [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
-          >
-            <mat-icon>save</mat-icon> SAVE
-          </button>
-          <button
-            type="button"
-            [routerLink]="['/app', 'book', book?._id, 'character']"
-            mat-raised-button
-            color="primary"
-            class="actions-buttons"
-          >
-            <mat-icon>keyboard_return</mat-icon> BACK
-          </button>
-        </div>
-      </div>
-      <div class="fx-row">
-
-      
+    <div class="fx-row">
       <div class="fxFlex-25">
         <app-image-uploader
           (fileUploadEvent)="uploadFile($event)"
@@ -44,7 +36,7 @@
         <br />
         <div>
           <app-form-character-general
-          [newCharacterForm]="newCharacterForm"
+            [newCharacterForm]="newCharacterForm"
           ></app-form-character-general>
         </div>
       </div>
@@ -85,7 +77,6 @@
           </mat-tab>
         </mat-tab-group>
       </div>
-    </div>
     </div>
   </mat-card>
 </form>

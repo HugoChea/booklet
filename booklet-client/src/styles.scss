@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
 
+@import 'assets/styles/utilities.scss';
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 
@@ -233,126 +235,17 @@ $altTheme: (
 
 // Specific component overrides, pieces that are not in line with the general theming
 
-// Handle buttons appropriately, with respect to line-height
-.mat-raised-button, .mat-stroked-button, .mat-flat-button {
-  padding: 0 1.15em;
-  margin: 0 .65em;
-  min-width: 3em;
-  line-height: 36.4px
-}
-
-.mat-standard-chip {
-  padding: .5em .85em;
-  min-height: 2.5em;
-}
-
-.material-icons {
-  font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';  
-  .mat-badge-content {
-    font-family: 'Roboto';
-  }
-}
-
-// FLEX UTILITIES CLASS
-
-.fx-row{
-  display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
-}
-
-.fx-column{
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-.fx-wrap{
-  flex-wrap: wrap;
-}
-
-.fx-horizontal-start{
-  justify-content: flex-start;
-}
-
-.fx-horizontal-end{
-  justify-content: flex-end;
-}
-
-.fx-horizontal-center{
-  justify-content: center;
-}
-
-.fx-horizontal-space-between{
-  justify-content: space-between;
-}
-
-.fx-horizontal-space-around{
-  justify-content: space-around;
-}
-
-.fx-horizontal-space-evenly{
-  justify-content: space-evenly;
-}
-
-.fx-vertical-start{
-  align-content: flex-start;
-  align-items: flex-start;
-}
-
-.fx-vertical-end{
-  align-content: flex-end;
-  align-items: flex-end;
-}
-
-.fx-vertical-center{
-  align-content: center;
-  align-items: center;
-}
-
-.fx-vertical-stretch{
-  align-content: stretch;
-  align-items: stretch;
-}
-
-.fx-fill{
-  height: 100%;
-  min-height: 100%;
-  min-width: 100%;
-  width: 100%;
-}
-
 /* You can add global styles to this file, and also import other style files */
 
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 h1, h2, h3, h4, h5{
   margin: 0!important;
-}
-
-.pointer-cursor {
-  cursor: pointer;
-}
-
-.mat-field-input-fill{
-  width : 100%;
-}
-
-.actions{
-  padding: 0.5em;
-  margin-bottom: 1.5%;
-}
-
-.actions .actions-buttons{
-  margin-right: 0.5em;
 }
 
 .NgxEditor {

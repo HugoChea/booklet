@@ -1,0 +1,211 @@
+// FLEX UTILITIES CLASS
+
+.fx-row {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.fx-column {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.fx-wrap {
+  flex-wrap: wrap;
+}
+
+.fx-horizontal-start {
+  justify-content: flex-start;
+}
+
+.fx-horizontal-end {
+  justify-content: flex-end;
+}
+
+.fx-horizontal-center {
+  justify-content: center;
+}
+
+.fx-horizontal-space-between {
+  justify-content: space-between;
+}
+
+.fx-horizontal-space-around {
+  justify-content: space-around;
+}
+
+.fx-horizontal-space-evenly {
+  justify-content: space-evenly;
+}
+
+.fx-vertical-start {
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.fx-vertical-end {
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+.fx-vertical-center {
+  align-content: center;
+  align-items: center;
+}
+
+.fx-vertical-stretch {
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.fx-fill {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+// SPACING UTILITIES CLASS
+$sizeUnit: rem;
+$marginKey: 'm';
+$paddingKey: 'p';
+$separator: '-';
+$sizes: (
+    ('none', 0),
+    ('1', 0.25),
+    ('2', 0.5),
+    ('3', 1),
+    ('4', 1,5),
+    ('5', 3),
+    ('6', 6),
+);
+$positions: (
+    ('t', 'top'),
+    ('r', 'right'),
+    ('b', 'bottom'),
+    ('l', 'left')
+);
+
+@function sizeValue($key, $value) {
+    @return if($key == 'none', 0, $value + $sizeUnit);
+}
+
+@each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+        margin: sizeValue($sizeKey, $sizeValue)!important;
+    }
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+        padding: sizeValue($sizeKey, $sizeValue)!important;
+    }
+    @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+        .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            margin-#{$posValue}: sizeValue($sizeKey, $sizeValue)!important;
+        }
+        .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            padding-#{$posValue}: sizeValue($sizeKey, $sizeValue)!important;
+        }
+    }
+}
+
+// width & height
+.w-2\/12{
+  width: 20%
+}
+
+.w-3\/12{
+  width: 25%
+}
+
+.w-4\/12{
+  width: 33.33%
+}
+
+.w-6\/12{
+  width: 50%
+}
+
+.w-8\/12{
+  width: 66.66%
+}
+
+.w-9\/12{
+  width: 75%
+}
+
+.w-10\/12{
+  width: 80%
+}
+
+.w-full{
+  width: 100%
+}
+
+.w-screen{
+  width: 100vw;
+}
+
+.h-2\/12{
+  height: 20%
+}
+
+.h-3\/12{
+  height: 25%
+}
+
+.h-4\/12{
+  height: 33.33%
+}
+
+.h-6\/12{
+  height: 50%
+}
+
+.h-8\/12{
+  height: 66.66%
+}
+
+.h-9\/12{
+  height: 75%
+}
+
+.h-10\/12{
+  height: 80%
+}
+
+.h-full{
+  height: 100%;
+}
+
+.h-screen{
+  height: 100vh;
+}
+
+// TEXT ALIGN
+
+.text-left{
+  text-align: start;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-right{
+  text-align: end;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+// CURSOR
+
+.pointer-cursor {
+  cursor: pointer;
+}

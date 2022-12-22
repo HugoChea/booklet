@@ -1,8 +1,10 @@
 <div class="fx-fill fx-column fx-horizontal-center fx-vertical-center">
-    <mat-card class="auth-card">
+    <mat-card class="w-6/12">
         <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" class="example-form">
-            <mat-card-title class="auth-card-title">Login</mat-card-title>
-            <mat-card-content class="auth-card-body">
+            <mat-card-title class="text-center m-b-4">
+                <span>Login</span>
+            </mat-card-title>
+            <mat-card-content>
                 <div>
                     <mat-error *ngIf="loginForm.hasError('invalid')">
                         Username or password <strong>invalid</strong>
@@ -13,7 +15,7 @@
                 </div>
                 <div>
                     <label>Username</label>
-                    <mat-form-field class="fx-fill example-full-width" appearance="fill" color="accent">
+                    <mat-form-field class="w-full" appearance="fill" color="accent">
                         <input type="text" matInput formControlName="username">
                         <mat-error *ngIf="loginForm.get('username')!.hasError('required')">
                             Username is <strong>required</strong>
@@ -22,7 +24,7 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    <mat-form-field class="fx-fill example-full-width" appearance="fill" color="accent">
+                    <mat-form-field class="w-full" appearance="fill" color="accent">
                         <input type="password" matInput formControlName="password">
                         <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
                             Password is <strong>required</strong>
