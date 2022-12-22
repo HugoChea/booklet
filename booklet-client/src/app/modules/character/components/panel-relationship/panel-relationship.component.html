@@ -16,11 +16,11 @@
     *ngFor="let stat of relationship.controls; let i = index"
   >
     <div [formGroupName]="i">
-        <div class="relationship-panel fx-row fx-horizontal-start fx-vertical-start">
+        <div class="fx-row fx-horizontal-start fx-vertical-start p-b-2">
           <div class="fxFlex-25 avatar-container">
             <img class="avatar" [src]="relationship.value[i].character.image" />
           </div>
-          <div class="fxFlex-75 character-info">
+          <div class="fxFlex-75 p-2">
             <h2>{{relationship.value[i].character.profile.generalInfo.firstname}} {{relationship.value[i].character.profile.generalInfo.lastname}}</h2>
             <div>
               <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">

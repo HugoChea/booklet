@@ -1,14 +1,6 @@
-.content {
-  padding: 2em;
-}
-
 :host ::ng-deep .NgxEditor__Content{
   overflow: auto;
   height: 300px;
-}
-
-.tab-content{
-  padding: 16px 24px;
 }
 
 .fxFlex-25{
