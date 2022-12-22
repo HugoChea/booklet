@@ -1,40 +1,32 @@
+<app-actions-header [title]="'Create character'">
+  <div>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="m-r-2"
+        [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
+      >
+        <mat-icon>save</mat-icon> SAVE
+      </button>
+      <button
+        type="button"
+        [routerLink]="['/app', 'book', book?._id, 'character']"
+        mat-raised-button
+        color="primary"
+        class="m-r-2"
+      >
+        <mat-icon>keyboard_return</mat-icon> BACK
+      </button>
+  </div>
+</app-actions-header>
 <form
   [formGroup]="newCharacterForm"
   (ngSubmit)="create(newCharacterForm.value)"
 >
   <mat-card class="body">
-    <div class="fx-row fx-wrap fx-horizontal-space-around fx-vertical-start">
-      <div
-        class="actions fx-fill fx-row fx-horizontal-space-between fx-vertical-center"
-      >
-        <div>
-          <h2>Create character</h2>
-        </div>
-        <div>
-          <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            class="actions-buttons"
-            [disabled]="newCharacterForm.pristine && newCharacterForm.invalid"
-          >
-            <mat-icon>save</mat-icon> SAVE
-          </button>
-          <button
-            type="button"
-            [routerLink]="['/app', 'book', book?._id, 'character']"
-            mat-raised-button
-            color="primary"
-            class="actions-buttons"
-          >
-            <mat-icon>keyboard_return</mat-icon> BACK
-          </button>
-        </div>
-      </div>
-      <div class="fx-row">
-
-      
-      <div class="fxFlex-25">
+    <div class="fx-row">
+      <div class="flex-25">
         <app-image-uploader
           (fileUploadEvent)="uploadFile($event)"
           [aspectRatio]="2 / 3"
@@ -44,11 +36,11 @@
         <br />
         <div>
           <app-form-character-general
-          [newCharacterForm]="newCharacterForm"
+            [newCharacterForm]="newCharacterForm"
           ></app-form-character-general>
         </div>
       </div>
-      <div class="fxFlex-75 content">
+      <div class="flex-75 p-3">
         <mat-tab-group>
           <mat-tab label="Generalities">
             <div>
@@ -58,26 +50,26 @@
             </div>
           </mat-tab>
           <mat-tab label="Description">
-            <div class="tab-content">
+            <div class="p-t-3 p-b-3 p-l-4 p-r-4">
               <app-panel-description
                 [newCharacterForm]="newCharacterForm"
               ></app-panel-description>
             </div>
           </mat-tab>
           <mat-tab label="Chronology">
-            <div class="tab-content">
+            <div class="p-t-3 p-b-3 p-l-4 p-r-4">
               <app-panel-chronology></app-panel-chronology>
             </div>
           </mat-tab>
           <mat-tab label="Relationships">
-            <div class="tab-content">
+            <div class="p-t-3 p-b-3 p-l-4 p-r-4">
               <app-panel-relationship
                 [newCharacterForm]="newCharacterForm"
               ></app-panel-relationship>
             </div>
           </mat-tab>
           <mat-tab label="Abilities">
-            <div class="tab-content">
+            <div class="p-t-3 p-b-3 p-l-4 p-r-4">
               <app-panel-ability
                 [newCharacterForm]="newCharacterForm"
               ></app-panel-ability>
@@ -85,7 +77,6 @@
           </mat-tab>
         </mat-tab-group>
       </div>
-    </div>
     </div>
   </mat-card>
 </form>

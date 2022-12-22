@@ -1,40 +1,35 @@
-<mat-card class="header">
-  <div class="actions  fx-row fx-horizontal-space-between fx-vertical-center">
-    <div>
-      <h2>Characters</h2>
-    </div>
-    <div>
-      <input
-        class="input-search"
-        type="text"
-        id="search"
-        name="search"
-        size="10"
-        placeholder="search"
-      />
-      <button
-        type="button"
-        mat-raised-button
-        color="primary"
-        class="actions-buttons"
-        [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
-      <mat-button-toggle-group
-        [(ngModel)]="displayMode"
-        #group="matButtonToggleGroup"
-      >
-        <mat-button-toggle value="compact" aria-label="Text align left">
-          <mat-icon>view_headline</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle value="card" aria-label="Text align center">
-          <mat-icon>view_list</mat-icon>
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
+<app-actions-header [title]="'Characters'">
+  <div>
+    <input
+      class="input-search"
+      type="text"
+      id="search"
+      name="search"
+      size="10"
+      placeholder="search"
+    />
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      class="m-r-2 m-l-2"
+      [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-button-toggle-group
+      [(ngModel)]="displayMode"
+      #group="matButtonToggleGroup"
+    >
+      <mat-button-toggle value="compact" aria-label="Text align left">
+        <mat-icon>view_headline</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="card" aria-label="Text align center">
+        <mat-icon>view_list</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
-</mat-card>
+</app-actions-header>
 
 <div *ngIf="displayMode === 'card'">
   <app-character-list-card

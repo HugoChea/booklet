@@ -3,7 +3,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterService } from '@core/services/character.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { MaterialModule } from '@shared/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { of } from 'rxjs';
 
 import { PanelRelationshipComponent } from './panel-relationship.component';

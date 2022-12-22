@@ -1,26 +1,4 @@
-.content {
-  padding: 2em;
-}
-
 :host ::ng-deep .NgxEditor__Content{
   overflow: auto;
   height: 300px;
-}
-
-.tab-content{
-  padding: 16px 24px;
-}
-
-.fxFlex-25{
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 25%;
-  max-width: 25%;
-}
-
-.fxFlex-75{
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 75%;
-  max-width: 75%;
 }

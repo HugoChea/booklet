@@ -1,13 +1,7 @@
 <form [formGroup]="newBookForm" (ngSubmit)="create(newBookForm.value)">
-  <div class="actions fx-row fx-horizontal-space-between fx-vertical-center">
-    <div>New Book</div>
+  <app-actions-header [title]="'New Book'">
     <div>
-      <button
-        type="submit"
-        mat-raised-button
-        color="primary"
-        class="actions-buttons"
-      >
+      <button class="m-r-2" type="submit" mat-raised-button color="primary">
         <mat-icon>add</mat-icon> CREATE
       </button>
       <button
@@ -15,12 +9,12 @@
         routerLink="/app/book"
         mat-raised-button
         color="primary"
-        class="actions-buttons"
+        class="m-r-2"
       >
         <mat-icon>keyboard_return</mat-icon> BACK
       </button>
     </div>
-  </div>
+  </app-actions-header>
   <div class="fx-row fx-horizontal-space-around fx-vertical-start">
     <div class="flex-25">
       <app-image-uploader
@@ -34,7 +28,7 @@
       <mat-card>
         <label>Name</label>
         <mat-form-field
-          class="fx-fill"
+          class="w-full"
           appearance="outline"
           floatLabel="always"
           color="accent"
@@ -51,7 +45,7 @@
         </mat-form-field>
         <label>Description</label>
         <mat-form-field
-          class="fx-fill"
+          class="w-full"
           appearance="outline"
           floatLabel="always"
           color="accent"

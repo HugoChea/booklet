@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterService } from '@core/services/character.service';
-import { MaterialModule } from '@shared/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 
 import { NewCharacterComponent } from './new-character.component';
 import { of } from 'rxjs';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import { PanelAbilityComponent } from '../components/panel-ability/panel-ability.component';
-import { ImageUploaderComponent } from '@shared/component/image-uploader/image-uploader.component';
+import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 

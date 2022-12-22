@@ -1,55 +1,56 @@
-<mat-card class="header">
-  <div class="actions fx-row fx-horizontal-space-between fx-vertical-center">
-    <div>
-      <h2>
-        {{ character?.profile?.generalInfo?.firstname }}
-        {{ character?.profile?.generalInfo?.lastname }}
-      </h2>
-    </div>
-    <div>
-      <input
-        class="input-search"
-        type="text"
-        id="search"
-        name="search"
-        size="10"
-        placeholder="search"
-      />
-      <button
-        type="button"
-        mat-raised-button
-        color="primary"
-        class="actions-buttons"
-        [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
-
-    </div>
+<app-actions-header
+  [title]="
+    '' +
+    character?.profile?.generalInfo?.firstname +
+    character?.profile?.generalInfo?.lastname
+  "
+>
+  <div>
+    <input
+      class="input-search"
+      type="text"
+      id="search"
+      name="search"
+      size="10"
+      placeholder="search"
+    />
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      class="m-r-2 m-l-2"
+      [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
-</mat-card>
+</app-actions-header>
 
 <mat-card>
   <mat-tab-group>
     <mat-tab label="Description">
       <div class="tab-content">
-        <app-display-character-description [character]="character"></app-display-character-description>
+        <app-display-character-description
+          [character]="character"
+        ></app-display-character-description>
       </div>
     </mat-tab>
     <mat-tab label="Chronology">
-      <div class="tab-content">
-      </div>
+      <div class="tab-content"></div>
     </mat-tab>
     <mat-tab label="Relationships">
       <div class="tab-content">
-        <app-display-character-relationship [character]="character"></app-display-character-relationship>
+        <app-display-character-relationship
+          [character]="character"
+        ></app-display-character-relationship>
       </div>
     </mat-tab>
     <mat-tab label="Abilities">
       <div class="tab-content">
-        <app-display-character-abilities [character]="character"></app-display-character-abilities>
+        <app-display-character-abilities
+          [character]="character"
+        ></app-display-character-abilities>
       </div>
     </mat-tab>
   </mat-tab-group>
-  
 </mat-card>

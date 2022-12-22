@@ -30,13 +30,8 @@ blockquote::after {
   width: 300px;
 }
 
-.generalities{
-  margin-right : 16px;
-}
-
 .profile{
   width: 300px;
-  padding: 0px;
 }
 
 .profile-header{
@@ -44,19 +39,10 @@ blockquote::after {
   background-color: #ff4757;
 }
 
-.profile-content{
-  padding: 10px;
-}
-
-.character-header{
-  margin-bottom: 40px;
-}
-
 .character-name{
   font-weight : 1000;
   letter-spacing: 2px;
   font-size: 32px;
-  margin: .5em!important;
 }
 
 .character-title{
@@ -69,26 +55,11 @@ blockquote::after {
   text-align: center;
 }
 
-.character-cv{
-  text-align : right;
-}
-
 .primary{
   color: #ff4757;
 }
 
-.character-toggle-content{
-  text-align: center;
-}
-
-.character-content{
-  text-align: justify;
-}
-
 .category-title{
-  padding-top: 20px;
-  padding-left: 2em;
-  margin-bottom: 20px!important;
   font-size: 24px;
   border-bottom: 1px solid;
   overflow: hidden;
@@ -96,11 +67,4 @@ blockquote::after {
 
 .toggle-button{
   min-width: 100px;
-}
-
-.flex-50{
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 50%;
-  max-width: 50%;
 }

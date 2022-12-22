@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ImageUploaderComponent } from './component/image-uploader/image-uploader.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 
 
 @NgModule({
-  declarations: [ImageUploaderComponent],
+  declarations: [ImageUploaderComponent, ActionsHeaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -28,7 +29,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MaterialModule,
 
     // component
-    ImageUploaderComponent
+    ImageUploaderComponent,
+    ActionsHeaderComponent
   ]
 })
 export class SharedModule { }

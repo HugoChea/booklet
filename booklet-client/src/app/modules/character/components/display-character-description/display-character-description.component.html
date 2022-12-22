@@ -1,69 +1,111 @@
 <div class="card-title fx-row fx-horizontal-space-between fx-vertical-center">
-    <div class="generalities">
-      <div class="avatar-container">
-        <img
-          class="avatar"
-          [src]="character?.image"
-          alt="Photo of a Shiba Inu"
-        />
+  <div class="m-r-4">
+    <div class="avatar-container">
+      <img class="avatar" [src]="character?.image" alt="Photo of a Shiba Inu" />
+    </div>
+    <mat-card class="profile p-none">
+      <div
+        class="profile-header fx-row fx-horizontal-center fx-vertical-center"
+      >
+        General
       </div>
-      <mat-card class="profile">
-        <div class="profile-header fx-row fx-horizontal-center fx-vertical-center">General</div>
-        <div class="profile-content fx-row fx-wrap">
-          <div class="flex-50">Firstname</div><div class="flex-50">{{ character?.profile?.generalInfo?.firstname }}</div>
-          <div class="flex-50">Lastname</div><div class="flex-50">{{ character?.profile?.generalInfo?.lastname }}</div>
-          <div class="flex-50">Surname</div><div class="flex-50">{{ character?.profile?.generalInfo?.surname }}</div>
-          <div class="flex-50">Race</div><div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
-          <div class="flex-50">Sexe</div><div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
-          <div class="flex-50">Age</div><div class="flex-50">{{ character?.profile?.generalInfo?.age }}</div>
-          <div class="flex-50">Birthday</div><div class="flex-50">{{ character?.profile?.generalInfo?.birthdate }}</div>
-          <div class="flex-50">Birthplace</div><div class="flex-50">{{ character?.profile?.generalInfo?.birthplace }}</div>
+      <div class="fx-row fx-wrap p-2">
+        <div class="flex-50">Firstname</div>
+        <div class="flex-50">
+          {{ character?.profile?.generalInfo?.firstname }}
         </div>
-        <div class="profile-header fx-row fx-horizontal-center fx-vertical-center" color="primary">Physical</div>
-        <div class="profile-content fx-row fx-wrap">
-          <div class="flex-50">Height</div><div class="flex-50">{{ character?.profile?.physicalInfo?.height }}</div>
-          <div class="flex-50">Weight</div><div class="flex-50">{{ character?.profile?.physicalInfo?.weight }}</div>
-          <div class="flex-50">Eyes</div><div class="flex-50">{{ character?.profile?.physicalInfo?.eyes }}</div>
-          <div class="flex-50">Hair</div><div class="flex-50">{{ character?.profile?.physicalInfo?.hair }}</div>
-          <div class="flex-50">Dress style</div><div class="flex-50">{{ character?.profile?.physicalInfo?.dressStyle }}</div>
-          <div class="flex-50">Accessories</div><div class="flex-50">{{ character?.profile?.physicalInfo?.accessories }}</div>
+        <div class="flex-50">Lastname</div>
+        <div class="flex-50">
+          {{ character?.profile?.generalInfo?.lastname }}
         </div>
-      </mat-card>
-    </div>
+        <div class="flex-50">Surname</div>
+        <div class="flex-50">
+          {{ character?.profile?.generalInfo?.surname }}
+        </div>
+        <div class="flex-50">Race</div>
+        <div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
+        <div class="flex-50">Sexe</div>
+        <div class="flex-50">{{ character?.profile?.generalInfo?.race }}</div>
+        <div class="flex-50">Age</div>
+        <div class="flex-50">{{ character?.profile?.generalInfo?.age }}</div>
+        <div class="flex-50">Birthday</div>
+        <div class="flex-50">
+          {{ character?.profile?.generalInfo?.birthdate }}
+        </div>
+        <div class="flex-50">Birthplace</div>
+        <div class="flex-50">
+          {{ character?.profile?.generalInfo?.birthplace }}
+        </div>
+      </div>
+      <div
+        class="profile-header fx-row fx-horizontal-center fx-vertical-center"
+        color="primary"
+      >
+        Physical
+      </div>
+      <div class="fx-row fx-wrap p-2">
+        <div class="flex-50">Height</div>
+        <div class="flex-50">
+          {{ character?.profile?.physicalInfo?.height }}
+        </div>
+        <div class="flex-50">Weight</div>
+        <div class="flex-50">
+          {{ character?.profile?.physicalInfo?.weight }}
+        </div>
+        <div class="flex-50">Eyes</div>
+        <div class="flex-50">{{ character?.profile?.physicalInfo?.eyes }}</div>
+        <div class="flex-50">Hair</div>
+        <div class="flex-50">{{ character?.profile?.physicalInfo?.hair }}</div>
+        <div class="flex-50">Dress style</div>
+        <div class="flex-50">
+          {{ character?.profile?.physicalInfo?.dressStyle }}
+        </div>
+        <div class="flex-50">Accessories</div>
+        <div class="flex-50">
+          {{ character?.profile?.physicalInfo?.accessories }}
+        </div>
+      </div>
+    </mat-card>
   </div>
-  <div class="character-header">
-    <h1 class="character-name">
-        {{ character?.profile?.generalInfo?.firstname }}
-        {{ character?.profile?.generalInfo?.lastname }}
-    </h1>
-    <h2 class="character-title primary">
-        <q>{{ character?.profile?.generalInfo?.surname }}</q>
-    </h2>
-    <blockquote class="character-quote">{{ character?.profile?.generalInfo?.quote }}</blockquote>
-    <h4 class="character-cv">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
+</div>
+<div class="m-b-5">
+  <h1 class="character-name m-2">
+    {{ character?.profile?.generalInfo?.firstname }}
+    {{ character?.profile?.generalInfo?.lastname }}
+  </h1>
+  <h2 class="character-title primary">
+    <q>{{ character?.profile?.generalInfo?.surname }}</q>
+  </h2>
+  <blockquote class="character-quote">
+    {{ character?.profile?.generalInfo?.quote }}
+  </blockquote>
+  <h4 class="text-right">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
+</div>
+<div class="text-center">
+  <mat-button-toggle-group name="selectPanel" aria-label="Select Panel">
+    <mat-button-toggle class="toggle-button" value="red"
+      >Plot</mat-button-toggle
+    >
+    <mat-button-toggle class="toggle-button" value="green"
+      >Personality</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+</div>
+<div class="text-justify">
+  <div class="life">
+    <h3 class="category-title p-l-5 p-t-2 m-b-2">Life</h3>
+    <div [innerHtml]="character?.description?.personality"></div>
   </div>
-  <div class="character-toggle-content">
-    <mat-button-toggle-group name="selectPanel" aria-label="Select Panel">
-      <mat-button-toggle class="toggle-button" value="red">Plot</mat-button-toggle>
-      <mat-button-toggle class="toggle-button" value="green">Personality</mat-button-toggle>
-    </mat-button-toggle-group>
+  <div class="summary">
+    <div [innerHtml]="character?.description?.summary"></div>
   </div>
-  <div class="character-content">
-    <div class="life">
-      <h3 class="category-title">Life</h3>
-      <div [innerHtml]="character?.description?.personality"></div>
-    </div>
-    <div class="summary">
-      <div [innerHtml]="character?.description?.summary"></div>
-    </div>
-    <div class="background">
-      <h3 class="category-title">Background</h3>
-      <div [innerHtml]="character?.description?.background"></div>
-    </div>
+  <div class="background">
+    <h3 class="category-title p-l-5 p-t-2 m-b-2">Background</h3>
+    <div [innerHtml]="character?.description?.background"></div>
+  </div>
 
-    <div class="personality">
-      <h3 class="category-title">Personality</h3>
-      <div [innerHtml]="character?.description?.personality"></div>
-    </div>
-    
+  <div class="personality">
+    <h3 class="category-title p-l-5 p-t-2 m-b-2">Personality</h3>
+    <div [innerHtml]="character?.description?.personality"></div>
   </div>
+</div>
