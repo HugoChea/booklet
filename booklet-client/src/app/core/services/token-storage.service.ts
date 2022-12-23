@@ -23,7 +23,7 @@ export class TokenStorageService {
     return sessionStorage.getItem(this.TOKEN_KEY);
   }
 
-  public saveUser(user: any): void {
+  public saveUser(user: User): void {
     sessionStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
   public getUser(): User | undefined {

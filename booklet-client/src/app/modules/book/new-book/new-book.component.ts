@@ -38,7 +38,7 @@ export class NewBookComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  create(createBookDto: CreateBookDto) {
+  create(createBookDto: CreateBookDto): void {
     if (this.newBookForm.valid) {
       createBookDto.imageBase64 = this.file;
       this.bookService.createBook(createBookDto).subscribe({
@@ -65,7 +65,7 @@ export class NewBookComponent implements OnInit {
    * Get output value from child component image-uploader
    * @param file
    */
-  uploadFile(file: string) {
+  uploadFile(file: string): void {
     if (file){
       this.file = file;
     }

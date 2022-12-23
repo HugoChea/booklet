@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Character } from '@core/models/character/character';
 import { CharacterService } from '@core/services/character.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MaterialModule } from '@shared/material/material.module';
@@ -102,7 +103,8 @@ describe('PanelRelationshipComponent', () => {
   beforeEach(async () => {
 
     characterServiceSpy = jasmine.createSpyObj('CharacterService', ['getListCharacterByBook']);
-    characterServiceSpy.getListCharacterByBook.and.returnValue(of("createmock"))
+    const mockCharacterList: Character[] = [];
+    characterServiceSpy.getListCharacterByBook.and.returnValue(of(mockCharacterList));
 
     await TestBed.configureTestingModule({
       imports: [MaterialModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],

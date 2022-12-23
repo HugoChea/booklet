@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(loginDto: LoginDto){
+  login(loginDto: LoginDto): void {
     this.authService.login(loginDto).subscribe({
       next : (res) => {
         this.router.navigate(['/app/book']);

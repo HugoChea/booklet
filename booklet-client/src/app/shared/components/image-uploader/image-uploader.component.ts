@@ -1,13 +1,12 @@
 import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
-export interface IResizeImageOptions {
-  maxSize: number;
-  file: File;
-}
-
+/**
+ * Image uploader component
+ * Emit Event with compressed image when uploading successfully
+ */
 @Component({
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
@@ -24,31 +23,36 @@ export class ImageUploaderComponent implements OnInit {
   @Input()
   height!: number;
 
-
   @ViewChild("dialogRef") dialogRef!: TemplateRef<any>;
+
   @Output() fileUploadEvent = new EventEmitter<string>();
+
+  /**
+   * Event from uploading file, passed to ngrx-cropper
+   */
+  imageChangedEvent: any = '';
+
+  /**
+   * Result image after cropped by ngrx-cropper
+   */
+  croppedImage: any = '';
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
-
-
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.openDialog()
   }
-  imageCropped(event: ImageCroppedEvent) {
+
+  imageCropped(event: ImageCroppedEvent): void {
     this.croppedImage = event.base64;
     this.compressImage(this.croppedImage, 400, 600).then(compressed => {
       this.croppedImage = compressed;
       this.fileUploadEvent.emit(this.croppedImage);
     })
-    
-    // this.fileUploadEvent.emit(base64ToFile(this.croppedImage));
   }
 
   openDialog(): void {
@@ -61,7 +65,6 @@ export class ImageUploaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
     });
   }
 
@@ -70,12 +73,11 @@ export class ImageUploaderComponent implements OnInit {
     this.croppedImage = null;
   }
 
-  compressImage(src: any, newX: any, newY: any) {
+  compressImage(src: any, newX: any, newY: any): Promise<any> {
     return new Promise((res, rej) => {
       const img = new Image();
       img.src = src;
       img.onload = () => {
-        
         if (img.width > newX || img.height > newY){
           const elem = document.createElement('canvas');
           elem.width = newX;

@@ -28,14 +28,14 @@ export class AuthService {
 
   }
 
-  register(registerDto: RegisterDto): Observable<any>{
+  register(registerDto: RegisterDto): Observable<any> {
     return this.http.post<any>(this.apiURL + '/register', registerDto)
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  login(loginDto: LoginDto): Observable<any>{
+  login(loginDto: LoginDto): Observable<any> {
     return this.http.post<any>(this.apiURL + '/login', loginDto)
     .pipe(
       tap(res => {
@@ -68,12 +68,12 @@ export class AuthService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  public logout(){
+  public logout(): void {
     this.tokenStorageService.clear();
     this.user$.next(undefined);
   }
 
-  public userOnRefresh(){
+  public userOnRefresh(): void {
     const user = this.tokenStorageService.getUser();
     
     if (user){

@@ -40,7 +40,7 @@ export class NewCharacterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackbar: MatSnackBar,
     private store: Store
-    ) {
+  ) {
 
     this.newCharacterForm = this.formBuilder.group({
       profile: this.formBuilder.group({
@@ -109,7 +109,7 @@ export class NewCharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.books$.subscribe({
-      next : (res) => {
+      next: (res) => {
         this.book = res;
       }
     })
@@ -119,8 +119,8 @@ export class NewCharacterComponent implements OnInit {
    * Get output value from child component image-uploader
    * @param file 
    */
-  uploadFile(file: string) {
-    if (file){
+  uploadFile(file: string): void {
+    if (file) {
       this.file = file;
     }
   }
@@ -129,7 +129,7 @@ export class NewCharacterComponent implements OnInit {
    * Call service to perform http call
    * @param createCharacterDto 
    */
-  create(createCharacterDto: CreateCharacterDto) {
+  create(createCharacterDto: CreateCharacterDto): void {
     if (this.newCharacterForm.valid && !this.newCharacterForm.pristine) {
       createCharacterDto.book = this.book?._id ? this.book._id : '';
       createCharacterDto.imageBase64 = this.file;
