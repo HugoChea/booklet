@@ -14,10 +14,9 @@ export class ThemeTogglerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  switchMode(){
+  switchMode(): void {
     document.body.classList.toggle('theme-alternate');
     this.darkMode = !this.darkMode;
-    
   }
 
 }

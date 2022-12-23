@@ -56,7 +56,7 @@ export class PanelRelationshipComponent implements OnInit {
     });
   }
 
-  onSelection(event: any){
+  onSelection(event: any): void {
     if (event.source.selected){
       this.relationship.push(this.createRelationship(event.source.value));
     }

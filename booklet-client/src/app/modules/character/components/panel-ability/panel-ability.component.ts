@@ -90,7 +90,7 @@ export class PanelAbilityComponent implements OnInit {
   /**
    * Generate stats form based on defined value template
    */
-  generateTemplateStatsForm(){
+  generateTemplateStatsForm(): void {
     
     this.stats.clear()
     this.addItem('Strenght', 50);
@@ -104,7 +104,7 @@ export class PanelAbilityComponent implements OnInit {
   /**
    * Update graph data based from stats form
    */
-  updateGraph(){
+  updateGraph(): void {
     this.radarChartLabels = this.stats.value.map((res: { characteristicName: any; }) => res.characteristicName)
     this.radarChartDatasets = [
       { data: this.stats.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
@@ -131,7 +131,6 @@ export class PanelAbilityComponent implements OnInit {
    * @param value 
    */
   addItem(name: string, value: number): void {
-    
     this.stats.push(this.createItem(name, value));
   }
 

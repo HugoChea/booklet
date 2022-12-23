@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '@shared/material/material.module';
 
 import { CharacterListGridComponent } from './character-list-grid.component';
 
@@ -8,7 +9,8 @@ describe('CharacterListGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterListGridComponent ]
+      declarations: [ CharacterListGridComponent ],
+      imports: [MaterialModule]
     })
     .compileComponents();
 

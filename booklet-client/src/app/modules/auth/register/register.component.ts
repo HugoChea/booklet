@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  register(registerDto: RegisterDto){
+  register(registerDto: RegisterDto): void {
     this.authService.register(registerDto).subscribe({
       next : (res) => {
         this.snackbar.open('Account successfully registered', '', {

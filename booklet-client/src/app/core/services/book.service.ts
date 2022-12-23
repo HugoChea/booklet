@@ -14,13 +14,11 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  createBook(createBook: CreateBookDto): Observable<any> {
-
-    return this.http.post<any>(this.apiURL, createBook);
+  createBook(createBook: CreateBookDto): Observable<CreateBookDto> {
+    return this.http.post<CreateBookDto>(this.apiURL, createBook);
   }
 
-  getListBookByUser(userId: string): Observable<any> {
-
-    return this.http.get<any>(this.apiURL + "/list/" + userId);
+  getListBookByUser(userId: string): Observable<Book[]> {
+    return this.http.get<Book[]>(this.apiURL + "/list/" + userId);
   }
 }

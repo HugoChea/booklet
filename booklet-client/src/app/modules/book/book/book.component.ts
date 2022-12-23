@@ -47,7 +47,7 @@ export class BookComponent implements OnInit {
    * Perform action dispatched to store by saving selected book for further api calls
    * @param book 
    */
-  toDashboard(book: Book) {
+  toDashboard(book: Book): void {
     this.store.dispatch(selectBook({ book: book }));
     this.router.navigate(['/app/book', book._id, 'dashboard']);
   }

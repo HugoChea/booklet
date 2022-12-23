@@ -11,6 +11,8 @@ import { PanelAbilityComponent } from '../components/panel-ability/panel-ability
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActionsHeaderComponent } from '@shared/components/actions-header/actions-header.component';
+import { CreateCharacterDto } from '@core/dto/create-character-dto';
 
 @Component({
   selector: 'app-form-character-general',
@@ -78,16 +80,28 @@ describe('NewCharacterComponent', () => {
 
   beforeEach(async () => {
     characterServiceSpy = jasmine.createSpyObj('CharacterService', ['createCharacter']);
-    characterServiceSpy.createCharacter.and.returnValue(of("createCharmock"))
+    const mockCharacter = {} as CreateCharacterDto;
+    characterServiceSpy.createCharacter.and.returnValue(of(mockCharacter));
+    
     await TestBed.configureTestingModule({
       imports: [MaterialModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, RouterTestingModule],
-      declarations: [ NewCharacterComponent, FakeFormCharacterGeneralComponent, FakePanelGeneralityComponent, FakePanelChornologyComponent, FakePanelDescriptionComponent, FakePanelRelationshipComponent, FakePanelAbilityComponent, ImageUploaderComponent ],
+      declarations: [
+        NewCharacterComponent,
+        FakeFormCharacterGeneralComponent,
+        FakePanelGeneralityComponent,
+        FakePanelChornologyComponent,
+        FakePanelDescriptionComponent,
+        FakePanelRelationshipComponent,
+        FakePanelAbilityComponent,
+        ImageUploaderComponent,
+        ActionsHeaderComponent
+      ],
       providers: [
         { provide: CharacterService, useValue: characterServiceSpy },
         provideMockStore({ initialState }),
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(NewCharacterComponent);
     component = fixture.componentInstance;

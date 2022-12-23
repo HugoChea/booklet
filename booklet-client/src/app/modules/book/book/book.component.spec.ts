@@ -7,6 +7,8 @@ import { of } from 'rxjs';
 
 import { BookComponent } from './book.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActionsHeaderComponent } from '@shared/components/actions-header/actions-header.component';
+import { Book } from '@core/models/book/book';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -20,10 +22,11 @@ describe('BookComponent', () => {
   beforeEach(async () => {
 
     bookServiceSpy = jasmine.createSpyObj('BookService', ['getListBookByUser']);
-    bookServiceSpy.getListBookByUser.and.returnValue(of("getlistmock"))
+    const mockBookList: Book[] = [];
+    bookServiceSpy.getListBookByUser.and.returnValue(of(mockBookList));
 
     await TestBed.configureTestingModule({
-      declarations: [BookComponent],
+      declarations: [BookComponent, ActionsHeaderComponent],
       imports: [MaterialModule, BrowserAnimationsModule, RouterTestingModule],
       providers: [
         { provide: BookService, useValue: bookServiceSpy },
