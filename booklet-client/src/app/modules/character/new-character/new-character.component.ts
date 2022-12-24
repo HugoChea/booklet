@@ -6,6 +6,7 @@ import { Book } from '@core/models/book/book';
 import { CharacterService } from '@core/services/character.service';
 import { Store } from '@ngrx/store';
 import { selectedBook } from '@core/store/selectors/books.selectors';
+import { Status } from '@core/enums/status.enum';
 
 @Component({
   selector: 'app-new-character',
@@ -133,7 +134,7 @@ export class NewCharacterComponent implements OnInit {
     if (this.newCharacterForm.valid && !this.newCharacterForm.pristine) {
       createCharacterDto.book = this.book?._id ? this.book._id : '';
       createCharacterDto.imageBase64 = this.file;
-      createCharacterDto.status = "Todo";
+      createCharacterDto.status = Status.TODO;
       this.characterService.createCharacter(createCharacterDto).subscribe({
         next: (res) => {
           this.snackbar.open('Character successfully created', '', {

@@ -1,3 +1,4 @@
+import { Status } from "@core/enums/status.enum";
 import { Tag } from "../tag";
 import { Ability } from "./abilitiy";
 import { Description } from "./description";
@@ -24,6 +25,6 @@ export interface Character {
 
     tags: Tag[];
 
-    status: string;
+    status: Status;
     
 }

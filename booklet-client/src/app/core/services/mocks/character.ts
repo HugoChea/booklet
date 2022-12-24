@@ -1,3 +1,5 @@
+import { Status } from "@core/enums/status.enum";
+
 export const mockCharacter = {
     book: "123",
 
@@ -15,5 +17,5 @@ export const mockCharacter = {
 
     tags: [],
 
-    status: "TODO"
+    status: Status.TODO
 }
