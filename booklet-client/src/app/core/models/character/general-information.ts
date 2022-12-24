@@ -1,3 +1,5 @@
+import { Gender } from "@core/enums/gender.enum";
+
 export interface GeneralInformation{
 
     name: string;
@@ -14,7 +16,7 @@ export interface GeneralInformation{
 
     race: string;
 
-    sexe: string;
+    sexe: Gender;
 
     nationality: string;
 

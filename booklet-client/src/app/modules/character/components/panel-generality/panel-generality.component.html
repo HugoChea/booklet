@@ -7,14 +7,18 @@
         </mat-expansion-panel-header>
         <ng-container formGroupName="generalInfo">
 
+          <div class="m-b-4">
+            <mat-label class="p-l-2 p-r-6">Sexe</mat-label>
+            <mat-radio-group formControlName="sexe" aria-label="Select an option">
+              <mat-radio-button class="p-r-5" value="gender.Male">Male</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="gender.Female">Female</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="gender.undefined">Undefined</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
           <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
             <mat-label>Race</mat-label>
             <input type="text" matInput formControlName="race" />
-          </mat-form-field>
-
-          <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-            <mat-label>Sexe</mat-label>
-            <input type="text" matInput formControlName="sexe" />
           </mat-form-field>
 
           <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
