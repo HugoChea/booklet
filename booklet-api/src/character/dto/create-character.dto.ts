@@ -9,7 +9,7 @@ export class CreateCharacterDto {
 
   tags: Types.ObjectId[];
 
-  status: Status.TODO;
+  status: Status;
 
   book: Types.ObjectId;
 
