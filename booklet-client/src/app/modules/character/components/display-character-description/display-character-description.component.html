@@ -1,7 +1,17 @@
 <div class="card-title fx-row fx-horizontal-space-between fx-vertical-center">
   <div class="m-r-4">
     <div class="avatar-container">
-      <img class="avatar" [src]="character?.image" alt="Photo of a Shiba Inu" />
+      <img
+        *ngIf="character?.image"
+        class="avatar"
+        [src]="character?.image"
+        alt="Photo of a Shiba Inu"
+      />
+      <img
+        *ngIf="!character?.image"
+        class="avatar"
+        src="assets/images/placeholder.png"
+      />
     </div>
     <mat-card class="profile p-none">
       <div
@@ -76,9 +86,10 @@
   <h2 class="character-title primary">
     <q>{{ character?.profile?.generalInfo?.surname }}</q>
   </h2>
-  <blockquote class="character-quote">
-    {{ character?.profile?.generalInfo?.quote }}
-  </blockquote>
+  <div class="text-left">
+    <span class="character-quote p-l-1">{{ character?.profile?.generalInfo?.quote }}</span>
+    
+  </div>
   <h4 class="text-right">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
 </div>
 <div class="text-center">

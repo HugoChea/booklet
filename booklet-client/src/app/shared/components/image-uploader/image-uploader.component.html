@@ -1,6 +1,6 @@
 <div class="img fx-column fx-horizontal-space-around fx-vertical-center">
     <img class="image" (click)="fileInput.click()" *ngIf="croppedImage" [src]="croppedImage" />
-    <img class="image" (click)="fileInput.click()" *ngIf="!croppedImage" src="assets/images/no-image.png" />
+    <img class="image" (click)="fileInput.click()" *ngIf="!croppedImage" src="assets/images/placeholder.png" />
     <button class="icon" type='button' mat-icon-button color="primary"><mat-icon>file_upload</mat-icon></button>
     <input #fileInput type="file" onclick="this.value=null;" (change)="fileChangeEvent($event)" hidden />
 </div>
