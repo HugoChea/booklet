@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Gender } from '@core/enums/gender.enum';
 
 @Component({
   selector: 'app-panel-generality',
@@ -12,6 +13,8 @@ export class PanelGeneralityComponent implements OnInit {
    * Form shared from parent component
    */
   @Input() newCharacterForm!: FormGroup;
+
+  gender: typeof Gender = Gender;
 
   constructor() { }
 

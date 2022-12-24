@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTableModule} from '@angular/material/table';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatMenuModule,
     MatButtonToggleModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
   ],
   exports: [
     MatIconModule,
@@ -46,7 +48,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatMenuModule,
     MatButtonToggleModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }
