@@ -1,5 +1,9 @@
-<app-actions-header [title]="'Create character'">
-  <div>
+<form
+  [formGroup]="newCharacterForm"
+  (ngSubmit)="create(newCharacterForm.value)"
+>
+  <app-actions-header [title]="'Create character'">
+    <div>
       <button
         type="submit"
         mat-raised-button
@@ -18,12 +22,8 @@
       >
         <mat-icon>keyboard_return</mat-icon> BACK
       </button>
-  </div>
-</app-actions-header>
-<form
-  [formGroup]="newCharacterForm"
-  (ngSubmit)="create(newCharacterForm.value)"
->
+    </div>
+  </app-actions-header>
   <mat-card class="body">
     <div class="fx-row">
       <div class="flex-25">

@@ -1,4 +1,5 @@
 import { Types } from "mongoose";
+import { Status } from "../enums/status.enum";
 import { Ability } from "../schemas/abilitiy.schema";
 import { Description } from "../schemas/description.schema";
 import { Profile } from "../schemas/profile.schema";
@@ -8,7 +9,7 @@ export class CreateCharacterDto {
 
   tags: Types.ObjectId[];
 
-  status: string;
+  status: Status;
 
   book: Types.ObjectId;
 

@@ -1,3 +1,4 @@
+import { Status } from "@core/enums/status.enum";
 import { Ability } from "@core/models/character/abilitiy";
 import { Description } from "@core/models/character/description";
 import { Profile } from "@core/models/character/profile";
@@ -20,6 +21,6 @@ export interface CreateCharacterDto {
 
     tags: string[];
 
-    status: string;
+    status: Status;
     
 }
