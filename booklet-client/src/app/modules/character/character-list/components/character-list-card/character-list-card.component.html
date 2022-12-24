@@ -6,9 +6,15 @@
     <div class="fx-row fx-horizontal-start fx-vertical-center">
       <div class="avatar-container">
         <img
+          *ngIf="character.image"
           class="avatar"
           [src]="character.image"
           alt="Photo of a Shiba Inu"
+        />
+        <img
+          *ngIf="!character.image"
+          class="avatar"
+          src="assets/images/placeholder.png"
         />
       </div>
       <div class="m-l-3">
