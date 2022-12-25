@@ -15,9 +15,10 @@
       class="m-r-2 m-l-2"
       [routerLink]="['/app', 'book', book?._id, 'character', 'new-character']"
     >
-      <mat-icon>add</mat-icon>
+      <mat-icon>add</mat-icon> CREATE
     </button>
     <mat-button-toggle-group
+      class="toggle-view"
       [(ngModel)]="displayMode"
       #group="matButtonToggleGroup"
     >

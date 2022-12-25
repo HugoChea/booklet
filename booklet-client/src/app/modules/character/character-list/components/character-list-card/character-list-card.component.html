@@ -25,11 +25,12 @@
         </h2>
         <h3>"{{ character.profile.generalInfo.surname }}"</h3>
         <div class="tag-list">
+          
           <mat-chip-listbox aria-label="Fish selection">
-            <mat-chip-option>{{ character.status }}</mat-chip-option>
-            <mat-chip-option *ngFor="let tag of character.tags">{{
+            <mat-chip>{{ character.status }}</mat-chip>
+            <mat-chip *ngFor="let tag of character.tags">{{
               tag.name
-            }}</mat-chip-option>
+            }}</mat-chip>
           </mat-chip-listbox>
         </div>
       </div>
