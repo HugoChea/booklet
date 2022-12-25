@@ -36,9 +36,6 @@ export class CharacterListComponent implements OnInit {
             }
           })
         }
-        else{
-          console.log("error")
-        }
       }
     })
   }
