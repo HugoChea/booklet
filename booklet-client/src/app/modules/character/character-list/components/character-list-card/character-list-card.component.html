@@ -1,6 +1,7 @@
 <mat-card
+  appearance="outlined"
   *ngFor="let character of listCharacter"
-  class="card-content pointer-cursor m-t-2 m-b-2"
+  class="pointer-cursor m-t-2 m-b-2"
 >
   <div class="fx-row fx-horizontal-space-between fx-vertical-center">
     <div class="fx-row fx-horizontal-start fx-vertical-center">
@@ -24,12 +25,12 @@
         </h2>
         <h3>"{{ character.profile.generalInfo.surname }}"</h3>
         <div class="tag-list">
-          <mat-chip-list aria-label="Fish selection">
-            <mat-chip>{{ character.status }}</mat-chip>
-            <mat-chip *ngFor="let tag of character.tags">{{
+          <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option>{{ character.status }}</mat-chip-option>
+            <mat-chip-option *ngFor="let tag of character.tags">{{
               tag.name
-            }}</mat-chip>
-          </mat-chip-list>
+            }}</mat-chip-option>
+          </mat-chip-listbox>
         </div>
       </div>
     </div>
