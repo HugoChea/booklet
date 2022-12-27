@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar fx-row fx-horizontal-space-between fx-vertical-center">
+<mat-toolbar class="navbar fx-horizontal-space-between">
     <div class="fx-row fx-horizontal-center fx-vertical-center">
         <button mat-icon-button>
             <mat-icon>auto_stories</mat-icon>
@@ -6,13 +6,13 @@
         <button class="m-r-2" mat-button [routerLink]="user ? ['/app/book'] : ['/home']"><h2>Booklet</h2></button>
         <app-navbar-navigation *ngIf="user"></app-navbar-navigation>
     </div>
-    <div>
+    <div class="fx-row fx-horizontal-center fx-vertical-center">
         <app-theme-toggler class="m-r-2"></app-theme-toggler>
-        <span *ngIf="!user">
+        <span *ngIf="!user" class="fx-row fx-horizontal-center fx-vertical-center">
             <button class="m-r-2" routerLink="/auth/register" mat-flat-button color="primary">Register</button>
             <button class="m-r-2" routerLink="/auth/login" mat-flat-button color="primary">Login</button>
         </span>
-        <span *ngIf="user">
+        <span *ngIf="user" class="fx-row fx-horizontal-center fx-vertical-center">
             <input class="input-search" type="text" id="search" name="search" size="10" placeholder="search"> <!--component de recherche-->
             <button class="m-r-2" mat-icon-button>
                 <mat-icon>search</mat-icon>
