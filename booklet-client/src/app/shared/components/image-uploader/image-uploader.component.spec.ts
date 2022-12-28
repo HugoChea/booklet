@@ -27,7 +27,7 @@ describe('ImageUploaderComponent', () => {
 
   it('fileChangeEvent', () => {
     // GIVEN
-    const mockEvent = "base64string";
+    const mockEvent = "base64string" as unknown as Event;
     const spyOpenDialog = spyOn(component, 'openDialog');
     // WHEN
     component.fileChangeEvent(mockEvent);
