@@ -18,12 +18,14 @@ export class CharacterListComponent implements OnInit {
 
   listCharacter: Character[] = [];
 
-  displayMode: string = "card";
+  displayMode: string;
 
   constructor(
     private store: Store,
     private characterService: CharacterService
-  ) { }
+  ) {
+    this.displayMode = "card";
+  }
 
   ngOnInit(): void {
     this.books$.subscribe({
@@ -34,10 +36,10 @@ export class CharacterListComponent implements OnInit {
             next: (res) => {
               this.listCharacter = res;
             }
-          })
+          });
         }
       }
-    })
+    });
   }
 
 }

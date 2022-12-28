@@ -3,4 +3,4 @@ export const mockCreateBookDto = {
     name: "Super Book",
     description: "Book about war, love and peace",
     imageBase64: "fakeBase64"
-}
+};

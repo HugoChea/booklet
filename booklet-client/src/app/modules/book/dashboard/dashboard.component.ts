@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Book } from '@core/models/book/book';
-import { Character } from '@core/models/character/character';
 import { CharacterService } from '@core/services/character.service';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
@@ -38,10 +36,10 @@ export class DashboardComponent implements OnInit {
           // })
         }
         else{
-          console.log("error")
+          console.log("error");
         }
       }
-    })
+    });
     
   }
 

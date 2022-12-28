@@ -8,6 +8,8 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    if(parentModule){
+      throwIfAlreadyLoaded('CoreModule');
+    }
   }
 }

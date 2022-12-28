@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateCharacterDto } from '@core/dto/create-character-dto';
 import { Book } from '@core/models/book/book';
@@ -105,7 +105,7 @@ export class NewCharacterComponent implements OnInit {
         stats: this.formBuilder.array([])
       }),
       relationship: this.formBuilder.array([])
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -113,14 +113,14 @@ export class NewCharacterComponent implements OnInit {
       next: (res) => {
         this.book = res;
       }
-    })
+    });
   }
 
   /**
    * Get output value from child component image-uploader
    * @param file 
    */
-  uploadFile(file: string): void {
+  uploadFile(file: string | null | undefined): void {
     if (file) {
       this.file = file;
     }
@@ -136,14 +136,14 @@ export class NewCharacterComponent implements OnInit {
       createCharacterDto.imageBase64 = this.file;
       createCharacterDto.status = Status.TODO;
       this.characterService.createCharacter(createCharacterDto).subscribe({
-        next: (res) => {
+        next: () => {
           this.snackbar.open('Character successfully created', '', {
             duration: 5000,
             horizontalPosition: "center",
             verticalPosition: "top",
           });
         },
-        error: (error) => {
+        error: () => {
           this.snackbar.open('Something happened', '', {
             duration: 5000,
             horizontalPosition: "center",

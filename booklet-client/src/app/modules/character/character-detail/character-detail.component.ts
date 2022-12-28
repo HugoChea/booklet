@@ -31,7 +31,7 @@ export class CharacterDetailComponent implements OnInit {
         next: (character) => {
           this.character = character;
         }
-      })
+      });
     });
   }
 

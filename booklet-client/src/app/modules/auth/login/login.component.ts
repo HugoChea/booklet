@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from '@core/dto/login-dto';
 import { AuthService } from '@core/services/auth.service';
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['',  Validators.required]
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login(loginDto: LoginDto): void {
     this.authService.login(loginDto).subscribe({
-      next : (res) => {
+      next : () => {
         this.router.navigate(['/app/book']);
       },
       error: (error) => {
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           this.loginForm.setErrors({ server: 'Server down' });
         }        
       },
-    })
+    });
   }
 
 }

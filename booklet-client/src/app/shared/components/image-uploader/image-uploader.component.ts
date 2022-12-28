@@ -25,26 +25,26 @@ export class ImageUploaderComponent implements OnInit {
 
   @ViewChild("dialogRef") dialogRef!: TemplateRef<any>;
 
-  @Output() fileUploadEvent = new EventEmitter<string>();
+  @Output() fileUploadEvent = new EventEmitter<string | null | undefined>();
 
   /**
    * Event from uploading file, passed to ngrx-cropper
    */
-  imageChangedEvent: any = '';
+  imageChangedEvent: Event | undefined;
 
   /**
    * Result image after cropped by ngrx-cropper
    */
-  croppedImage: any = '';
+  croppedImage: string | null | undefined = '';
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  fileChangeEvent(event: any): void {
+  fileChangeEvent(event: Event): void {
     this.imageChangedEvent = event;
-    this.openDialog()
+    this.openDialog();
   }
 
   imageCropped(event: ImageCroppedEvent): void {
@@ -52,7 +52,7 @@ export class ImageUploaderComponent implements OnInit {
     this.compressImage(this.croppedImage, 400, 600).then(compressed => {
       this.croppedImage = compressed;
       this.fileUploadEvent.emit(this.croppedImage);
-    })
+    });
   }
 
   openDialog(): void {
@@ -63,20 +63,22 @@ export class ImageUploaderComponent implements OnInit {
       maxWidth: '100vw',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }
 
   cancel(): void {
-    this.imageChangedEvent = null;
+    this.imageChangedEvent = undefined;
     this.croppedImage = null;
   }
 
-  compressImage(src: any, newX: any, newY: any): Promise<any> {
+  compressImage(src: string | null | undefined, newX: number, newY: number): Promise<string | null | undefined> {
     return new Promise((res, rej) => {
       const img = new Image();
-      img.src = src;
+      if (src){
+        img.src = src;
+      }
       img.onload = () => {
         if (img.width > newX || img.height > newY){
           const elem = document.createElement('canvas');
@@ -91,9 +93,9 @@ export class ImageUploaderComponent implements OnInit {
           res(img.src);
         }
         
-      }
+      };
       img.onerror = error => rej(error);
-    })
+    });
   }
 
 }

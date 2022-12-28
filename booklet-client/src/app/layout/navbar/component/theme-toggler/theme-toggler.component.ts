@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemeTogglerComponent implements OnInit {
 
-  darkMode: boolean = true;
+  darkMode: boolean;
 
-  constructor() { }
+  constructor() {
+    this.darkMode = true;
+  }
 
   ngOnInit(): void {
   }

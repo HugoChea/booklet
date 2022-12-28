@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ChartConfiguration, ChartDataset } from 'chart.js';
+import { ChartConfiguration } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Editor, Toolbar } from 'ngx-editor';
 
@@ -92,7 +92,7 @@ export class PanelAbilityComponent implements OnInit {
    */
   generateTemplateStatsForm(): void {
     
-    this.stats.clear()
+    this.stats.clear();
     this.addItem('Strenght', 50);
     this.addItem('Endurance', 50);
     this.addItem('Agility', 50);
@@ -105,10 +105,10 @@ export class PanelAbilityComponent implements OnInit {
    * Update graph data based from stats form
    */
   updateGraph(): void {
-    this.radarChartLabels = this.stats.value.map((res: { characteristicName: any; }) => res.characteristicName)
+    this.radarChartLabels = this.stats.value.map((res: { characteristicName: string; }) => res.characteristicName);
     this.radarChartDatasets = [
       { data: this.stats.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
-    ]
+    ];
     //this.chart?.update();
   }
 

@@ -9,7 +9,7 @@ describe('PanelGeneralityComponent', () => {
   let component: PanelGeneralityComponent;
   let fixture: ComponentFixture<PanelGeneralityComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
-  let newCharacterForm = formBuilder.group({
+  const newCharacterForm = formBuilder.group({
     profile: formBuilder.group({
       generalInfo: formBuilder.group({
         firstname: [''],
@@ -71,7 +71,7 @@ describe('PanelGeneralityComponent', () => {
       stats: formBuilder.array([])
     }),
     relationship: formBuilder.array([])
-  })
+  });
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MaterialModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, FormsModule, ReactiveFormsModule],

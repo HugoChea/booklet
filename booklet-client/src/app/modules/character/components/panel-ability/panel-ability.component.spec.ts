@@ -11,7 +11,7 @@ describe('PanelAbilityComponent', () => {
   let component: PanelAbilityComponent;
   let fixture: ComponentFixture<PanelAbilityComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
-  let newCharacterForm = formBuilder.group({
+  const newCharacterForm = formBuilder.group({
     profile: formBuilder.group({
       generalInfo: formBuilder.group({
         firstname: [''],
@@ -90,7 +90,7 @@ describe('PanelAbilityComponent', () => {
       equipement: [''],
       stats: formBuilder.array([])
     })
-  })
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
