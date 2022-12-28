@@ -53,7 +53,7 @@ describe('ImageUploaderComponent', () => {
 
   it('cancel', () => {
     component.cancel();
-    expect(component.imageChangedEvent).toBeNull();
+    expect(component.imageChangedEvent).toBeUndefined();
     expect(component.croppedImage).toBeNull();
   });
 
