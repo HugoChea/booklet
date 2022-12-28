@@ -18,4 +18,4 @@ export const mockCharacter = {
     tags: [],
 
     status: Status.TODO
-}
+};

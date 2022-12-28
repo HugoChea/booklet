@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ActionsHeaderComponent implements OnInit {
 
   @Input()
-  title: string = '';
+  title = '';
 
   constructor() {}
 

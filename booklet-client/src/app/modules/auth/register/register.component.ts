@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required]
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
   register(registerDto: RegisterDto): void {
     this.authService.register(registerDto).subscribe({
-      next : (res) => {
+      next : () => {
         this.snackbar.open('Account successfully registered', '', {
           duration: 5000,
           horizontalPosition: "center",
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
           this.registerForm.setErrors({ server: 'Server down' });
         }     
       },
-    })
+    });
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Book } from '@core/models/book/book';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { MatOptionSelectionChange } from '@angular/material/core';
 import { Character } from '@core/models/character/character';
 import { Relationship } from '@core/models/character/relationship';
 import { CharacterService } from '@core/services/character.service';
@@ -39,7 +39,7 @@ export class PanelRelationshipComponent implements OnInit {
             next: (res) => {
               this.listCharacter = res;
             }
-          })
+          });
         }
         
       }
@@ -56,12 +56,12 @@ export class PanelRelationshipComponent implements OnInit {
     });
   }
 
-  onSelection(event: any): void {
+  onSelection(event: MatOptionSelectionChange): void {
     if (event.source.selected){
       this.relationship.push(this.createRelationship(event.source.value));
     }
     else{
-      this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith._id === event.source.value._id))
+      this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith._id === event.source.value._id));
     }
   }
 }

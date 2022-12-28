@@ -5,7 +5,7 @@ import { environment } from '@env';
 import { BookService } from './book.service';
 import { mockCreateBookDto } from './mocks/book';
 
-const apiURL = environment.url + '/book'
+const apiURL = environment.url + '/book';
 
 describe('BookService', () => {
   let service: BookService;
@@ -27,6 +27,7 @@ describe('BookService', () => {
     service.createBook(mockCreateBookDto).subscribe(
       (createBookDto) => {
         // TODO : improve test case
+        console.log(createBookDto);
       }
     );
     
@@ -37,6 +38,7 @@ describe('BookService', () => {
     service.getListBookByUser("123").subscribe(
       (listBook) => {
         // TODO : improve test case
+        console.log(listBook);
       }
     );
     

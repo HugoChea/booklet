@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@shared/material/material.module';
-import { NgChartsModule } from 'ng2-charts';
 import { NgxEditorModule } from 'ngx-editor';
 
 import { PanelDescriptionComponent } from './panel-description.component';
@@ -12,7 +11,7 @@ describe('PanelDescriptionComponent', () => {
   let fixture: ComponentFixture<PanelDescriptionComponent>;
 
   const formBuilder: FormBuilder = new FormBuilder();
-  let newCharacterForm = formBuilder.group({
+  const newCharacterForm = formBuilder.group({
     profile: formBuilder.group({
       generalInfo: formBuilder.group({
         firstname: [''],
@@ -74,7 +73,7 @@ describe('PanelDescriptionComponent', () => {
       stats: formBuilder.array([])
     }),
     relationship: formBuilder.array([])
-  })
+  });
   
 
   beforeEach(async () => {

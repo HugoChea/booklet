@@ -32,7 +32,7 @@ export class NewBookComponent implements OnInit {
       name: ['', Validators.required],
       description: [''],
       userId: [this.tokenStorage.getUser()?.id]
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -42,14 +42,14 @@ export class NewBookComponent implements OnInit {
     if (this.newBookForm.valid) {
       createBookDto.imageBase64 = this.file;
       this.bookService.createBook(createBookDto).subscribe({
-        next: (res) => {
+        next: () => {
           this.snackbar.open('Book successfully created', '', {
             duration: 5000,
             horizontalPosition: "center",
             verticalPosition: "top",
           });
         },
-        error: (error) => {
+        error: () => {
           this.snackbar.open('Something happened', '', {
             duration: 5000,
             horizontalPosition: "center",
@@ -65,7 +65,7 @@ export class NewBookComponent implements OnInit {
    * Get output value from child component image-uploader
    * @param file
    */
-  uploadFile(file: string): void {
+  uploadFile(file: string | null | undefined): void {
     if (file){
       this.file = file;
     }

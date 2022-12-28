@@ -6,7 +6,7 @@ import { environment } from '@env';
 import { CharacterService } from './character.service';
 import { mockCharacter } from './mocks/character';
 
-const apiURL = environment.url + '/character'
+const apiURL = environment.url + '/character';
 
 describe('CharacterService', () => {
   let service: CharacterService;
@@ -29,6 +29,7 @@ describe('CharacterService', () => {
     service.createCharacter(mockCreateCharacterDto).subscribe(
       (res) => {
         // TODO : improve test case
+        console.log(res);
       }
     );
     
@@ -39,6 +40,7 @@ describe('CharacterService', () => {
     service.getListLatestCharacterByBook("bookId").subscribe(
       (res) => {
         // TODO : improve test case
+        console.log(res);
       }
     );
     
@@ -49,6 +51,7 @@ describe('CharacterService', () => {
     service.getListCharacterByBook("bookId").subscribe(
       (res) => {
         // TODO : improve test case
+        console.log(res);
       }
     );
     
@@ -59,6 +62,7 @@ describe('CharacterService', () => {
     service.getCharacterById("characterId").subscribe(
       (res) => {
         // TODO : improve test case
+        console.log(res);
       }
     );
     

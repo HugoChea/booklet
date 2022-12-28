@@ -23,7 +23,7 @@ export class NavbarNavigationComponent implements OnInit {
       next : (res) => {
         this.book = res;
       }
-    })
+    });
   }
 
 }

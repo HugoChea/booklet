@@ -16,7 +16,7 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
 
     authServiceSpy = jasmine.createSpyObj('AuthService', ['login']);
-    authServiceSpy.login.and.returnValue(of("loginmock"))
+    authServiceSpy.login.and.returnValue(of("loginmock"));
 
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],

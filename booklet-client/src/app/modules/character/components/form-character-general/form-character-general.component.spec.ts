@@ -9,7 +9,7 @@ describe('FormCharacterGeneralComponent', () => {
   let component: FormCharacterGeneralComponent;
   let fixture: ComponentFixture<FormCharacterGeneralComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
-  let newCharacterForm = formBuilder.group({
+  const newCharacterForm = formBuilder.group({
     profile: formBuilder.group({
       generalInfo: formBuilder.group({
         firstname: [''],
@@ -88,7 +88,7 @@ describe('FormCharacterGeneralComponent', () => {
       equipement: [''],
       stats: formBuilder.array([])
     })
-  })
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

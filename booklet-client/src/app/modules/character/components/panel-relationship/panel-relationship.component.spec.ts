@@ -18,7 +18,7 @@ describe('PanelRelationshipComponent', () => {
   const initialState = { selectedBook: null };
 
   const formBuilder: FormBuilder = new FormBuilder();
-  let newCharacterForm = formBuilder.group({
+  const newCharacterForm = formBuilder.group({
     profile: formBuilder.group({
       generalInfo: formBuilder.group({
         firstname: [''],
@@ -98,7 +98,7 @@ describe('PanelRelationshipComponent', () => {
       stats: formBuilder.array([])
     }),
     relationship: formBuilder.array([])
-  })
+  });
 
   beforeEach(async () => {
 

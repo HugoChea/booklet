@@ -1,11 +1,12 @@
 import { ActionReducer, INIT, MetaReducer, UPDATE } from "@ngrx/store";
+import { BookState } from "./state/book.state";
 
 /**
  * Meta reducer to save into local storage in case user refresh app
  * @param reducer 
  * @returns 
  */
-export const hydrationMetaReducer = (reducer: ActionReducer<any>): ActionReducer<any> => {
+export const hydrationMetaReducer = (reducer: ActionReducer<BookState>): ActionReducer<BookState> => {
     return (state, action) => {
       if (action.type === INIT || action.type === UPDATE) {
         const storageValue = localStorage.getItem("state");
@@ -23,4 +24,4 @@ export const hydrationMetaReducer = (reducer: ActionReducer<any>): ActionReducer
     };
   };
 
-export const metaReducers: Array<MetaReducer<any, any>> = [hydrationMetaReducer];
+export const metaReducers: MetaReducer[] = [hydrationMetaReducer];

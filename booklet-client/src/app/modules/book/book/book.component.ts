@@ -36,7 +36,7 @@ export class BookComponent implements OnInit {
           this.bookList = res;
         },
         error: (error) => {
-          console.log(error)
+          console.log(error);
         }
       });
     }
