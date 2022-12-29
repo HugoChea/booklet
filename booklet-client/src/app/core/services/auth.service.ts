@@ -7,6 +7,7 @@ import { RegisterDto } from '../dto/register-dto';
 import { TokenStorageService } from './token-storage.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { User } from '../models/user';
+import { HttpApiResponse } from '@core/models/http/http-api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -28,18 +29,18 @@ export class AuthService {
 
   }
 
-  register(registerDto: RegisterDto): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/register', registerDto)
+  register(registerDto: RegisterDto): Observable<{ data: {message: string} }> {
+    return this.http.post<HttpApiResponse<{message: string}>>(this.apiURL + '/register', registerDto)
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  login(loginDto: LoginDto): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/login', loginDto)
+  login(loginDto: LoginDto): Observable<{ data: {access_token: string} }> {
+    return this.http.post<HttpApiResponse<{access_token: string}>>(this.apiURL + '/login', loginDto)
     .pipe(
       tap(res => {
-        const token = res.access_token;
+        const token = res.data.access_token;
         this.tokenStorageService.saveToken(token);
         const decoded_token = this.jwtHelperService.decodeToken(token);
         const user : User = {

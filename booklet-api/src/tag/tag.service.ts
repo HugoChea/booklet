@@ -11,7 +11,7 @@ export class TagService {
   constructor(@InjectModel(Tag.name) private tagModel: Model<TagDocument>) {
   }
 
-  create(createTagDto: CreateTagDto) {
+  create(createTagDto: CreateTagDto): Promise<Tag> {
     
     const newTag = new this.tagModel(createTagDto);
 

@@ -28,19 +28,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(loginDto: LoginDto): void {
-    this.authService.login(loginDto).subscribe({
-      next : () => {
-        this.router.navigate(['/app/book']);
-      },
-      error: (error) => {
-        if (error.status === 401){
-          this.loginForm.setErrors({ invalid: 'Invalid login request' });
-        }
-        else{
-          this.loginForm.setErrors({ server: 'Server down' });
-        }        
-      },
-    });
+    if (this.loginForm.valid) {
+      this.authService.login(loginDto).subscribe({
+        next : () => {
+          this.router.navigate(['/app/book']);
+        },
+        error: (error) => {
+          if (error.statusCode === 401){
+            this.loginForm.setErrors({ invalid: 'Invalid login request' });
+          }
+          else{
+            this.loginForm.setErrors({ server: 'Server down' });
+          }        
+        },
+      });
+    }
   }
 
 }

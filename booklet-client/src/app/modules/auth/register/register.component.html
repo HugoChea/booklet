@@ -1,6 +1,6 @@
 <div class="fx-fill fx-column fx-horizontal-center fx-vertical-center">
     <mat-card appearance="outlined" class="w-6/12">
-        <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" class="example-form">
+        <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
             <mat-card-title class="text-center m-b-4">Register</mat-card-title>
             <mat-card-content>
                 <div>
@@ -10,7 +10,7 @@
                         <mat-error *ngIf="registerForm.get('username')!.hasError('required')">
                             Username is <strong>required</strong>
                         </mat-error>
-                        <mat-error *ngIf="registerForm.get('username')!.hasError('usernameused')">
+                        <mat-error *ngIf="registerForm.get('username')!.hasError('usernameUsed')">
                             Username already <strong>used</strong>
                         </mat-error>
                     </mat-form-field>
@@ -25,7 +25,7 @@
                         <mat-error *ngIf="registerForm.get('email')!.hasError('email')">
                             Field must be of type <strong>email</strong>
                         </mat-error>
-                        <mat-error *ngIf="registerForm.get('email')!.hasError('emailused')">
+                        <mat-error *ngIf="registerForm.get('email')!.hasError('emailUsed')">
                             Email already <strong>used</strong>
                         </mat-error>
                     </mat-form-field>
