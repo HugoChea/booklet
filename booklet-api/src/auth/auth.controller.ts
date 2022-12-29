@@ -1,11 +1,13 @@
 import { Body, ConflictException, Controller, Get, HttpCode, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LoginDto } from './dto/LoginDto';
-import { RegisterDto } from './dto/RegisterDto';
+import { LoginDto } from './dto/login-dto';
+import { RegisterDto } from './dto/register-dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth-guard';
 import { User } from 'src/users/schemas/user.schema';
 import { ErrorMessage } from 'src/common/enums/error-message.enum';
+import { ApiConflictResponse, ApiCreatedResponse, ApiOkResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
 
@@ -13,6 +15,8 @@ export class AuthController {
 
     @HttpCode(200)
     @Post('login')
+    @ApiOkResponse({ description: "Successful login"})
+    @ApiUnauthorizedResponse({ description: "User does not exit or incorrect password"})
     async login(@Body() body: LoginDto): Promise<{ access_token: string; }> {
         try {
             const user: User = await this.authService.validateUser(body.username, body.password);
@@ -29,6 +33,8 @@ export class AuthController {
     }
 
     @Post('register')
+    @ApiCreatedResponse()
+    @ApiConflictResponse()
     async register(@Body() body: RegisterDto): Promise<{ message: string; }> {
         try {
             const registeredUser = await this.authService.register(body);
