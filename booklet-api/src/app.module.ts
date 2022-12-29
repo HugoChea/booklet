@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './users/user.module';
 import { BookModule } from './book/book.module';
 import { TagModule } from './tag/tag.module';
 import { CharacterModule } from './character/character.module';
@@ -14,8 +12,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    AuthModule,
-    UsersModule,
     MongooseModule.forRootAsync(
       {
         imports: [ConfigModule],
@@ -25,11 +21,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         })
       }
     ),
+    AuthModule,
+    UserModule,
     BookModule,
     CharacterModule,
     TagModule
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  ]
 })
 export class AppModule { }

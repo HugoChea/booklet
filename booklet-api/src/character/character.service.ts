@@ -13,7 +13,7 @@ export class CharacterService {
   constructor(@InjectModel(Character.name) private characterModel: Model<CharacterDocument>) {
   }
   
-  async create(createCharacterDto: CreateCharacterDto) {
+  async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
 
     if (createCharacterDto.imageBase64){
       const image: [string, string] = await this.uploadImage(createCharacterDto.imageBase64);
@@ -33,15 +33,15 @@ export class CharacterService {
     return newCharacter.save();
   }
 
-  findAll(bookId: string) {
+  findAll(bookId: string): Promise<Character[]> {
     return this.characterModel.find({ 'book': bookId }).sort({ 'profile.generalInfo.firstname': 1 , 'profile.generalInfo.lastname': 1}).populate("tags").exec();
   }
 
-  findAllLastModified(bookId: string) {
+  findAllLastModified(bookId: string): Promise<Character[]> {
     return this.characterModel.find({ 'book': bookId }).sort({'updatedAt': -1}).limit(3).populate("tags").exec();
   }
 
-  findOne(id: string) {
+  findOne(id: string): Promise<Character | undefined> {
     return this.characterModel.findById(id).populate("tags").populate(
       {
         path: 'relationship',

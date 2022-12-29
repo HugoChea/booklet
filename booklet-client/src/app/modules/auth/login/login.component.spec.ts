@@ -15,17 +15,22 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
 
+    const loginMock = {
+      data: {
+        access_token: "token"
+      }
+    };
     authServiceSpy = jasmine.createSpyObj('AuthService', ['login']);
-    authServiceSpy.login.and.returnValue(of("loginmock"));
+    authServiceSpy.login.and.returnValue(of(loginMock));
 
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [LoginComponent],
       imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
       providers: [
-        {provide: AuthService, useValue: authServiceSpy},
+        { provide: AuthService, useValue: authServiceSpy },
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;

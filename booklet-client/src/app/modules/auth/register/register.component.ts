@@ -31,30 +31,33 @@ export class RegisterComponent implements OnInit {
   }
 
   register(registerDto: RegisterDto): void {
-    this.authService.register(registerDto).subscribe({
-      next : () => {
-        this.snackbar.open('Account successfully registered', '', {
-          duration: 5000,
-          horizontalPosition: "center",
-          verticalPosition: "top",
-        });
-        this.router.navigate(['/auth/login']);
-      },
-      error: (error) => {
-        if (error.status === 409){
-          if (error.message === 'Username already used'){
-            this.registerForm.setErrors({ usernameused: 'Username already used' });
+    if (this.registerForm.valid) {
+      this.authService.register(registerDto).subscribe({
+        next : () => {
+          this.snackbar.open('Account successfully registered', '', {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          });
+          this.router.navigate(['/auth/login']);
+        },
+        error: (error) => {
+          if (error.statusCode === 409){
+            if (error.message === 'Username already used') {
+              this.registerForm.controls['username'].setErrors({ usernameUsed: 'Username already used' });
+            }
+            else if (error.message === 'Email already used') {
+              this.registerForm.controls['email'].setErrors({ emailUsed: 'Email already used' });
+            }
+            
           }
           else{
-            this.registerForm.setErrors({ emailused: 'Email already used' });
-          }
-          
-        }
-        else{
-          this.registerForm.setErrors({ server: 'Server down' });
-        }     
-      },
-    });
+            this.registerForm.setErrors({ server: 'Server down' });
+          }     
+        },
+      });
+    }
+    
   }
 
 }

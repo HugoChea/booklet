@@ -1,19 +1,19 @@
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersService } from 'src/users/users.service';
+import { UserService } from 'src/users/user.service';
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
   let service: AuthService;
 
-  const usersServiceMock = {findOneByUsernameOrEmail: () => null}
+  const userServiceMock = {findOneByUsernameOrEmail: () => null}
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AuthService,
         JwtService,
-        { provide: UsersService, useValue: usersServiceMock }
+        { provide: UserService, useValue: userServiceMock }
       ],
     })
     .compile();
