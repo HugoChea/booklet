@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, ConflictException, Controller, Get, HttpCode, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/LoginDto';
 import { RegisterDto } from './dto/RegisterDto';
@@ -29,13 +29,24 @@ export class AuthController {
     }
 
     @Post('register')
-    async register(@Body() body: RegisterDto) {
-        const registeredUser = await this.authService.register(body);
-        if (registeredUser){
-            return {
-                message: "User registered successfully",
-            };
+    async register(@Body() body: RegisterDto): Promise<{ message: string; }> {
+        try {
+            const registeredUser = await this.authService.register(body);
+            if (registeredUser){
+                return {
+                    message: "User registered successfully",
+                };
+            }
         }
+        catch (error) {
+            if (error.message === ErrorMessage.USERNAME_ALREADY_USED){
+                throw new ConflictException(error.message);
+            }
+            else if (error.message === ErrorMessage.EMAIL_ALREADY_USED){
+                throw new ConflictException(error.message);
+            }
+        }
+        
     }
 
     @UseGuards(JwtAuthGuard)

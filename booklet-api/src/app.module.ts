@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './users/user.module';
 import { BookModule } from './book/book.module';
 import { TagModule } from './tag/tag.module';
 import { CharacterModule } from './character/character.module';
@@ -24,7 +24,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       }
     ),
     AuthModule,
-    UsersModule,
+    UserModule,
     BookModule,
     CharacterModule,
     TagModule
