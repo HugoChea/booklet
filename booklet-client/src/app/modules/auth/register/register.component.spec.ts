@@ -15,17 +15,22 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
 
+    const registerMock = {
+      data: {
+        message: "success"
+      }
+    };
     authServiceSpy = jasmine.createSpyObj('AuthService', ['register']);
-    authServiceSpy.register.and.returnValue(of("registermock"));
+    authServiceSpy.register.and.returnValue(of(registerMock));
 
     await TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ],
+      declarations: [RegisterComponent],
       imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
       providers: [
-        {provide: AuthService, useValue: authServiceSpy},
+        { provide: AuthService, useValue: authServiceSpy },
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
