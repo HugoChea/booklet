@@ -1,8 +1,10 @@
-import { Body, Controller, Get, HttpCode, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/LoginDto';
 import { RegisterDto } from './dto/RegisterDto';
-import { JwtAuthGuard } from './guards/jwt-auth-guard';
+import { JwtAuthGuard } from '../common/guards/jwt-auth-guard';
+import { User } from 'src/users/schemas/user.schema';
+import { ErrorMessage } from 'src/common/enums/error-message.enum';
 
 @Controller('auth')
 export class AuthController {
@@ -11,10 +13,19 @@ export class AuthController {
 
     @HttpCode(200)
     @Post('login')
-    async login(@Body() body: LoginDto) {
-        return this.authService.login(
-            await this.authService.validateUser(body.username, body.password)
-        );
+    async login(@Body() body: LoginDto): Promise<{ access_token: string; }> {
+        try {
+            const user: User = await this.authService.validateUser(body.username, body.password);
+            return this.authService.login(user);
+        }
+        catch (error) {
+            if (error.message === ErrorMessage.USER_DOES_NOT_EXIST){
+                throw new UnauthorizedException(error.message);
+            }
+            else if (error.message === ErrorMessage.INCORRECT_PASSWORD){
+                throw new UnauthorizedException(error.message);
+            }
+        }
     }
 
     @Post('register')

@@ -14,8 +14,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    AuthModule,
-    UsersModule,
     MongooseModule.forRootAsync(
       {
         imports: [ConfigModule],
@@ -25,6 +23,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         })
       }
     ),
+    AuthModule,
+    UsersModule,
     BookModule,
     CharacterModule,
     TagModule
