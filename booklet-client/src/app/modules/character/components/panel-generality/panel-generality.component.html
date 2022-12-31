@@ -85,10 +85,38 @@
           <mat-panel-title> <h2>Mental</h2> </mat-panel-title>
         </mat-expansion-panel-header>
         <ng-container formGroupName="psychologicInfo">
-          <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-            <mat-label>MBTI</mat-label>
-            <input type="text" matInput formControlName="mbti" />
-          </mat-form-field>
+
+          <div class="fx-column m-b-4">
+            <label class="p-l-2 p-r-6">Outwardly or inwardly focused</label>
+            <mat-radio-group formControlName="mbtiFocus" aria-label="Outwardly or inwardly focused">
+              <mat-radio-button class="p-r-5" value="E">Extraversion (talkative, fast-paced environment, think out loud, center of attention)</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="I">Introversion (reserved, time for contemplation, think, observation)</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="fx-column m-b-4">
+            <mat-label class="p-l-2 p-r-6">How taking information</mat-label>
+            <mat-radio-group formControlName="mbtiInformation" aria-label="How taking information">
+              <mat-radio-button class="p-r-5" value="S">Sensing (Focus on reality, concrete facts, practical application)</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="I">Intuition (imagine possibilities, big picture, ideas and concepts, figurative)</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="fx-column m-b-4">
+            <mat-label class="p-l-2 p-r-6">How taking decision</mat-label>
+            <mat-radio-group formControlName="mbtoDecision" aria-label="How taking decision">
+              <mat-radio-button class="p-r-5" value="T">Thinking (Make decision using logical reasoning, justice & fairness, finding flaws, reasonable)</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="F">Feeling (Base decision on personal values, value harmony, forgiveness, like to please others)</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="fx-column m-b-4">
+            <mat-label class="p-l-2 p-r-6">How prefer live life</mat-label>
+            <mat-radio-group formControlName="mbtoLife" aria-label="How prefer live life">
+              <mat-radio-button class="p-r-5" value="J">Judging (have matters settled, rule and deadlines respected, detailed instructions, make plans)</mat-radio-button>
+              <mat-radio-button class="p-r-5" value="P">Perceiving (options open, flexibility, improvise, spontaneous)</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
           <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
             <mat-label>Intelligence</mat-label>
