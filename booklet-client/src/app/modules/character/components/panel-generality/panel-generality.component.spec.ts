@@ -33,7 +33,10 @@ describe('PanelGeneralityComponent', () => {
         accessories: ['']
       }),
       psychologicInfo: formBuilder.group({
-        mbti: [''],
+        mbtiFocus: [''],
+        mbtiInformation: [''],
+        mbtiDecision: [''],
+        mbtiLife: [''],
         intelligence: [''],
         selfConfidence: [''],
         flaws: [''],

@@ -67,7 +67,10 @@ export class NewCharacterComponent implements OnInit {
           accessories: ['']
         }),
         psychologicInfo: this.formBuilder.group({
-          mbti: [''],
+          mbtiFocus: [''],
+          mbtiInformation: [''],
+          mbtiDecision: [''],
+          mbtiLife: [''],
           intelligence: [''],
           selfConfidence: [''],
           flaws: [''],

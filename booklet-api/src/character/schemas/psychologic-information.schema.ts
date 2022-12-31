@@ -7,7 +7,16 @@ export type PsychologicInformationDocument = PsychologicInformation & Document;
 export class PsychologicInformation{
     // mental
     @Prop()
-    mbti: string;
+    mbtiFocus: string;
+
+    @Prop()
+    mbtiInformation: string;
+
+    @Prop()
+    mbtiDecision: string;
+
+    @Prop()
+    mbtiLife: string;
 
     @Prop()
     intelligence: string;

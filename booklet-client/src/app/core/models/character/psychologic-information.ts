@@ -1,7 +1,12 @@
 export interface PsychologicInformation{
     // mental
+    mbtiFocus: string;
 
-    mbti: string;
+    mbtiInformation: string;
+
+    mbtiDecision: string;
+
+    mbtiLife: string;
 
     intelligence: string;
 
