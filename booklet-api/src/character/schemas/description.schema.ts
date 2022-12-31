@@ -25,6 +25,48 @@ export class Description {
     jobSatisfaction: string;
 
     @Prop()
+    motherName: string;
+
+    @Prop()
+    motherCurrentStatus: string;
+
+    @Prop()
+    fatherName: string;
+
+    @Prop()
+    fatherCurrentStatus: string;
+
+    @Prop()
+    caretakers: string;
+
+    @Prop()
+    siblings: string;
+
+    @Prop()
+    extendedFamily: string;
+
+    @Prop()
+    bestFriend: string;
+
+    @Prop()
+    interest: string;
+
+    @Prop()
+    loveStory: string;
+
+    @Prop()
+    dislikedPeople: string;
+
+    @Prop()
+    likedPeople: string;
+
+    @Prop()
+    relyPracticalAdvice: string;
+
+    @Prop()
+    relyEmotionalSupport: string;
+
+    @Prop()
     summary: string;
 
     @Prop()
