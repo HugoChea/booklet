@@ -10,9 +10,9 @@
           <div class="m-b-4">
             <mat-label class="p-l-2 p-r-6">Sexe</mat-label>
             <mat-radio-group formControlName="sexe" aria-label="Select an option">
-              <mat-radio-button class="p-r-5" value="gender.MALE">Male</mat-radio-button>
-              <mat-radio-button class="p-r-5" value="gender.FEMALE">Female</mat-radio-button>
-              <mat-radio-button class="p-r-5" value="gender.UNDEFINED">Undefined</mat-radio-button>
+              <mat-radio-button class="p-r-5" [value]="gender.MALE">Male</mat-radio-button>
+              <mat-radio-button class="p-r-5" [value]="gender.FEMALE">Female</mat-radio-button>
+              <mat-radio-button class="p-r-5" [value]="gender.UNDEFINED">Undefined</mat-radio-button>
             </mat-radio-group>
           </div>
 
