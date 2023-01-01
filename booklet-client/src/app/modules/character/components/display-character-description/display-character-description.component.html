@@ -87,35 +87,64 @@
     <q>{{ character?.profile?.generalInfo?.surname }}</q>
   </h2>
   <div class="text-left">
-    <span class="character-quote p-l-1">{{ character?.profile?.generalInfo?.quote }}</span>
-    
+    <span class="character-quote p-l-1">{{
+      character?.profile?.generalInfo?.quote
+    }}</span>
   </div>
   <h4 class="text-right">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
 </div>
+<div class="summary">
+  <div [innerHtml]="character?.description?.summary"></div>
+</div>
 <div class="text-center">
-  <mat-button-toggle-group name="selectPanel" aria-label="Select Panel">
-    <mat-button-toggle class="toggle-button" value="red"
-      >Plot</mat-button-toggle
-    >
-    <mat-button-toggle class="toggle-button" value="green"
-      >Personality</mat-button-toggle
-    >
+  <mat-button-toggle-group
+    [(ngModel)]="displayMode"
+    name="selectPanel"
+    aria-label="Select Panel"
+  >
+    <mat-button-toggle class="toggle-button" value="plot">
+      Plot
+    </mat-button-toggle>
+    <mat-button-toggle class="toggle-button" value="personality">
+      Personality
+    </mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 <div class="text-justify">
-  <div class="life">
+  <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Life</h3>
-    <div [innerHtml]="character?.description?.personality"></div>
+    <div>{{ character?.description?.localisation }}</div>
+    <div>{{ character?.description?.livingWith }}</div>
+    <div>{{ character?.description?.homeDescription }}</div>
+    <div>{{ character?.description?.neighbourhood }}</div>
+    <div>{{ character?.description?.occupation }}</div>
+    <div>{{ character?.description?.jobSatisfaction }}</div>
   </div>
-  <div class="summary">
-    <div [innerHtml]="character?.description?.summary"></div>
+  <div *ngIf="displayMode==='plot'">
+    <h3 class="category-title p-l-5 p-t-2 m-b-2">Relation</h3>
+    <div>{{ character?.description?.motherName }}</div>
+    <div>{{ character?.description?.motherCurrentStatus }}</div>
+    <div>{{ character?.description?.fatherName }}</div>
+    <div>{{ character?.description?.fatherCurrentStatus }}</div>
+    <div>{{ character?.description?.caretakers }}</div>
+    <div>{{ character?.description?.siblings }}</div>
+    <div>{{ character?.description?.motherName }}</div>
+    <div>{{ character?.description?.extendedFamily }}</div>
+    <div>{{ character?.description?.motherName }}</div>
+    <div>{{ character?.description?.bestFriend }}</div>
+    <div>{{ character?.description?.interest }}</div>
+    <div>{{ character?.description?.loveStory }}</div>
+    <div>{{ character?.description?.dislikedPeople }}</div>
+    <div>{{ character?.description?.likedPeople }}</div>
+    <div>{{ character?.description?.relyPracticalAdvice }}</div>
+    <div>{{ character?.description?.relyEmotionalSupport }}</div>
   </div>
-  <div class="background">
+  <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Background</h3>
     <div [innerHtml]="character?.description?.background"></div>
   </div>
 
-  <div class="personality">
+  <div *ngIf="displayMode==='personality'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Personality</h3>
     <div [innerHtml]="character?.description?.personality"></div>
   </div>

@@ -15,6 +15,8 @@ export class CharacterService {
   
   async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
 
+    createCharacterDto.image = ''
+    createCharacterDto.imageRef = '';
     if (createCharacterDto.imageBase64){
       const image: [string, string] = await this.uploadImage(createCharacterDto.imageBase64);
       createCharacterDto.image = image[0];

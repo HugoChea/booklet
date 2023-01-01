@@ -10,7 +10,11 @@ export class DisplayCharacterDescriptionComponent implements OnInit {
 
   @Input() character: Character | undefined;
 
-  constructor() { }
+  displayMode: string;
+
+  constructor() {
+    this.displayMode = 'plot';
+  }
 
   ngOnInit(): void {
   }
