@@ -1,7 +1,7 @@
 <ng-container [formGroup]="newCharacterForm">
   <ng-container formGroupName="profile">
-    <mat-accordion [multi]="true">
-      <mat-expansion-panel class="card" [expanded]="true">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-panel-title> <h2>Général</h2> </mat-panel-title>
         </mat-expansion-panel-header>
@@ -43,7 +43,7 @@
 
         </ng-container>
       </mat-expansion-panel>
-      <mat-expansion-panel class="card" [expanded]="true">
+      <mat-expansion-panel [expanded]="false">
         <mat-expansion-panel-header>
           <mat-panel-title> <h2>Physique</h2> </mat-panel-title>
         </mat-expansion-panel-header>
@@ -80,7 +80,7 @@
 
         </ng-container>
       </mat-expansion-panel>
-      <mat-expansion-panel class="card" [expanded]="true">
+      <mat-expansion-panel [expanded]="false">
         <mat-expansion-panel-header>
           <mat-panel-title> <h2>Mental</h2> </mat-panel-title>
         </mat-expansion-panel-header>
