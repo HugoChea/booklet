@@ -1,134 +1,257 @@
 <ng-container [formGroup]="newCharacterForm">
   <ng-container formGroupName="description">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Life</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="fx-row">
+          <mat-form-field
+            class="flex-50 p-r-1"
+            appearance="outline"
+            floatLabel="always"
+            color="accent"
+          >
+            <mat-label>Localisation</mat-label>
+            <input type="text" matInput formControlName="localisation" />
+          </mat-form-field>
+          <mat-form-field
+            class="flex-50 p-l-1"
+            appearance="outline"
+            floatLabel="always"
+            color="accent"
+          >
+            <mat-label>Living with</mat-label>
+            <input type="text" matInput formControlName="livingWith" />
+          </mat-form-field>
+        </div>
 
-    <h2 class="m-b-3">Life</h2>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Home Description</mat-label>
+          <textarea matInput formControlName="homeDescription"></textarea>
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Localisation</mat-label>
-      <input type="text" matInput formControlName="localisation" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Neighbourhood</mat-label>
+          <input type="text" matInput formControlName="neighbourhood" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Living with</mat-label>
-      <input type="text" matInput formControlName="livingWith" />
-    </mat-form-field>
+        <div class="fx-row">
+          <mat-form-field
+            class="w-6/12 p-r-1"
+            appearance="outline"
+            floatLabel="always"
+            color="accent"
+          >
+            <mat-label>Occupation</mat-label>
+            <input type="text" matInput formControlName="occupation" />
+          </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Home Description</mat-label>
-      <input type="text" matInput formControlName="homeDescription" />
-    </mat-form-field>
+          <mat-form-field
+            class="w-6/12 p-l-1"
+            appearance="outline"
+            floatLabel="always"
+            color="accent"
+          >
+            <mat-label>Job Satisfaction</mat-label>
+            <input type="text" matInput formControlName="jobSatisfaction" />
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Neighbourhood</mat-label>
-      <input type="text" matInput formControlName="neighbourhood" />
-    </mat-form-field>
+      <mat-expansion-panel [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Relation</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Mother Name</mat-label>
+          <input type="text" matInput formControlName="motherName" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Occupation</mat-label>
-      <input type="text" matInput formControlName="occupation" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Current status</mat-label>
+          <input type="text" matInput formControlName="motherCurrentStatus" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Job Satisfaction</mat-label>
-      <input type="text" matInput formControlName="jobSatisfaction" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Father Name</mat-label>
+          <input type="text" matInput formControlName="fatherName" />
+        </mat-form-field>
 
-    <h2 class="m-b-3">Relation</h2>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Current status</mat-label>
+          <input type="text" matInput formControlName="fatherCurrentStatus" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Mother Name</mat-label>
-      <input type="text" matInput formControlName="motherName" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Step parents, foster parents or caretakers</mat-label>
+          <input type="text" matInput formControlName="caretakers" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Current status</mat-label>
-      <input type="text" matInput formControlName="motherCurrentStatus" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Siblings</mat-label>
+          <input type="text" matInput formControlName="siblings" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Father Name</mat-label>
-      <input type="text" matInput formControlName="fatherName" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Extended family</mat-label>
+          <input type="text" matInput formControlName="extendedFamily" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Current status</mat-label>
-      <input type="text" matInput formControlName="fatherCurrentStatus" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Best friend</mat-label>
+          <input type="text" matInput formControlName="bestFriend" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Step parents, foster parents or caretakers</mat-label>
-      <input type="text" matInput formControlName="caretakers" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Love Interest</mat-label>
+          <input type="text" matInput formControlName="interest" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Siblings</mat-label>
-      <input type="text" matInput formControlName="siblings" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Love story</mat-label>
+          <input type="text" matInput formControlName="loveStory" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Extended family</mat-label>
-      <input type="text" matInput formControlName="extendedFamily" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>People disliked</mat-label>
+          <input type="text" matInput formControlName="dislikedPeople" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Best friend</mat-label>
-      <input type="text" matInput formControlName="bestFriend" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>People liked</mat-label>
+          <input type="text" matInput formControlName="likedPeople" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Love Interest</mat-label>
-      <input type="text" matInput formControlName="interest" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Person to rely for practical advice</mat-label>
+          <input type="text" matInput formControlName="relyPracticalAdvice" />
+        </mat-form-field>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Love story</mat-label>
-      <input type="text" matInput formControlName="loveStory" />
-    </mat-form-field>
+        <mat-form-field
+          class="w-full"
+          appearance="outline"
+          floatLabel="always"
+          color="accent"
+        >
+          <mat-label>Person to rely for emotionnal support</mat-label>
+          <input type="text" matInput formControlName="relyEmotionalSupport" />
+        </mat-form-field>
+      </mat-expansion-panel>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>People disliked</mat-label>
-      <input type="text" matInput formControlName="dislikedPeople" />
-    </mat-form-field>
+      <mat-expansion-panel [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Summary</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ngx-editor-menu [toolbar]="toolbar" [editor]="editor1">
+        </ngx-editor-menu>
+        <ngx-editor
+          [editor]="editor1"
+          formControlName="summary"
+          [placeholder]="'Type here...'"
+        ></ngx-editor>
+      </mat-expansion-panel>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>People liked</mat-label>
-      <input type="text" matInput formControlName="likedPeople" />
-    </mat-form-field>
+      <mat-expansion-panel [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Background</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ngx-editor-menu [toolbar]="toolbar" [editor]="editor2">
+        </ngx-editor-menu>
+        <ngx-editor
+          [editor]="editor3"
+          formControlName="background"
+          [placeholder]="'Type here...'"
+        ></ngx-editor>
+      </mat-expansion-panel>
 
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Person to rely for practical advice</mat-label>
-      <input type="text" matInput formControlName="relyPracticalAdvice" />
-    </mat-form-field>
-
-    <mat-form-field class="w-full" appearance="outline" floatLabel="always" color="accent">
-      <mat-label>Person to rely for emotionnal support</mat-label>
-      <input type="text" matInput formControlName="relyEmotionalSupport" />
-    </mat-form-field>
-
-    <h2 class="section-title">Summary</h2>
-
-    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor1"> </ngx-editor-menu>
-    <ngx-editor
-      [editor]="editor1"
-      formControlName="summary"
-      [placeholder]="'Type here...'"
-    ></ngx-editor>
-
-    <h2 class="section-title">Background</h2>
-    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3"> </ngx-editor-menu>
-    <ngx-editor
-      [editor]="editor3"
-      formControlName="background"
-      [placeholder]="'Type here...'"
-    ></ngx-editor>
-
-    <h2 class="section-title">Personality</h2>
-    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor2"> </ngx-editor-menu>
-    <ngx-editor
-      [editor]="editor2"
-      formControlName="personality"
-      [placeholder]="'Type here...'"
-    ></ngx-editor>
-    
+      <mat-expansion-panel [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title> <h2>Personality</h2> </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ngx-editor-menu [toolbar]="toolbar" [editor]="editor3">
+        </ngx-editor-menu>
+        <ngx-editor
+          [editor]="editor2"
+          formControlName="personality"
+          [placeholder]="'Type here...'"
+        ></ngx-editor>
+      </mat-expansion-panel>
+    </mat-accordion>
   </ng-container>
 </ng-container>
