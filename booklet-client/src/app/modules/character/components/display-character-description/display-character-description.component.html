@@ -113,12 +113,35 @@
 <div class="text-justify">
   <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Life</h3>
-    <div>{{ character?.description?.localisation }}</div>
-    <div>{{ character?.description?.livingWith }}</div>
-    <div>{{ character?.description?.homeDescription }}</div>
-    <div>{{ character?.description?.neighbourhood }}</div>
-    <div>{{ character?.description?.occupation }}</div>
-    <div>{{ character?.description?.jobSatisfaction }}</div>
+    <app-card-panel>
+      <div>
+        <h5>Localisation</h5>
+        <p>{{ character?.description?.localisation }}</p>
+      </div>
+      <div>
+        <h5>Living with</h5>
+        <p>{{ character?.description?.livingWith }}</p>
+      </div>
+      <div>
+        <h5>Home Description</h5>
+        <p>{{ character?.description?.homeDescription }}</p>
+      </div>
+      <div>
+        <h5>Neighbourhood</h5>
+        <p>{{ character?.description?.neighbourhood }}</p>
+      </div>
+      <div class="fx-row">
+        <div class="flex-50">
+          <h5>Occupation</h5>
+          <p>{{ character?.description?.occupation }}</p>
+        </div>
+        <div class="flex-50">
+          <h5>Job statisfaction</h5>
+          <p>{{ character?.description?.jobSatisfaction }}</p>
+        </div>
+      </div>
+      
+    </app-card-panel>
   </div>
   <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Relation</h3>
