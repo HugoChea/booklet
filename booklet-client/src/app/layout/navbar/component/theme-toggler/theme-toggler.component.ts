@@ -17,7 +17,7 @@ export class ThemeTogglerComponent implements OnInit {
   }
 
   switchMode(): void {
-    document.body.classList.toggle('theme-alternate');
+    document.body.classList.toggle('light-theme');
     this.darkMode = !this.darkMode;
   }
 

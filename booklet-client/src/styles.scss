@@ -236,7 +236,7 @@ $altTheme: (
 // Theme Init
 @include mat.all-component-themes($theme);
 
-.theme-alternate {
+.light-theme {
   @include mat.all-component-colors($altTheme);
 }
 
