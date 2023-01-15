@@ -1,0 +1,7 @@
+:host-context(body.light-theme) .panel-card{
+    background-color: #fafafa;
+}
+
+:host-context(body:not(.light-theme)) .panel-card{
+    background-color: #1e2124;
+}
