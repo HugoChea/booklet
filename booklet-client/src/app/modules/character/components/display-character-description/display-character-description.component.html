@@ -145,22 +145,72 @@
   </div>
   <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Relation</h3>
-    <div>{{ character?.description?.motherName }}</div>
-    <div>{{ character?.description?.motherCurrentStatus }}</div>
-    <div>{{ character?.description?.fatherName }}</div>
-    <div>{{ character?.description?.fatherCurrentStatus }}</div>
-    <div>{{ character?.description?.caretakers }}</div>
-    <div>{{ character?.description?.siblings }}</div>
-    <div>{{ character?.description?.motherName }}</div>
-    <div>{{ character?.description?.extendedFamily }}</div>
-    <div>{{ character?.description?.motherName }}</div>
-    <div>{{ character?.description?.bestFriend }}</div>
-    <div>{{ character?.description?.interest }}</div>
-    <div>{{ character?.description?.loveStory }}</div>
-    <div>{{ character?.description?.dislikedPeople }}</div>
-    <div>{{ character?.description?.likedPeople }}</div>
-    <div>{{ character?.description?.relyPracticalAdvice }}</div>
-    <div>{{ character?.description?.relyEmotionalSupport }}</div>
+    <app-card-panel>
+      <div class="fx-row">
+        <div class="flex-50">
+          <h5>Mother's name</h5>
+          <p>{{ character?.description?.motherName }}</p>
+          <div class="fx-row fx-horizontal-start fx-vertical-center">
+            <h6 class="display-inline">Status: </h6>
+            <p>Alive{{ character?.description?.motherCurrentStatus }}</p>
+          </div>
+        </div>
+        <div class="flex-50">
+          <h5>Father's name</h5>
+          <p>{{ character?.description?.fatherName }}</p>
+          <div class="fx-row fx-horizontal-start fx-vertical-center">
+            <h6 class="display-inline">Status: </h6>
+            <p>{{ character?.description?.fatherCurrentStatus }}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h5>Step parents, foster parents or caretakers</h5>
+        <p>{{ character?.description?.caretakers }}</p>
+      </div>
+      <div>
+        <h5>Siblings</h5>
+        <p>{{ character?.description?.siblings }}</p>
+      </div>
+      <div>
+        <h5>Extended family</h5>
+        <p>{{ character?.description?.caretakers }}</p>
+      </div>
+      <div class="fx-row">
+        <div class="flex-50">
+          <h5>Best friend</h5>
+          <p>{{ character?.description?.bestFriend }}</p>
+        </div>
+        <div class="flex-50">
+          <h5>Love interest</h5>
+          <p>{{ character?.description?.interest }}</p>
+        </div>
+      </div>
+      <div>
+        <h5>Love story</h5>
+        <p>{{ character?.description?.loveStory }}</p>
+      </div>
+      <div class="fx-row">
+        <div class="flex-50">
+          <h5>People s/he dislikes</h5>
+          <p>{{ character?.description?.dislikedPeople }}</p>
+        </div>
+        <div class="flex-50">
+          <h5>People s/he likes</h5>
+          <p>{{ character?.description?.likedPeople }}</p>
+        </div>
+      </div>
+      <div class="fx-row">
+        <div class="flex-50">
+          <h5>Whom does s/he rely on most for practical advice</h5>
+          <p>{{ character?.description?.relyPracticalAdvice }}</p>
+        </div>
+        <div class="flex-50">
+          <h5>Whom does s/he rely on most for emotional support</h5>
+          <p>{{ character?.description?.relyEmotionalSupport }}</p>
+        </div>
+      </div>
+    </app-card-panel>
   </div>
   <div *ngIf="displayMode==='plot'">
     <h3 class="category-title p-l-5 p-t-2 m-b-2">Background</h3>
