@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '@core/models/book/book';
-import { CharacterService } from '@core/services/character.service';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,36 +11,32 @@ import { Store } from '@ngrx/store';
 })
 export class DashboardComponent implements OnInit {
 
-  book?: Book;
+  private destroy$ = new Subject<void>();
 
-  books$ = this.store.select(selectedBook);
+  book: Book | undefined;
 
   constructor(
     private store: Store,
-    private characterService: CharacterService
+    // private characterService: CharacterService
   ) { }
 
   /**
    * Get selected book from store
    */
   ngOnInit(): void {
-    this.books$.subscribe({
-      next : (book) => {
-        if (book){
-          this.book = book;
-          // this.characterService.getListLatestCharacterByBook(this.book._id).subscribe({
-          //   next: (res) => {
-          //     console.log(res)
-          //     this.listCharacter = res;
-          //   }
-          // })
+    this.store.select(selectedBook)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (book) => {
+          if (book) {
+            this.book = book;
+          }
+          else {
+            console.log("error");
+          }
         }
-        else{
-          console.log("error");
-        }
-      }
-    });
-    
+      });
+
   }
 
 }

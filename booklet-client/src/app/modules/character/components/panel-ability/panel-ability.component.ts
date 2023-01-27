@@ -61,7 +61,7 @@ export class PanelAbilityComponent implements OnInit {
   /**
    * Graph options
    */
-  public radarChartOptions: ChartConfiguration<'radar'>['options'] = {
+  radarChartOptions: ChartConfiguration<'radar'>['options'] = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -71,9 +71,10 @@ export class PanelAbilityComponent implements OnInit {
       }
     }
   };
-  public radarChartLabels: string[] = [];
+  
+  radarChartLabels: string[] = [];
 
-  public radarChartDatasets: ChartConfiguration<'radar'>['data']['datasets'] = [
+  radarChartDatasets: ChartConfiguration<'radar'>['data']['datasets'] = [
     { data: [], label: 'Series A' }
   ];
 
@@ -84,7 +85,6 @@ export class PanelAbilityComponent implements OnInit {
     this.editor2 = new Editor();
     this.editor3 = new Editor();
     this.stats = this.newCharacterForm.get('abilities')?.get('stats') as FormArray;
-
   }
 
   /**
@@ -109,7 +109,6 @@ export class PanelAbilityComponent implements OnInit {
     this.radarChartDatasets = [
       { data: this.stats.value.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
     ];
-    //this.chart?.update();
   }
 
   /**

@@ -11,22 +11,22 @@ export class TokenStorageService {
 
   constructor() { }
   
-  public clear(): void {
+  clear(): void {
     sessionStorage.clear();
   }
 
-  public saveToken(token: string): void {
+  saveToken(token: string): void {
     sessionStorage.setItem(this.TOKEN_KEY, token);
   }
 
-  public getToken(): string | null {
+  getToken(): string | null {
     return sessionStorage.getItem(this.TOKEN_KEY);
   }
 
-  public saveUser(user: User): void {
+  saveUser(user: User): void {
     sessionStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
-  public getUser(): User | undefined {
+  getUser(): User | undefined {
     const user = sessionStorage.getItem(this.USER_KEY);
     if (user) {
       return JSON.parse(user);

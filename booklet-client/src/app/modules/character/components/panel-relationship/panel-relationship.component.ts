@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatOptionSelectionChange } from '@angular/material/core';
 import { Character } from '@core/models/character/character';
@@ -6,18 +6,21 @@ import { Relationship } from '@core/models/character/relationship';
 import { CharacterService } from '@core/services/character.service';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-panel-relationship',
   templateUrl: './panel-relationship.component.html',
   styleUrls: ['./panel-relationship.component.scss']
 })
-export class PanelRelationshipComponent implements OnInit {
+export class PanelRelationshipComponent implements OnInit, OnDestroy {
+
+  private destroy$ = new Subject<void>();
 
   /**
    * Form shared from parent component
    */
-   @Input() newCharacterForm!: FormGroup;
+  @Input() newCharacterForm!: FormGroup;
 
   listCharacter: Character[] = [];
 
@@ -26,25 +29,32 @@ export class PanelRelationshipComponent implements OnInit {
   relationship!: FormArray;
 
   constructor(
-    public characterService: CharacterService,
+    private characterService: CharacterService,
     private store: Store,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.store.select(selectedBook).subscribe({
-      next : (book) => {
-        if (book){
-          this.characterService.getListCharacterByBook(book._id).subscribe({
-            next: (res) => {
-              this.listCharacter = res;
-            }
-          });
+    this.store.select(selectedBook)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (book) => {
+          if (book) {
+            this.characterService.getListCharacterByBook(book._id).subscribe({
+              next: (res) => {
+                this.listCharacter = res;
+              }
+            });
+          }
+
         }
-        
-      }
-    });
+      });
     this.relationship = this.newCharacterForm.get('relationship') as FormArray;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   createRelationship(character: Character): FormGroup {
@@ -57,10 +67,10 @@ export class PanelRelationshipComponent implements OnInit {
   }
 
   onSelection(event: MatOptionSelectionChange): void {
-    if (event.source.selected){
+    if (event.source.selected) {
       this.relationship.push(this.createRelationship(event.source.value));
     }
-    else{
+    else {
       this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith._id === event.source.value._id));
     }
   }

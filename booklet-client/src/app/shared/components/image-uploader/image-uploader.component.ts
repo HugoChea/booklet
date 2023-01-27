@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 /**
@@ -37,7 +36,7 @@ export class ImageUploaderComponent implements OnInit {
    */
   croppedImage: string | null | undefined = '';
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }

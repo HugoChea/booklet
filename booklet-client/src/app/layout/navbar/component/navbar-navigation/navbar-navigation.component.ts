@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '@core/models/book/book';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
 
@@ -10,8 +9,6 @@ import { Store } from '@ngrx/store';
 })
 export class NavbarNavigationComponent implements OnInit {
 
-  book?: Book;
-
   books$ = this.store.select(selectedBook);
 
   constructor(
@@ -19,11 +16,6 @@ export class NavbarNavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.books$.subscribe({
-      next : (res) => {
-        this.book = res;
-      }
-    });
   }
 
 }
