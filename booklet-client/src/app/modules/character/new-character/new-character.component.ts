@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateCharacterDto } from '@core/dto/create-character-dto';
@@ -7,13 +7,16 @@ import { CharacterService } from '@core/services/character.service';
 import { Store } from '@ngrx/store';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Status } from '@core/enums/status.enum';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-new-character',
   templateUrl: './new-character.component.html',
   styleUrls: ['./new-character.component.scss']
 })
-export class NewCharacterComponent implements OnInit {
+export class NewCharacterComponent implements OnInit, OnDestroy  {
+
+  private destroy$ = new Subject<void>();
 
   /**
    * Form to create a new character
@@ -25,16 +28,13 @@ export class NewCharacterComponent implements OnInit {
    * Not used yet (maybe specific type not used in form group ?)
    */
   chronology!: string;
-  relationship!: string;
 
   /**
    * File uploaded in base64
    */
   file!: string;
 
-  book?: Book;
-
-  books$ = this.store.select(selectedBook);
+  book: Book | undefined;
 
   constructor(
     private characterService: CharacterService,
@@ -126,11 +126,18 @@ export class NewCharacterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.books$.subscribe({
-      next: (res) => {
-        this.book = res;
-      }
-    });
+    this.store.select(selectedBook)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (res) => {
+          this.book = res;
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   /**

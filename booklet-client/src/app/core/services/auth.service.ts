@@ -18,7 +18,7 @@ export class AuthService {
 
   user$: Subject<User | undefined> = new Subject<User | undefined>();
 
-  jwtHelperService: JwtHelperService;
+  private jwtHelperService: JwtHelperService;
 
   constructor(
     private http: HttpClient,
@@ -69,12 +69,12 @@ export class AuthService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  public logout(): void {
+  logout(): void {
     this.tokenStorageService.clear();
     this.user$.next(undefined);
   }
 
-  public userOnRefresh(): void {
+  userOnRefresh(): void {
     const user = this.tokenStorageService.getUser();
     
     if (user){
