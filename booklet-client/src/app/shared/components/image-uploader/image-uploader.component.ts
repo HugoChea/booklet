@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.scss']
 })
-export class ImageUploaderComponent implements OnInit {
+export class ImageUploaderComponent {
 
   @Input()
   aspectRatio!: number;
@@ -37,9 +37,6 @@ export class ImageUploaderComponent implements OnInit {
   croppedImage: string | null | undefined = '';
 
   constructor(private dialog: MatDialog) { }
-
-  ngOnInit(): void {
-  }
 
   fileChangeEvent(event: Event): void {
     this.imageChangedEvent = event;

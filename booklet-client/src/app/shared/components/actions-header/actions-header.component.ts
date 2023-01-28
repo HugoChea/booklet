@@ -1,18 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-actions-header',
   templateUrl: './actions-header.component.html',
   styleUrls: ['./actions-header.component.scss']
 })
-export class ActionsHeaderComponent implements OnInit {
+export class ActionsHeaderComponent {
 
   @Input()
   title = '';
 
   constructor() {}
-
-  ngOnInit(): void {
-  }
 
 }

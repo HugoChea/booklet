@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '@core/models/character/character';
 
 @Component({
@@ -6,7 +6,7 @@ import { Character } from '@core/models/character/character';
   templateUrl: './display-character-description.component.html',
   styleUrls: ['./display-character-description.component.scss']
 })
-export class DisplayCharacterDescriptionComponent implements OnInit {
+export class DisplayCharacterDescriptionComponent {
 
   @Input() character: Character | undefined;
 
@@ -14,9 +14,6 @@ export class DisplayCharacterDescriptionComponent implements OnInit {
 
   constructor() {
     this.displayMode = 'plot';
-  }
-
-  ngOnInit(): void {
   }
 
 }

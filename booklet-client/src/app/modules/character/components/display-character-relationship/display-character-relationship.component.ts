@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '@core/models/character/character';
 
 @Component({
@@ -6,13 +6,10 @@ import { Character } from '@core/models/character/character';
   templateUrl: './display-character-relationship.component.html',
   styleUrls: ['./display-character-relationship.component.scss']
 })
-export class DisplayCharacterRelationshipComponent implements OnInit {
+export class DisplayCharacterRelationshipComponent {
 
   @Input() character: Character | undefined;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

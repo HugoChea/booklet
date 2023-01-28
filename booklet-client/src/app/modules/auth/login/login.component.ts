@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDto } from '@core/dto/login-dto';
@@ -9,7 +9,7 @@ import { AuthService } from '@core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   loginForm : FormGroup;
 
@@ -22,9 +22,6 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['',  Validators.required]
     });
-  }
-
-  ngOnInit(): void {
   }
 
   login(loginDto: LoginDto): void {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '@core/models/character/character';
 
 @Component({
@@ -6,7 +6,7 @@ import { Character } from '@core/models/character/character';
   templateUrl: './character-list-grid.component.html',
   styleUrls: ['./character-list-grid.component.scss']
 })
-export class CharacterListGridComponent implements OnInit {
+export class CharacterListGridComponent {
 
   @Input()
   listCharacter: Character[] = [];
@@ -14,8 +14,5 @@ export class CharacterListGridComponent implements OnInit {
   displayedColumns = ['firstname', 'lastname', 'status'];
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateBookDto } from '@core/dto/create-book-dto';
@@ -10,7 +10,7 @@ import { TokenStorageService } from '@core/services/token-storage.service';
   templateUrl: './new-book.component.html',
   styleUrls: ['./new-book.component.scss']
 })
-export class NewBookComponent implements OnInit {
+export class NewBookComponent {
 
   /**
    * Form to create a book
@@ -33,9 +33,6 @@ export class NewBookComponent implements OnInit {
       description: [''],
       userId: [this.tokenStorage.getUser()?.id]
     });
-  }
-
-  ngOnInit(): void {
   }
 
   create(createBookDto: CreateBookDto): void {

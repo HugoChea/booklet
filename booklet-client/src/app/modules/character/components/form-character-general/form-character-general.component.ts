@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './form-character-general.component.html',
   styleUrls: ['./form-character-general.component.scss']
 })
-export class FormCharacterGeneralComponent implements OnInit {
+export class FormCharacterGeneralComponent {
 
   /**
    * Form shared from parent component
@@ -14,8 +14,5 @@ export class FormCharacterGeneralComponent implements OnInit {
   @Input() newCharacterForm!: FormGroup;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

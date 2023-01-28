@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Gender } from '@core/enums/gender.enum';
 
@@ -7,7 +7,7 @@ import { Gender } from '@core/enums/gender.enum';
   templateUrl: './panel-generality.component.html',
   styleUrls: ['./panel-generality.component.scss']
 })
-export class PanelGeneralityComponent implements OnInit {
+export class PanelGeneralityComponent {
 
   /**
    * Form shared from parent component
@@ -17,8 +17,5 @@ export class PanelGeneralityComponent implements OnInit {
   gender: typeof Gender = Gender;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
