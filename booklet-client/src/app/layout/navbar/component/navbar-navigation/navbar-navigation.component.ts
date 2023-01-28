@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { selectedBook } from '@core/store/selectors/books.selectors';
 import { Store } from '@ngrx/store';
 
@@ -7,15 +7,12 @@ import { Store } from '@ngrx/store';
   templateUrl: './navbar-navigation.component.html',
   styleUrls: ['./navbar-navigation.component.scss']
 })
-export class NavbarNavigationComponent implements OnInit {
+export class NavbarNavigationComponent {
 
   books$ = this.store.select(selectedBook);
 
   constructor(
     private store: Store,
   ) { }
-
-  ngOnInit(): void {
-  }
 
 }

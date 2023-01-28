@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '@core/models/character/character';
 
 @Component({
@@ -6,7 +6,7 @@ import { Character } from '@core/models/character/character';
   templateUrl: './character-list-card.component.html',
   styleUrls: ['./character-list-card.component.scss']
 })
-export class CharacterListCardComponent implements OnInit {
+export class CharacterListCardComponent {
 
   @Input()
   listCharacter: Character[] = [];
@@ -15,8 +15,5 @@ export class CharacterListCardComponent implements OnInit {
   bookId: string | undefined;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

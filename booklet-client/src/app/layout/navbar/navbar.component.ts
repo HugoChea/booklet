@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@core/models/user';
 import { AuthService } from '@core/services/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from '@core/services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   user: User | undefined;
 
@@ -23,9 +23,6 @@ export class NavbarComponent implements OnInit {
     });
 
     this.authService.userOnRefresh();
-  }
-
-  ngOnInit(): void {
   }
 
   logout(): void {

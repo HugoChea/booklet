@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-panel-chronology',
   templateUrl: './panel-chronology.component.html',
   styleUrls: ['./panel-chronology.component.scss']
 })
-export class PanelChronologyComponent implements OnInit {
+export class PanelChronologyComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

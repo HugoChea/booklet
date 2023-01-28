@@ -4,7 +4,6 @@ import { CreateCharacterDto } from '@core/dto/create-character-dto';
 import { environment } from '@env';
 
 import { CharacterService } from './character.service';
-import { mockCharacter } from './mocks/character';
 
 const apiURL = environment.url + '/character';
 

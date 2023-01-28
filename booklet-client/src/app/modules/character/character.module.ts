@@ -19,7 +19,7 @@ import { DisplayCharacterRelationshipComponent } from './components/display-char
 import { DisplayCharacterAbilitiesComponent } from './components/display-character-abilities/display-character-abilities.component';
 import { CharacterListCardComponent } from './character-list/components/character-list-card/character-list-card.component';
 import { CharacterListGridComponent } from './character-list/components/character-list-grid/character-list-grid.component';
-import { CardPanelComponent } from './components/card-panel/card-panel.component';
+import { CardPanelComponent } from '../../shared/components/card-panel/card-panel.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +36,12 @@ import { CardPanelComponent } from './components/card-panel/card-panel.component
     DisplayCharacterRelationshipComponent,
     DisplayCharacterAbilitiesComponent,
     CharacterListCardComponent,
-    CharacterListGridComponent,
-    CardPanelComponent
+    CharacterListGridComponent
   ],
   imports: [
     CommonModule,
     CharacterRoutingModule,
     SharedModule,
-    NgChartsModule,
     NgxEditorModule
   ]
 })

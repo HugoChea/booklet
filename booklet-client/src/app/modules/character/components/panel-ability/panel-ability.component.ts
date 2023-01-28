@@ -75,7 +75,7 @@ export class PanelAbilityComponent implements OnInit {
   radarChartLabels: string[] = [];
 
   radarChartDatasets: ChartConfiguration<'radar'>['data']['datasets'] = [
-    { data: [], label: 'Series A' }
+    { data: [] }
   ];
 
   constructor(private formBuilder: FormBuilder) { }
