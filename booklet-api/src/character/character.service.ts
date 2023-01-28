@@ -4,21 +4,25 @@ import { Model } from 'mongoose';
 import { CreateCharacterDto } from './dto/create-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
 import { Character, CharacterDocument } from './schemas/character.schema';
-import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
-import { v4 as uuidv4 } from 'uuid';
+import { FindAllCharacterDto } from './dto/find-all-character.dto';
+import { ImageUploaderService } from 'src/common/services/image-uploader/image-uploader.service';
 
 @Injectable()
 export class CharacterService {
 
-  constructor(@InjectModel(Character.name) private characterModel: Model<CharacterDocument>) {
-  }
+  readonly BASIC_PROJECTION = 'book image profile.generalInfo status createdAt updatedAt';
+
+  constructor(
+    @InjectModel(Character.name) private characterModel: Model<CharacterDocument>,
+    private imageUploaderService: ImageUploaderService
+  ) { }
   
   async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
 
     createCharacterDto.image = ''
     createCharacterDto.imageRef = '';
     if (createCharacterDto.imageBase64){
-      const image: [string, string] = await this.uploadImage(createCharacterDto.imageBase64);
+      const image: [string, string] = await this.imageUploaderService.uploadImage(createCharacterDto.imageBase64, 'characters');
       createCharacterDto.image = image[0];
       createCharacterDto.imageRef = image[1];
     }
@@ -35,12 +39,12 @@ export class CharacterService {
     return newCharacter.save();
   }
 
-  findAll(bookId: string): Promise<Character[]> {
-    return this.characterModel.find({ 'book': bookId }).sort({ 'profile.generalInfo.firstname': 1 , 'profile.generalInfo.lastname': 1}).populate("tags").exec();
+  findAll(bookId: string): Promise<FindAllCharacterDto[]> {
+    return this.characterModel.find({ 'book': bookId }, this.BASIC_PROJECTION).sort({ 'profile.generalInfo.firstname': 1 , 'profile.generalInfo.lastname': 1}).populate("tags").exec();
   }
 
-  findAllLastModified(bookId: string): Promise<Character[]> {
-    return this.characterModel.find({ 'book': bookId }).sort({'updatedAt': -1}).limit(3).populate("tags").exec();
+  findAllLastModified(bookId: string): Promise<FindAllCharacterDto[]> {
+    return this.characterModel.find({ 'book': bookId }, this.BASIC_PROJECTION).sort({'updatedAt': -1}).limit(3).populate("tags").exec();
   }
 
   findOne(id: string): Promise<Character | undefined> {
@@ -63,15 +67,4 @@ export class CharacterService {
     return `This action removes a #${id} character`;
   }
 
-  async uploadImage(file: string): Promise<[string, string]> {
-    const storage = getStorage();
-    const refName = "characters/" + uuidv4();
-    const imageRef = ref(storage, refName);
-
-    await uploadString(imageRef, file, 'data_url')
-
-    const url = await getDownloadURL(ref(storage, refName))
-
-    return [url, refName];
-  }
 }

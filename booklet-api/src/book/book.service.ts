@@ -6,16 +6,19 @@ import { UpdateBookDto } from './dto/update-book.dto';
 import { Book, BookDocument } from './schemas/book.schema';
 import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
 import { v4 as uuidv4 } from 'uuid';
+import { ImageUploaderService } from 'src/common/services/image-uploader/image-uploader.service';
 
 @Injectable()
 export class BookService {
 
-  constructor(@InjectModel(Book.name) private bookModel: Model<BookDocument>) {
-  }
+  constructor(
+    @InjectModel(Book.name) private bookModel: Model<BookDocument>,
+    private imageUploaderService: ImageUploaderService
+  ) { }
 
   async create(createBookDto: CreateBookDto): Promise<Book> {
     if (createBookDto.imageBase64){
-      const image: [string, string] = await this.uploadImage(createBookDto.imageBase64);
+      const image: [string, string] = await this.imageUploaderService.uploadImage(createBookDto.imageBase64, 'book');
       createBookDto.image = image[0];
       createBookDto.imageRef = image[1];
     }
@@ -39,15 +42,4 @@ export class BookService {
     return `This action removes a #${id} book`;
   }
 
-  async uploadImage(file: string): Promise<[string, string]> {
-    const storage = getStorage();
-    const refName = "book/" + uuidv4();
-    const imageRef = ref(storage, refName);
-
-    await uploadString(imageRef, file, 'data_url')
-
-    const url = await getDownloadURL(ref(storage, refName))
-
-    return [url, refName];
-  }
 }

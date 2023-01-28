@@ -24,7 +24,7 @@ export class Character {
   status: Status;
 
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }])
-  tags: Tag;
+  tags: Tag[];
 
   @Prop()
   image: string;
