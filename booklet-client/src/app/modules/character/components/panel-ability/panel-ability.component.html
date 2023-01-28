@@ -71,18 +71,14 @@
           Update
         </button>
       </div>
-
       <!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
     </div>
-    <div class="graph" *ngIf="stats.controls.length > 0">
-      <canvas
-        baseChart
-        [datasets]="radarChartDatasets"
-        [options]="radarChartOptions"
-        [labels]="radarChartLabels"
-        [type]="'radar'"
-      >
-      </canvas>
-    </div>
+    <app-radar-graph
+      *ngIf="stats.controls.length > 0"
+      [datasets]="radarChartDatasets"
+      [options]="radarChartOptions"
+      [labels]="radarChartLabels"
+    >
+    </app-radar-graph>
   </ng-container>
 </ng-container>

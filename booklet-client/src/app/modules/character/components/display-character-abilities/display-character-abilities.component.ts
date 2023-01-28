@@ -25,17 +25,19 @@ export class DisplayCharacterAbilitiesComponent implements OnInit {
   radarChartLabels: string[] = [];
 
   radarChartDatasets: ChartConfiguration<'radar'>['data']['datasets'] = [
-    { data: [], label: 'Series A' }
+    { data: [] }
   ];
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.character)
-    this.radarChartLabels = this.character!.abilities?.stats.map((res: { characteristicName: string; }) => res.characteristicName);
-    this.radarChartDatasets = [
-      { data: this.character!.abilities?.stats.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
-    ];
+    if (this.character){
+      this.radarChartLabels = this.character?.abilities?.stats.map((res: { characteristicName: string; }) => res.characteristicName);
+      this.radarChartDatasets = [
+        { data: this.character?.abilities?.stats.map((res: { characteristicValue : number; }) => res.characteristicValue), label: 'Statistiques' }
+      ];
+    }
+    
   }
 
 }

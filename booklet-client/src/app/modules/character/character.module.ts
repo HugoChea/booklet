@@ -42,7 +42,6 @@ import { CardPanelComponent } from '../../shared/components/card-panel/card-pane
     CommonModule,
     CharacterRoutingModule,
     SharedModule,
-    NgChartsModule,
     NgxEditorModule
   ]
 })

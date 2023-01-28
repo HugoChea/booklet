@@ -13,15 +13,11 @@
   </div>
   <div class="background">
     <h3 class="category-title">Stats</h3>
-    <div class="graph">
-      <canvas
-        baseChart
-        [datasets]="radarChartDatasets"
-        [options]="radarChartOptions"
-        [labels]="radarChartLabels"
-        [type]="'radar'"
-      >
-      </canvas>
-    </div>
+    <app-radar-graph
+      [datasets]="radarChartDatasets"
+      [options]="radarChartOptions"
+      [labels]="radarChartLabels"
+    >
+    </app-radar-graph>
   </div>
 </div>

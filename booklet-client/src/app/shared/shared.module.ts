@@ -8,13 +8,16 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
 import { CardPanelComponent } from './components/card-panel/card-panel.component';
+import { RadarGraphComponent } from './components/radar-graph/radar-graph.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     ImageUploaderComponent,
     ActionsHeaderComponent,
-    CardPanelComponent
+    CardPanelComponent,
+    RadarGraphComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ import { CardPanelComponent } from './components/card-panel/card-panel.component
     HttpClientModule,
     MaterialModule,
     ImageCropperModule,
+    NgChartsModule,
   ],
   exports: [
     CommonModule,
@@ -36,7 +40,8 @@ import { CardPanelComponent } from './components/card-panel/card-panel.component
     // component
     ImageUploaderComponent,
     ActionsHeaderComponent,
-    CardPanelComponent
+    CardPanelComponent,
+    RadarGraphComponent
   ]
 })
 export class SharedModule { }
