@@ -20,28 +20,36 @@
 <mat-card appearance="outlined">
   <mat-tab-group>
     <mat-tab label="Description">
-      <div class="p-2">
-        <app-display-character-description
-          [character]="character"
-        ></app-display-character-description>
-      </div>
+      <ng-template matTabContent>
+        <div class="p-2">
+          <app-display-character-description
+            [character]="character"
+          ></app-display-character-description>
+        </div>
+      </ng-template>
     </mat-tab>
     <mat-tab label="Chronology">
-      <div class="p-2"></div>
+      <ng-template matTabContent>
+        <div class="p-2"></div>
+      </ng-template>
     </mat-tab>
     <mat-tab label="Relationships">
-      <div class="p-2">
+      <ng-template matTabContent>
+        <div class="p-2">
         <app-display-character-relationship
           [character]="character"
         ></app-display-character-relationship>
       </div>
+    </ng-template>
     </mat-tab>
     <mat-tab label="Abilities">
-      <div class="p-2">
-        <app-display-character-abilities
-          [character]="character"
-        ></app-display-character-abilities>
-      </div>
+      <ng-template matTabContent>
+        <div class="p-2">
+          <app-display-character-abilities
+            [character]="character"
+          ></app-display-character-abilities>
+        </div>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
 </mat-card>

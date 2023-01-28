@@ -7,10 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ActionsHeaderComponent } from './components/actions-header/actions-header.component';
+import { CardPanelComponent } from './components/card-panel/card-panel.component';
 
 
 @NgModule({
-  declarations: [ImageUploaderComponent, ActionsHeaderComponent],
+  declarations: [
+    ImageUploaderComponent,
+    ActionsHeaderComponent,
+    CardPanelComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -30,7 +35,8 @@ import { ActionsHeaderComponent } from './components/actions-header/actions-head
 
     // component
     ImageUploaderComponent,
-    ActionsHeaderComponent
+    ActionsHeaderComponent,
+    CardPanelComponent
   ]
 })
 export class SharedModule { }
