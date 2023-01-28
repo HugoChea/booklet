@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { CharacterService } from './character.service';
 import { CreateCharacterDto } from './dto/create-character.dto';
+import { FindAllCharacterDto } from './dto/find-all-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
 
 @ApiTags('Character')
@@ -16,7 +17,10 @@ export class CharacterController {
   }
 
   @Get('list/:id')
-  @ApiOkResponse()
+  @ApiOkResponse({
+    description: 'Get list of character in basic projection',
+    type: FindAllCharacterDto,
+  })
   findAll(@Param('id') bookId: string) {
     return this.characterService.findAll(bookId);
   }
