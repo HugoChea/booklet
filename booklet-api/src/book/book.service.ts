@@ -4,8 +4,6 @@ import { Model } from 'mongoose';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { Book, BookDocument } from './schemas/book.schema';
-import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
-import { v4 as uuidv4 } from 'uuid';
 import { ImageUploaderService } from 'src/common/services/image-uploader/image-uploader.service';
 
 @Injectable()
