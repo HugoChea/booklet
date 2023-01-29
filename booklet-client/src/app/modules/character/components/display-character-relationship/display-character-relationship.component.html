@@ -1,15 +1,18 @@
-<div class="fx-row fx-wrap m-t-2 m-b-2" *ngFor="let relation of character?.relationship">
+<app-card-panel class="m-1" *ngFor="let relation of character?.relationship">
+  <div class="fx-row fx-wrap m-t-2 m-b-2">
     <div class="flex-25 fx-row fx-horizontal-center fx-vertical-start">
         <div class="avatar-container">
             <img
               class="avatar"
+              alt="Character picture"
               [src]="relation.involvedWith.image"
             />
           </div>
     </div>
     <div class="flex-75">
-        <h2>{{ relation.involvedWith.profile.generalInfo.firstname }} {{ relation.involvedWith.profile.generalInfo.lastname }}</h2>
-        <h3>{{ relation.type }}</h3>
-        <p>{{ relation.text }}</p>
+        <h2 class="primary">{{ relation.involvedWith.profile.generalInfo.firstname }} {{ relation.involvedWith.profile.generalInfo.lastname }}</h2>
+        <h5>{{ relation.type }}</h5>
+        <p class="text-justify">{{ relation.text }}</p>
     </div>  
-</div>
+  </div>
+</app-card-panel>
