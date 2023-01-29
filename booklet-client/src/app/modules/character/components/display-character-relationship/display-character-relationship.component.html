@@ -16,3 +16,8 @@
     </div>  
   </div>
 </app-card-panel>
+<app-card-panel *ngIf="!!character?.relationship">
+  <div>
+    This character is either quite a loner or you forgot to add him some contact !
+  </div>
+</app-card-panel>
