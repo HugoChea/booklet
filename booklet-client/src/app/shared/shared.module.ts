@@ -10,6 +10,7 @@ import { ActionsHeaderComponent } from './components/actions-header/actions-head
 import { CardPanelComponent } from './components/card-panel/card-panel.component';
 import { RadarGraphComponent } from './components/radar-graph/radar-graph.component';
 import { NgChartsModule } from 'ng2-charts';
+import { EmptyFieldComponent } from './components/empty-field/empty-field.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NgChartsModule } from 'ng2-charts';
     ImageUploaderComponent,
     ActionsHeaderComponent,
     CardPanelComponent,
-    RadarGraphComponent
+    RadarGraphComponent,
+    EmptyFieldComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { NgChartsModule } from 'ng2-charts';
     ImageUploaderComponent,
     ActionsHeaderComponent,
     CardPanelComponent,
-    RadarGraphComponent
+    RadarGraphComponent,
+    EmptyFieldComponent
   ]
 })
 export class SharedModule { }

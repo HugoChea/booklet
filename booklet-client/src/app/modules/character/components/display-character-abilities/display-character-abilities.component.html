@@ -1,15 +1,24 @@
 <div class="text-align-justify">
   <div class="personality">
     <h3 class="category-title">Physical Ability</h3>
-    <div [innerHtml]="character?.abilities?.physicalAbility"></div>
+    <app-card-panel>
+      <div *ngIf="character?.abilities?.physicalAbility" [innerHtml]="character?.abilities?.physicalAbility"></div>
+      <app-empty-field *ngIf="!character?.abilities?.physicalAbility"></app-empty-field>
+    </app-card-panel>
   </div>
   <div class="background">
     <h3 class="category-title">Magical Ability</h3>
-    <div [innerHtml]="character?.abilities?.magicalAbility"></div>
+    <app-card-panel>
+      <div *ngIf="character?.abilities?.magicalAbility" [innerHtml]="character?.abilities?.magicalAbility"></div>
+      <app-empty-field *ngIf="!character?.abilities?.magicalAbility"></app-empty-field>
+    </app-card-panel>
   </div>
   <div class="background">
     <h3 class="category-title">Equipement</h3>
-    <div [innerHtml]="character?.abilities?.equipement"></div>
+    <app-card-panel>
+      <div *ngIf="character?.abilities?.equipement" [innerHtml]="character?.abilities?.equipement"></div>
+      <app-empty-field *ngIf="!character?.abilities?.equipement"></app-empty-field>
+    </app-card-panel>
   </div>
   <div class="background">
     <h3 class="category-title">Stats</h3>

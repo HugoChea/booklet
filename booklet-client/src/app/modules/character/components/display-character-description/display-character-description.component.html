@@ -84,12 +84,16 @@
     {{ character?.profile?.generalInfo?.lastname }}
   </h1>
   <h2 class="character-title primary">
-    <q>{{ character?.profile?.generalInfo?.surname }}</q>
+    <q *ngIf="character?.profile?.generalInfo?.surname">{{ character?.profile?.generalInfo?.surname }}</q>
+    <q *ngIf="!character?.profile?.generalInfo?.surname">Find me a cool and inspiring title !</q>
   </h2>
   <div class="text-left">
-    <span class="character-quote p-l-1">{{
-      character?.profile?.generalInfo?.quote
-    }}</span>
+    <span *ngIf="character?.profile?.generalInfo?.quote" class="character-quote p-l-1">
+      {{ character?.profile?.generalInfo?.quote }}
+    </span>
+    <span *ngIf="!character?.profile?.generalInfo?.quote" class="character-quote p-l-1">
+      'I am your father', 'Carpe diem', 'I'll be back' - Something like that, an interesting quote so people think i am smart !
+    </span>
   </div>
   <h4 class="text-right">CV : {{ character?.profile?.generalInfo?.cv }}</h4>
 </div>
@@ -116,28 +120,28 @@
     <app-card-panel>
       <div>
         <h5>Localisation</h5>
-        <p>{{ character?.description?.localisation }}</p>
+        <p *ngIf="character?.description?.localisation; else emptyField">{{ character?.description?.localisation }}</p>
       </div>
       <div>
         <h5>Living with</h5>
-        <p>{{ character?.description?.livingWith }}</p>
+        <p *ngIf="character?.description?.livingWith; else emptyField">{{ character?.description?.livingWith }}</p>
       </div>
       <div>
         <h5>Home Description</h5>
-        <p>{{ character?.description?.homeDescription }}</p>
+        <p *ngIf="character?.description?.homeDescription; else emptyField">{{ character?.description?.homeDescription }}</p>
       </div>
       <div>
         <h5>Neighbourhood</h5>
-        <p>{{ character?.description?.neighbourhood }}</p>
+        <p *ngIf="character?.description?.neighbourhood; else emptyField">{{ character?.description?.neighbourhood }}</p>
       </div>
       <div class="fx-row">
         <div class="flex-50">
           <h5>Occupation</h5>
-          <p>{{ character?.description?.occupation }}</p>
+          <p *ngIf="character?.description?.occupation; else emptyField">{{ character?.description?.occupation }}</p>
         </div>
         <div class="flex-50">
           <h5>Job statisfaction</h5>
-          <p>{{ character?.description?.jobSatisfaction }}</p>
+          <p *ngIf="character?.description?.jobSatisfaction; else emptyField">{{ character?.description?.jobSatisfaction }}</p>
         </div>
       </div>
       
@@ -149,16 +153,16 @@
       <div class="fx-row">
         <div class="flex-50">
           <h5>Mother's name</h5>
-          <p>{{ character?.description?.motherName }}</p>
-          <div class="fx-row fx-horizontal-start fx-vertical-center">
+          <p *ngIf="character?.description?.motherName; else emptyField">{{ character?.description?.motherName }}</p>
+          <div *ngIf="character?.description?.motherName" class="fx-row fx-horizontal-start fx-vertical-center">
             <h6 class="display-inline">Status: </h6>
-            <p>Alive{{ character?.description?.motherCurrentStatus }}</p>
+            <p>{{ character?.description?.motherCurrentStatus }}</p>
           </div>
         </div>
         <div class="flex-50">
           <h5>Father's name</h5>
-          <p>{{ character?.description?.fatherName }}</p>
-          <div class="fx-row fx-horizontal-start fx-vertical-center">
+          <p *ngIf="character?.description?.fatherName; else emptyField">{{ character?.description?.fatherName }}</p>
+          <div *ngIf="character?.description?.fatherName" class="fx-row fx-horizontal-start fx-vertical-center">
             <h6 class="display-inline">Status: </h6>
             <p>{{ character?.description?.fatherCurrentStatus }}</p>
           </div>
@@ -166,48 +170,48 @@
       </div>
       <div>
         <h5>Step parents, foster parents or caretakers</h5>
-        <p>{{ character?.description?.caretakers }}</p>
+        <p *ngIf="character?.description?.caretakers; else emptyField">{{ character?.description?.caretakers }}</p>
       </div>
       <div>
         <h5>Siblings</h5>
-        <p>{{ character?.description?.siblings }}</p>
+        <p *ngIf="character?.description?.siblings; else emptyField">{{ character?.description?.siblings }}</p>
       </div>
       <div>
         <h5>Extended family</h5>
-        <p>{{ character?.description?.caretakers }}</p>
+        <p *ngIf="character?.description?.caretakers; else emptyField">{{ character?.description?.caretakers }}</p>
       </div>
       <div class="fx-row">
         <div class="flex-50">
           <h5>Best friend</h5>
-          <p>{{ character?.description?.bestFriend }}</p>
+          <p *ngIf="character?.description?.bestFriend; else emptyField">{{ character?.description?.bestFriend }}</p>
         </div>
         <div class="flex-50">
           <h5>Love interest</h5>
-          <p>{{ character?.description?.interest }}</p>
+          <p *ngIf="character?.description?.interest; else emptyField">{{ character?.description?.interest }}</p>
         </div>
       </div>
       <div>
         <h5>Love story</h5>
-        <p>{{ character?.description?.loveStory }}</p>
+        <p *ngIf="character?.description?.loveStory; else emptyField">{{ character?.description?.loveStory }}</p>
       </div>
       <div class="fx-row">
         <div class="flex-50">
           <h5>People s/he dislikes</h5>
-          <p>{{ character?.description?.dislikedPeople }}</p>
+          <p *ngIf="character?.description?.dislikedPeople; else emptyField">{{ character?.description?.dislikedPeople }}</p>
         </div>
         <div class="flex-50">
           <h5>People s/he likes</h5>
-          <p>{{ character?.description?.likedPeople }}</p>
+          <p *ngIf="character?.description?.likedPeople; else emptyField">{{ character?.description?.likedPeople }}</p>
         </div>
       </div>
       <div class="fx-row">
         <div class="flex-50">
           <h5>Whom does s/he rely on most for practical advice</h5>
-          <p>{{ character?.description?.relyPracticalAdvice }}</p>
+          <p *ngIf="character?.description?.relyPracticalAdvice; else emptyField">{{ character?.description?.relyPracticalAdvice }}</p>
         </div>
         <div class="flex-50">
           <h5>Whom does s/he rely on most for emotional support</h5>
-          <p>{{ character?.description?.relyEmotionalSupport }}</p>
+          <p *ngIf="character?.description?.relyEmotionalSupport; else emptyField">{{ character?.description?.relyEmotionalSupport }}</p>
         </div>
       </div>
     </app-card-panel>
@@ -222,3 +226,6 @@
     <div [innerHtml]="character?.description?.personality"></div>
   </div>
 </div>
+<ng-template #emptyField>
+  <app-empty-field></app-empty-field>
+</ng-template>
