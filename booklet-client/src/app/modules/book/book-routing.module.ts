@@ -23,9 +23,14 @@ const routes: Routes = [
       import('@module/character/character.module').then(m => m.CharacterModule)
   },
   {
-    path: 'book/:bookId/chapter',
+    path: 'book/:bookId/story',
     loadChildren: () =>
-      import('@module/chapter/chapter.module').then(m => m.ChapterModule)
+      import('@module/story/story.module').then(m => m.StoryModule)
+  },
+  {
+    path: 'book/:bookId/setting',
+    loadChildren: () =>
+      import('@module/setting/setting.module').then(m => m.SettingModule)
   }
 ];
 
