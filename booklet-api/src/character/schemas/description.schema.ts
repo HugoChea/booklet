@@ -1,80 +1,102 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Document } from 'mongoose';
 
 export type DescriptionDocument = Description & Document;
 
 @Schema()
 export class Description {
+  @ApiProperty()
+  @Prop()
+  localisation: string;
 
-    @Prop()
-    localisation: string;
+  @ApiProperty()
+  @Prop()
+  livingWith: string;
 
-    @Prop()
-    livingWith: string;
+  @ApiProperty()
+  @Prop()
+  homeDescription: string;
 
-    @Prop()
-    homeDescription: string;
+  @ApiProperty()
+  @Prop()
+  neighbourhood: string;
 
-    @Prop()
-    neighbourhood: string;
+  @ApiProperty()
+  @Prop()
+  occupation: string;
 
-    @Prop()
-    occupation: string;
+  @ApiProperty()
+  @Prop()
+  jobSatisfaction: string;
 
-    @Prop()
-    jobSatisfaction: string;
+  @ApiProperty()
+  @Prop()
+  motherName: string;
 
-    @Prop()
-    motherName: string;
+  @ApiProperty()
+  @Prop()
+  motherCurrentStatus: string;
 
-    @Prop()
-    motherCurrentStatus: string;
+  @ApiProperty()
+  @Prop()
+  fatherName: string;
 
-    @Prop()
-    fatherName: string;
+  @ApiProperty()
+  @Prop()
+  fatherCurrentStatus: string;
 
-    @Prop()
-    fatherCurrentStatus: string;
+  @ApiProperty()
+  @Prop()
+  caretakers: string;
 
-    @Prop()
-    caretakers: string;
+  @ApiProperty()
+  @Prop()
+  siblings: string;
 
-    @Prop()
-    siblings: string;
+  @ApiProperty()
+  @Prop()
+  extendedFamily: string;
 
-    @Prop()
-    extendedFamily: string;
+  @ApiProperty()
+  @Prop()
+  bestFriend: string;
 
-    @Prop()
-    bestFriend: string;
+  @ApiProperty()
+  @Prop()
+  interest: string;
 
-    @Prop()
-    interest: string;
+  @ApiProperty()
+  @Prop()
+  loveStory: string;
 
-    @Prop()
-    loveStory: string;
+  @ApiProperty()
+  @Prop()
+  dislikedPeople: string;
 
-    @Prop()
-    dislikedPeople: string;
+  @ApiProperty()
+  @Prop()
+  likedPeople: string;
 
-    @Prop()
-    likedPeople: string;
+  @ApiProperty()
+  @Prop()
+  relyPracticalAdvice: string;
 
-    @Prop()
-    relyPracticalAdvice: string;
+  @ApiProperty()
+  @Prop()
+  relyEmotionalSupport: string;
 
-    @Prop()
-    relyEmotionalSupport: string;
+  @ApiProperty()
+  @Prop()
+  summary: string;
 
-    @Prop()
-    summary: string;
+  @ApiProperty()
+  @Prop()
+  background: string;
 
-    @Prop()
-    background: string;
-
-    @Prop()
-    personality: string;
-
+  @ApiProperty()
+  @Prop()
+  personality: string;
 }
 
 export const DescriptionSchema = SchemaFactory.createForClass(Description);

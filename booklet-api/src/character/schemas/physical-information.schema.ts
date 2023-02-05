@@ -1,29 +1,36 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Document } from 'mongoose';
 
 export type PhysicalInformationDocument = PhysicalInformation & Document;
 
 @Schema()
-export class PhysicalInformation{
-    // physical
-    @Prop()
-    height: string;
+export class PhysicalInformation {
+  // physical
+  @ApiProperty()
+  @Prop()
+  height: string;
 
-    @Prop()
-    weight: string;
+  @ApiProperty()
+  @Prop()
+  weight: string;
 
-    @Prop()
-    hair: string;
+  @ApiProperty()
+  @Prop()
+  hair: string;
 
-    @Prop()
-    eyes: string;
+  @ApiProperty()
+  @Prop()
+  eyes: string;
 
-    @Prop()
-    dressStyle: string;
+  @ApiProperty()
+  @Prop()
+  dressStyle: string;
 
-    @Prop()
-    accessories: string;
-    
+  @ApiProperty()
+  @Prop()
+  accessories: string;
 }
 
-export const PhysicalInformationSchema = SchemaFactory.createForClass(PhysicalInformation);
+export const PhysicalInformationSchema =
+  SchemaFactory.createForClass(PhysicalInformation);

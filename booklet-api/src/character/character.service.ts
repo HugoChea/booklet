@@ -59,8 +59,8 @@ export class CharacterService {
       }).exec();
   }
 
-  update(id: number, updateCharacterDto: UpdateCharacterDto) {
-    return `This action updates a #${id} character`;
+  update(id: string, updateCharacterDto: UpdateCharacterDto) {
+    return this.characterModel.findOneAndUpdate({ _id: id }, updateCharacterDto, { new: true });
   }
 
   remove(id: number) {
