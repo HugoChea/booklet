@@ -60,7 +60,25 @@ export class CharacterService {
   }
 
   update(id: string, updateCharacterDto: UpdateCharacterDto) {
-    return this.characterModel.findOneAndUpdate({ _id: id }, updateCharacterDto, { new: true });
+    // console.log(updateCharacterDto)
+    const updateNestedObjectParser = (updateCharacterDto) => {
+      const final = {
+  
+      }
+      Object.keys(updateCharacterDto).forEach(k => {
+          if (typeof updateCharacterDto[k] === 'object' && !Array.isArray(updateCharacterDto[k])) {
+              const res = updateNestedObjectParser(updateCharacterDto[k])
+              Object.keys(res).forEach(a => {
+                  final[`${k}.${a}`] = res[a]
+              })
+          }
+          else
+              final[k] = updateCharacterDto[k]
+      })
+      return final
+  }
+  // console.log(updateNestedObjectParser(updateCharacterDto))
+    return this.characterModel.findOneAndUpdate({ _id: id }, { $set : updateNestedObjectParser(updateCharacterDto)}, { new: true });
   }
 
   remove(id: number) {
