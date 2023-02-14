@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { environment } from '@env';
 
 import { BookService } from './book.service';
-import { mockCreateBookDto } from './mocks/book';
+import { mockCreateBookDto } from './mocks/book.mock.spec';
 
 const apiURL = environment.url + '/book';
 

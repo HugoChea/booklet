@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule } from '@angular/material/icon';
 
 import { EmptyFieldComponent } from './empty-field.component';
 
@@ -8,6 +9,7 @@ describe('EmptyFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ MatIconModule ],
       declarations: [ EmptyFieldComponent ]
     })
     .compileComponents();

@@ -8,8 +8,6 @@ export class TokenStorageService {
 
   readonly TOKEN_KEY = 'auth-token';
   readonly USER_KEY = 'auth-user';
-
-  constructor() { }
   
   clear(): void {
     sessionStorage.clear();
