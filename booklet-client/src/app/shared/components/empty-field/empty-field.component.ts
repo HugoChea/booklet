@@ -16,11 +16,11 @@ export class EmptyFieldComponent {
     this.term = term[1];
   }
 
-  getRandomInt(): number {
+  private getRandomInt(): number {
     return Math.floor(Math.random() * (5 - 0)); // The maximum is exclusive and the minimum is inclusive
   }
 
-  getTerm(seed: number): [string, string] {
+  private getTerm(seed: number): [string, string] {
     switch (seed) {
       case 0:
         return ['coffee', 'coffee'];
