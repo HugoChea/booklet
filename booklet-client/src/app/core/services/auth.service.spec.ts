@@ -11,13 +11,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { LoginDto } from '@core/dto/login-dto';
 import { TokenStorageService } from './token-storage.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from '@core/models/user';
 
 describe('AuthService', () => {
   let service: AuthService;
   let controller: HttpTestingController;
-  let mockTokenStorageService: jasmine.SpyObj<TokenStorageService> =
-    jasmine.createSpyObj(TokenStorageService, ['saveToken', 'saveUser', 'clear']);
-  let mockjwtHelperService: jasmine.SpyObj<JwtHelperService> =
+  const mockTokenStorageService: jasmine.SpyObj<TokenStorageService> =
+    jasmine.createSpyObj(TokenStorageService, ['saveToken', 'saveUser', 'clear', 'getUser']);
+  const mockjwtHelperService: jasmine.SpyObj<JwtHelperService> =
     jasmine.createSpyObj(JwtHelperService, ['decodeToken']);
 
   beforeEach(() => {
@@ -176,11 +177,30 @@ describe('AuthService', () => {
   });
 
   describe('userOnRefresh', () => {
-    it('should clear token storage service when logout', ()=> {
-      // WHEN
-      // service.userOnRefresh();
-      // THEN
-      // expect(mockTokenStorageService.clear).toHaveBeenCalledWith();
+
+    [
+      undefined,
+      {
+        id: "id",
+        username: "username"
+      }
+    ].forEach(user => {
+      it('should clear token storage service when logout', ()=> {
+        // GIVEN
+        mockTokenStorageService.getUser.and.returnValue(user);
+        let actualUser: User | undefined;
+        service.user$.subscribe({
+          next: (user) => {
+            actualUser = user;
+          }
+        });
+        // WHEN
+        service.userOnRefresh();
+        // THEN
+        expect(mockTokenStorageService.getUser).toHaveBeenCalledWith();
+        expect(actualUser).toEqual(user);
+      });
     });
+    
   });
 });

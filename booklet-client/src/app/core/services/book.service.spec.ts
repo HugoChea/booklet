@@ -1,11 +1,14 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { CreateBookDto } from '@core/dto/create-book-dto';
+import { Book } from '@core/models/book/book';
 import { environment } from '@env';
 
 import { BookService } from './book.service';
 import { mockCreateBookDto } from './mocks/book.mock.spec';
-
-const apiURL = environment.url + '/book';
 
 describe('BookService', () => {
   let service: BookService;
@@ -23,25 +26,56 @@ describe('BookService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('createBook', () => {
-    service.createBook(mockCreateBookDto).subscribe(
-      (createBookDto) => {
-        // TODO : improve test case
-        console.log(createBookDto);
-      }
-    );
-    
-    controller.expectOne(apiURL);
+  describe('createBook', () => {
+
+    const expectedUrl = environment.url + '/book';
+
+    it('should complete create book http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: {...mockCreateBookDto},
+      };
+      let actualResponse: CreateBookDto | undefined;
+
+      // WHEN
+      service.createBook(mockCreateBookDto).subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
 
-  it('getListBookByUser', () => {
-    service.getListBookByUser("123").subscribe(
-      (listBook) => {
-        // TODO : improve test case
-        console.log(listBook);
-      }
-    );
-    
-    controller.expectOne(apiURL + "/list/123");
+  describe('get list book by user', () => {
+
+    const expectedUrl = environment.url + '/book/list/123';
+
+    it('should complete get book http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: [],
+      };
+      let actualResponse: Book[] | undefined;
+
+      // WHEN
+      service.getListBookByUser("123").subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
+
 });

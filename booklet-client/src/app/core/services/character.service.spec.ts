@@ -1,11 +1,10 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { CreateCharacterDto } from '@core/dto/create-character-dto';
+import { Character } from '@core/models/character/character';
 import { environment } from '@env';
 
 import { CharacterService } from './character.service';
-
-const apiURL = environment.url + '/character';
 
 describe('CharacterService', () => {
   let service: CharacterService;
@@ -23,49 +22,105 @@ describe('CharacterService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('createCharacter', () => {
-    const mockCreateCharacterDto: CreateCharacterDto = {} as CreateCharacterDto;
-    service.createCharacter(mockCreateCharacterDto).subscribe(
-      (res) => {
-        // TODO : improve test case
-        console.log(res);
-      }
-    );
-    
-    controller.expectOne(apiURL);
+  describe('createCharacter', () => {
+
+    const expectedUrl = environment.url + '/character';
+
+    it('should complete createCharacter http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: {} as CreateCharacterDto,
+      };
+      let actualResponse: CreateCharacterDto | undefined;
+      const mockCreateCharacterDto: CreateCharacterDto = {} as CreateCharacterDto;
+      // WHEN
+      service.createCharacter(mockCreateCharacterDto).subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
 
-  it('getListLatestCharacterByBook', () => {
-    service.getListLatestCharacterByBook("bookId").subscribe(
-      (res) => {
-        // TODO : improve test case
-        console.log(res);
-      }
-    );
-    
-    controller.expectOne(apiURL+ "/list-latest/bookId");
+  describe('getListLatestCharacterByBook', () => {
+
+    const expectedUrl = environment.url + '/character/list-latest/bookId';
+
+    it('should complete createCharacter http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: [],
+      };
+      let actualResponse: Character[] | undefined;
+      // WHEN
+      service.getListLatestCharacterByBook("bookId").subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
 
-  it('getListCharacterByBook', () => {
-    service.getListCharacterByBook("bookId").subscribe(
-      (res) => {
-        // TODO : improve test case
-        console.log(res);
-      }
-    );
-    
-    controller.expectOne(apiURL+ "/list/bookId");
+  describe('getListCharacterByBook', () => {
+
+    const expectedUrl = environment.url + '/character/list/bookId';
+
+    it('should complete getListCharacterByBook http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: [],
+      };
+      let actualResponse: Character[] | undefined;
+      // WHEN
+      service.getListCharacterByBook("bookId").subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
 
-  it('getCharacterById', () => {
-    service.getCharacterById("characterId").subscribe(
-      (res) => {
-        // TODO : improve test case
-        console.log(res);
-      }
-    );
-    
-    controller.expectOne(apiURL+ "/characterId");
+  describe('getCharacterById', () => {
+
+    const expectedUrl = environment.url + '/character/characterId';
+
+    it('should complete getListCharacterByBook http call on success', () => {
+      // GIVEN
+      const expectedResponse = {
+        data: {} as Character,
+      };
+      let actualResponse: Character | undefined;
+      // WHEN
+      service.getCharacterById("characterId").subscribe({
+        next: (response) => {
+          actualResponse = response;
+        },
+      });
+
+      // THEN
+      const request = controller.expectOne(expectedUrl);
+      request.flush(expectedResponse);
+      controller.verify();
+      expect(actualResponse).toEqual(expectedResponse.data);
+    });
   });
 
 });

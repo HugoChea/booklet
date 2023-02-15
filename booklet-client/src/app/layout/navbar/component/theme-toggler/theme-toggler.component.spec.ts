@@ -19,7 +19,24 @@ describe('ThemeTogglerComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    document.body.classList.remove('light-theme');
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should add light-theme class when switch mode', () => {
+    component.switchMode();
+    expect(component.darkMode).toBeFalse();
+    expect(document.body.className).toContain('light-theme');
+  });
+
+  it('should remove light-theme class when switch mode', () => {
+    component.switchMode();
+    component.switchMode();
+    expect(component.darkMode).toBeTrue();
+    expect(document.body.className).not.toContain('light-theme');
   });
 });

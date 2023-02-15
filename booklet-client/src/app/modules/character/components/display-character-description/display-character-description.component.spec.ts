@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { CardPanelComponent } from '@shared/components/card-panel/card-panel.component';
-import { EmptyFieldComponent } from '@shared/components/empty-field/empty-field.component';
 import { MaterialModule } from '@shared/material/material.module';
+import { FakeEmptyFieldComponent, FakeCardPanelComponent } from '@shared/mocks/fake-components.mock.spec';
 
 import { DisplayCharacterDescriptionComponent } from './display-character-description.component';
 
@@ -13,7 +12,7 @@ describe('DisplayCharacterDescriptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DisplayCharacterDescriptionComponent, EmptyFieldComponent, CardPanelComponent ],
+      declarations: [ DisplayCharacterDescriptionComponent, FakeEmptyFieldComponent, FakeCardPanelComponent ],
       imports: [ RouterTestingModule, MaterialModule, FormsModule ]
     })
     .compileComponents();
