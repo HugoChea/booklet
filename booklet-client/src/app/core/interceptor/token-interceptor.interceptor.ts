@@ -13,8 +13,7 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
   private readonly TOKEN_KEY = 'auth-token';
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem(this.TOKEN_KEY);
-
+    const token = sessionStorage.getItem(this.TOKEN_KEY);
     if (token) {
       const signedRequest = request.clone({
         headers: request.headers.set("Authorization",
