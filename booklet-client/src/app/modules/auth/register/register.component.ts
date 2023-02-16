@@ -8,11 +8,10 @@ import { AuthService } from '@core/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-
-  registerForm : FormGroup;
+  registerForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,38 +22,37 @@ export class RegisterComponent {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
   register(registerDto: RegisterDto): void {
     if (this.registerForm.valid) {
       this.authService.register(registerDto).subscribe({
-        next : () => {
+        next: () => {
           this.snackbar.open('Account successfully registered', '', {
             duration: 5000,
-            horizontalPosition: "center",
-            verticalPosition: "top",
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
           });
           this.router.navigate(['/auth/login']);
         },
         error: (error) => {
-          if (error.statusCode === 409){
+          if (error.statusCode === 409) {
             if (error.message === 'Username already used') {
-              this.registerForm.controls['username'].setErrors({ usernameUsed: 'Username already used' });
+              this.registerForm.controls['username'].setErrors({
+                usernameUsed: 'Username already used',
+              });
+            } else if (error.message === 'Email already used') {
+              this.registerForm.controls['email'].setErrors({
+                emailUsed: 'Email already used',
+              });
             }
-            else if (error.message === 'Email already used') {
-              this.registerForm.controls['email'].setErrors({ emailUsed: 'Email already used' });
-            }
-            
-          }
-          else{
+          } else {
             this.registerForm.setErrors({ server: 'Server down' });
-          }     
+          }
         },
       });
     }
-    
   }
-
 }

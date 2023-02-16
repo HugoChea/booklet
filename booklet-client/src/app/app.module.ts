@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { metaReducers } from '@core/store/metareducers';
 import { NavbarNavigationComponent } from './layout/navbar/component/navbar-navigation/navbar-navigation.component';
 import { ThemeTogglerComponent } from './layout/navbar/component/theme-toggler/theme-toggler.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,11 @@ import { ThemeTogglerComponent } from './layout/navbar/component/theme-toggler/t
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    JwtModule.forRoot({config: {
+      tokenGetter: function  tokenGetter() { 
+      return sessionStorage.getItem('auth-token');
+      } 
+   }}),
     StoreModule.forRoot({books : booksReducer}, {metaReducers}),
     EffectsModule.forRoot([]),
   ],
