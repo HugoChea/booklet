@@ -7,7 +7,6 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { NewCharacterComponent } from './new-character/new-character.component';
 import { SharedModule } from '@shared/shared.module';
 import { FormCharacterGeneralComponent } from './components/form-character-general/form-character-general.component';
-import { NgChartsModule } from 'ng2-charts';
 import { NgxEditorModule } from 'ngx-editor';
 import { PanelDescriptionComponent } from './components/panel-description/panel-description.component';
 import { PanelChronologyComponent } from './components/panel-chronology/panel-chronology.component';
@@ -19,7 +18,6 @@ import { DisplayCharacterRelationshipComponent } from './components/display-char
 import { DisplayCharacterAbilitiesComponent } from './components/display-character-abilities/display-character-abilities.component';
 import { CharacterListCardComponent } from './character-list/components/character-list-card/character-list-card.component';
 import { CharacterListGridComponent } from './character-list/components/character-list-grid/character-list-grid.component';
-import { CardPanelComponent } from '../../shared/components/card-panel/card-panel.component';
 
 @NgModule({
   declarations: [

@@ -18,16 +18,11 @@ export class AuthService {
 
   user$: Subject<User | undefined> = new Subject<User | undefined>();
 
-  private jwtHelperService: JwtHelperService;
-
   constructor(
     private http: HttpClient,
-    private tokenStorageService: TokenStorageService
-  ) {
-
-    this.jwtHelperService = new JwtHelperService();
-
-  }
+    private tokenStorageService: TokenStorageService,
+    private jwtHelperService: JwtHelperService
+  ) { }
 
   register(registerDto: RegisterDto): Observable<{ data: {message: string} }> {
     return this.http.post<HttpApiResponse<{message: string}>>(this.apiURL + '/register', registerDto)
@@ -54,6 +49,7 @@ export class AuthService {
     );
   }
 
+  // TODO : handle better errors
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.

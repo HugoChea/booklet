@@ -71,7 +71,7 @@ export class PanelRelationshipComponent implements OnInit, OnDestroy {
       this.relationship.push(this.createRelationship(event.source.value));
     }
     else {
-      this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith._id === event.source.value._id));
+      this.relationship.removeAt(this.relationship.value.findIndex((character: Relationship) => character.involvedWith === event.source.value._id));
     }
   }
 }
