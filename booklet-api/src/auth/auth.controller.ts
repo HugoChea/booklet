@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Get, HttpCode, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, ConflictException, Controller, Get, HttpCode, InternalServerErrorException, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login-dto';
 import { RegisterDto } from './dto/register-dto';
@@ -23,11 +23,11 @@ export class AuthController {
             return this.authService.login(user);
         }
         catch (error) {
-            if (error.message === ErrorMessage.USER_DOES_NOT_EXIST){
+            if (error.message === ErrorMessage.USER_DOES_NOT_EXIST || error.message === ErrorMessage.INCORRECT_PASSWORD ){
                 throw new UnauthorizedException(error.message);
             }
-            else if (error.message === ErrorMessage.INCORRECT_PASSWORD){
-                throw new UnauthorizedException(error.message);
+            else {
+                throw new InternalServerErrorException(error.message);
             }
         }
     }
@@ -45,11 +45,11 @@ export class AuthController {
             }
         }
         catch (error) {
-            if (error.message === ErrorMessage.USERNAME_ALREADY_USED){
+            if (error.message === ErrorMessage.USERNAME_ALREADY_USED || error.message === ErrorMessage.EMAIL_ALREADY_USED){
                 throw new ConflictException(error.message);
             }
-            else if (error.message === ErrorMessage.EMAIL_ALREADY_USED){
-                throw new ConflictException(error.message);
+            else {
+                throw new InternalServerErrorException(error.message);
             }
         }
         

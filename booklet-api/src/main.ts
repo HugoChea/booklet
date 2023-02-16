@@ -5,10 +5,17 @@ import { initializeApp } from "firebase/app";
 import * as bodyParser from 'body-parser';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ResponseTransformInterceptor } from './common/interceptors/response-transform/response-transform.interceptor';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalInterceptors(new ResponseTransformInterceptor());
+  app.useGlobalPipes(new ValidationPipe(
+    {
+      whitelist: true,
+      forbidNonWhitelisted: true
+    }
+  ));
   app.use(bodyParser.json({limit: '50mb'}));
   app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
   app.enableCors();

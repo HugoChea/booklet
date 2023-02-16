@@ -6,6 +6,7 @@ import { UpdateCharacterDto } from './dto/update-character.dto';
 import { Character, CharacterDocument } from './schemas/character.schema';
 import { FindAllCharacterDto } from './dto/find-all-character.dto';
 import { ImageUploaderService } from 'src/common/services/image-uploader/image-uploader.service';
+import { ParseUtilitiesService } from 'src/common/services/parse-utilities/parse-utilities.service';
 
 @Injectable()
 export class CharacterService {
@@ -14,11 +15,11 @@ export class CharacterService {
 
   constructor(
     @InjectModel(Character.name) private characterModel: Model<CharacterDocument>,
-    private imageUploaderService: ImageUploaderService
+    private imageUploaderService: ImageUploaderService,
+    private parseUtilitiesService: ParseUtilitiesService
   ) { }
   
   async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
-
     createCharacterDto.image = ''
     createCharacterDto.imageRef = '';
     if (createCharacterDto.imageBase64){
@@ -59,8 +60,8 @@ export class CharacterService {
       }).exec();
   }
 
-  update(id: number, updateCharacterDto: UpdateCharacterDto) {
-    return `This action updates a #${id} character`;
+  update(id: string, updateCharacterDto: UpdateCharacterDto) {
+    return this.characterModel.findOneAndUpdate({ _id: id }, { $set : this.parseUtilitiesService.nestedObjectParser(updateCharacterDto)}, { new: true });
   }
 
   remove(id: number) {

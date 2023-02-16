@@ -1,73 +1,97 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Document } from 'mongoose';
 
 export type PsychologicInformationDocument = PsychologicInformation & Document;
 
 @Schema()
-export class PsychologicInformation{
-    // mental
-    @Prop()
-    mbtiFocus: string;
+export class PsychologicInformation {
+  // mental
+  @ApiProperty()
+  @Prop()
+  mbtiFocus: string;
 
-    @Prop()
-    mbtiInformation: string;
+  @ApiProperty()
+  @Prop()
+  mbtiInformation: string;
 
-    @Prop()
-    mbtiDecision: string;
+  @ApiProperty()
+  @Prop()
+  mbtiDecision: string;
 
-    @Prop()
-    mbtiLife: string;
+  @ApiProperty()
+  @Prop()
+  mbtiLife: string;
 
-    @Prop()
-    intelligence: string;
+  @ApiProperty()
+  @Prop()
+  intelligence: string;
 
-    @Prop()
-    selfConfidence: string;
+  @ApiProperty()
+  @Prop()
+  selfConfidence: string;
 
-    @Prop()
-    flaws: string;
+  @ApiProperty()
+  @Prop()
+  flaws: string;
 
-    @Prop()
-    qualities: string;
+  @ApiProperty()
+  @Prop()
+  qualities: string;
 
-    @Prop()
-    politicalAttitude: string;
+  @ApiProperty()
+  @Prop()
+  politicalAttitude: string;
 
-    @Prop()
-    selfPerception: string;
+  @ApiProperty()
+  @Prop()
+  selfPerception: string;
 
-    @Prop()
-    othersPerception: string;
+  @ApiProperty()
+  @Prop()
+  othersPerception: string;
 
-    @Prop()
-    regrets: string;
+  @ApiProperty()
+  @Prop()
+  regrets: string;
 
-    @Prop()
-    accomplishments: string;
+  @ApiProperty()
+  @Prop()
+  accomplishments: string;
 
-    @Prop()
-    shortTermGoals: string;
+  @ApiProperty()
+  @Prop()
+  shortTermGoals: string;
 
-    @Prop()
-    longTermGoals: string;
+  @ApiProperty()
+  @Prop()
+  longTermGoals: string;
 
-    @Prop()
-    goalsFeasability: string;
+  @ApiProperty()
+  @Prop()
+  goalsFeasability: string;
 
-    @Prop()
-    hobbies: string;
+  @ApiProperty()
+  @Prop()
+  hobbies: string;
 
-    @Prop()
-    specialTalents: string;
+  @ApiProperty()
+  @Prop()
+  specialTalents: string;
 
-    @Prop()
-    unskilledAt: string;
+  @ApiProperty()
+  @Prop()
+  unskilledAt: string;
 
-    @Prop()
-    likes: string;
+  @ApiProperty()
+  @Prop()
+  likes: string;
 
-    @Prop()
-    dislikes: string;
+  @ApiProperty()
+  @Prop()
+  dislikes: string;
 }
 
-export const PsychologicInformationSchema = SchemaFactory.createForClass(PsychologicInformation);
+export const PsychologicInformationSchema = SchemaFactory.createForClass(
+  PsychologicInformation,
+);

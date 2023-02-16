@@ -1,17 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Document } from 'mongoose';
 
 export type StatDocument = Stat & Document;
 
 @Schema()
-export class Stat{
+export class Stat {
+  @ApiProperty()
+  @Prop()
+  characteristicName: string;
 
-    @Prop()
-    characteristicName: string;
-
-    @Prop()
-    characteristicValue: number;
-
+  @ApiProperty()
+  @Prop()
+  characteristicValue: number;
 }
 
 export const StatSchema = SchemaFactory.createForClass(Stat);
