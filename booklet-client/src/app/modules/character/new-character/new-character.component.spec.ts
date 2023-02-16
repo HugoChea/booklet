@@ -2,12 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterService } from '@core/services/character.service';
 import { MaterialModule } from '@shared/material/material.module';
-
 import { NewCharacterComponent } from './new-character.component';
 import { of, throwError } from 'rxjs';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Component, Input } from '@angular/core';
-import { PanelAbilityComponent } from '../components/panel-ability/panel-ability.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -16,7 +13,6 @@ import { CreateCharacterDto } from '@core/dto/create-character-dto';
 import { FakeFormCharacterGeneralComponent, FakePanelGeneralityComponent, FakePanelChornologyComponent, FakePanelDescriptionComponent, FakePanelRelationshipComponent, FakePanelAbilityComponent } from './mocks/fake-components.mock.spec';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Status } from '@core/enums/status.enum';
-import { selectBook } from '@core/store/actions/books.actions';
 import { Book } from '@core/models/book/book';
 
 describe('NewCharacterComponent', () => {
